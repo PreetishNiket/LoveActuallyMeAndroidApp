@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">LoveActuallyMeAndroidApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="logo">Logo</string>
+    <string name="linked_in">LinkedIn</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="la_will_receive_your_name_and_profile_n_picture_friends_list_city_photos_n_gender_and_email_address">LA will receive your name and profile\n picture, friends list, city, photos,\n gender and email address</string>
+    <string name="this_doesn_t_let_the_app_post_to_n_facebook_or_linkedin">This doesn’t let the app post to\n Facebook or linkedIn</string>
+</resources>

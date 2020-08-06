@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#303030"
+    tools:context=".ui.auth.OtpActivity">
+    <ImageView
+        android:id="@+id/back_finish"
+        android:layout_width="45dp"
+        android:layout_height="53dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="236dp"
+        android:layout_height="38dp"
+        android:text="OTP Verification"
+        android:textColor="#EC6273"
+        android:textSize="32sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.236" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="168dp"
+        android:layout_height="19dp"
+        android:text="Change mobile Number"
+        android:textAlignment="center"
+        android:textColor="#EC6273"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.883" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="237dp"
+        android:layout_height="19dp"
+        android:text="Please enter the verification code"
+        android:textAlignment="center"
+        android:textColor="#868686"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.301" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="53dp"
+        android:layout_height="19dp"
+        android:text="send to"
+        android:textColor="#868686"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.327" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="123dp"
+        android:layout_height="19dp"
+        android:text="+(91) 9599478721"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.327" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="184dp"
+        android:layout_height="20dp"
+        android:text="Didn’t get the code? Resend 29s"
+        android:textColor="#868686"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.535" />
+
+    <Button
+        android:id="@+id/verify_button"
+        android:layout_width="250dp"
+        android:layout_height="39dp"
+        android:background="@drawable/button_background"
+        android:text="VERIFY"
+        android:textColor="#ffff"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.654" />
+
+    <com.goodiebag.pinview.Pinview
+        android:id="@+id/pinView"
+        android:background="@color/back"
+        android:layout_width="306dp"
+        android:layout_height="42dp"
+        app:cursorVisible="false"
+        app:forceKeyboard="true"
+        app:hint="0"
+        app:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.436"
+        app:pinBackground="@drawable/stroke_back"
+        app:password="false"
+        app:pinHeight="42dp"
+        app:pinLength="6"
+        app:pinWidth="35dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

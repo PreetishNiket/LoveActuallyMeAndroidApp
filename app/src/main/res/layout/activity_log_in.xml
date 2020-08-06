@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#303030"
+    tools:context=".ui.auth.LogInActivity">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="201dp"
+        android:layout_height="19dp"
+        android:text=" Please login to your account"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.238" />
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/countryCodePicker"
+        android:layout_width="121dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        app:ccpDialog_textColor="#EC6273"
+        app:ccp_contentColor="#868686"
+        app:ccp_textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.336" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="185dp"
+        android:layout_height="42dp"
+        android:backgroundTint="#868686"
+        android:ems="10"
+        android:focusable="auto"
+        android:focusableInTouchMode="true"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:shadowColor="#868686"
+        android:textColorHint="#868686"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.765"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.336" />
+</androidx.constraintlayout.widget.ConstraintLayout>

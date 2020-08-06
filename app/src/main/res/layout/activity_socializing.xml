@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#303030"
+    tools:context=".ui.profile.SocializingActivity">
+
+    <ImageView
+        android:id="@+id/back_finish"
+        android:layout_width="45dp"
+        android:layout_height="53dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="127dp"
+        android:layout_height="30dp"
+        android:text="Socializing"
+        android:textAlignment="center"
+        android:textColor="#EC6273"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.098" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonAbout"
+        android:layout_width="297dp"
+        android:layout_height="74dp"
+        android:background="#868686"
+        android:ems="10"
+        android:inputType="textLongMessage"
+        android:maxLength="300"
+        android:hint="300 Character"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.254" />
+
+    <TextView
+        android:id="@+id/textView0"
+        android:layout_width="70dp"
+        android:layout_height="19dp"
+        android:text="About Me"
+        android:textColor="#FFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="32dp"
+        android:layout_height="19dp"
+        android:text="I am"
+        android:textColor="#FFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.389" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="88dp"
+        android:layout_height="81dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.495"
+        app:srcCompat="@drawable/able" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="123dp"
+        android:layout_height="104dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        app:srcCompat="@drawable/pwd" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="240dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cardView" >
+
+        <TextView
+            android:id="@+id/textView00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Straight"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        android:layout_marginEnd="56dp"
+        app:layout_constraintEnd_toStartOf="@+id/cardView5"
+        app:layout_constraintTop_toBottomOf="@+id/cardView9" >
+
+        <TextView
+            android:id="@+id/textView04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Bicurious"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView9"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="56dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toStartOf="@+id/cardView4"
+        app:layout_constraintTop_toBottomOf="@+id/cardView8" >
+
+        <TextView
+            android:id="@+id/textView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Pansexual"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView8"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="138dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cardView3"
+        app:layout_constraintTop_toBottomOf="@+id/cardView7"
+        app:layout_constraintVertical_bias="0.0" >
+        <TextView
+            android:id="@+id/textView02"
+            android:layout_width="60dp"
+            android:layout_height="19dp"
+            android:text="Asexual"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:textColor="#FFFF"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView7"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="184dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cardView2"
+        app:layout_constraintTop_toBottomOf="@+id/cardView6">
+
+        <TextView
+            android:id="@+id/textView01"
+            android:layout_width="56dp"
+            android:layout_height="19dp"
+            android:layout_gravity="center"
+            android:text="Lesbian"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="64dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4" >
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Aromatic"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="64dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3" >
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="56dp"
+            android:layout_height="19dp"
+            android:text="Queer"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:textColor="#FFFF"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="64dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Demisexual"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Bisexual"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="240dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="56dp"
+            android:layout_height="19dp"
+            android:layout_gravity="center"
+            android:text="Gay"
+            android:textAlignment="center"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
