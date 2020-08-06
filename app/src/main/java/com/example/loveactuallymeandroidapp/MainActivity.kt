@@ -24,5 +24,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
         Toast.makeText(this, "Help", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Help", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Help", Toast.LENGTH_SHORT).show()
+
     }
 }
