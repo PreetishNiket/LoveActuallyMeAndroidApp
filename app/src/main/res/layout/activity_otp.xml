@@ -118,12 +118,12 @@
 
     <com.goodiebag.pinview.Pinview
         android:id="@+id/pinView"
+        android:layout_width="317dp"
+        android:layout_height="44dp"
         android:background="@color/back"
-        android:layout_width="306dp"
-        android:layout_height="42dp"
         app:cursorVisible="false"
-        app:forceKeyboard="true"
         app:hint="0"
+        app:forceKeyboard="true"
         app:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -131,10 +131,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.436"
-        app:pinBackground="@drawable/stroke_back"
         app:password="false"
-        app:pinHeight="42dp"
+        app:pinBackground="@drawable/stroke_back"
+        app:pinHeight="35dp"
         app:pinLength="6"
+
         app:pinWidth="35dp" />
 
 

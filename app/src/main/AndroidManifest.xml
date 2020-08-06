@@ -9,14 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.auth.PolicyActivity"></activity>
-        <activity android:name=".ui.profile.EducationActivity" />
-        <activity android:name=".ui.profile.ReligiousActivity" />
-        <activity android:name=".ui.profile.SocializingActivity" />
-        <activity android:name=".ui.auth.OtpActivity" />
-        <activity android:name=".ui.auth.LogInActivity" />
-        <activity android:name=".ui.auth.SignUpActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".ui.auth.PolicyActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.profile.EducationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.profile.ReligiousActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.profile.SocializingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.auth.OtpActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.auth.LogInActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.auth.SignUpActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

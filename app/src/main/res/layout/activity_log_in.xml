@@ -44,6 +44,7 @@
         android:focusableInTouchMode="true"
         android:hint="Phone Number"
         android:inputType="phone"
+        android:textColor="#fff"
         android:shadowColor="#868686"
         android:textColorHint="#868686"
         app:layout_constraintBottom_toBottomOf="parent"

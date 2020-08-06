@@ -18,5 +18,6 @@ class OtpActivity : AppCompatActivity() {
         back_finish.setOnClickListener {
             finish()
         }
+        pinView.setTextColor(resources.getColor(R.color.white))
     }
 }
