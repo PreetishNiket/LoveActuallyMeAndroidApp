@@ -28,8 +28,9 @@ class ProfileActivity : AppCompatActivity() {
             profile_iv.setImageURI(imageData)
             profile_iv.handler.postDelayed({
                 val intent=Intent(this,ProfileDetailsActivity::class.java)
-                intent.putExtra("image",imageData)
-            },2000)
+                intent.putExtra("image",imageData.toString())
+                startActivity(intent)
+            },500)
         }
         super.onActivityResult(requestCode, resultCode, data)
     }

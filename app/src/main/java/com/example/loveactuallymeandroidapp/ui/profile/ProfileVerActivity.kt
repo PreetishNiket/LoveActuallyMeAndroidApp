@@ -85,7 +85,7 @@ class ProfileVerActivity : AppCompatActivity() {
             profile_ver_iv.handler.postDelayed({
                 Toast.makeText(this, "Verified", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this,ProfileActivity::class.java))
-            },1000)
+            },500)
 
         }
         super.onActivityResult(requestCode, resultCode, data)
