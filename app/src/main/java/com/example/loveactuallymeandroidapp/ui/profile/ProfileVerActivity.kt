@@ -20,13 +20,23 @@ import kotlinx.android.synthetic.main.activity_profile_ver.*
 
 class ProfileVerActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_ver)
+
         click_photo.setOnClickListener {
                     askPermission()
         }
+
     }
+
+//    override fun onResume() {
+//        Handler().postDelayed({
+//            startActivity(Intent(this,ProfileActivity::class.java))
+//        },6000)
+//        super.onResume()
+//    }
     companion object{
             const val CAMERA_PERM_CODE=1
         const val CAMERA_REQUEST_CODE=10
@@ -66,13 +76,16 @@ class ProfileVerActivity : AppCompatActivity() {
      private fun openCamera(){
         val intent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
          startActivityForResult(intent, CAMERA_REQUEST_CODE)
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode== CAMERA_REQUEST_CODE){
             val image:Bitmap= data?.extras?.get("data") as Bitmap
             profile_ver_iv.setImageBitmap(image)
+            profile_ver_iv.handler.postDelayed({
+                Toast.makeText(this, "Verified", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this,ProfileActivity::class.java))
+            },1000)
 
         }
         super.onActivityResult(requestCode, resultCode, data)
