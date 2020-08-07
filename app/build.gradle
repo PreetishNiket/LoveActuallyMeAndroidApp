@@ -51,5 +51,7 @@ dependencies {
     implementation 'com.hbb20:ccp:2.4.0'
     //pinview
     implementation 'com.github.GoodieBag:Pinview:v1.4'
+    //circular imageView
+    implementation 'com.mikhaellopez:circularimageview:4.2.0'
 
 }

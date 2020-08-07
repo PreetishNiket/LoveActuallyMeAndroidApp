@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.loveactuallymeandroidapp">
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -9,21 +10,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.auth.PolicyActivity"
+        <activity android:name=".ui.profile.ProfileVerActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.profile.EducationActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.profile.ReligiousActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.profile.SocializingActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.auth.OtpActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.auth.LogInActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.auth.SignUpActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".ui.auth.PolicyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.profile.EducationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.profile.ReligiousActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.profile.SocializingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.auth.OtpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.auth.LogInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.auth.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

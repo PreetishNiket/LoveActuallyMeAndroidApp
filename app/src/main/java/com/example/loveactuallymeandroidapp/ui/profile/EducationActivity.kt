@@ -1,5 +1,6 @@
 package com.example.loveactuallymeandroidapp.ui.profile
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -11,7 +12,7 @@ class EducationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_education)
         skip_e.setOnClickListener {
-            Toast.makeText(this, "Code Will Be implemented", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this,ProfileVerActivity::class.java))
         }
         back_finish.setOnClickListener {
             finish()
