@@ -219,9 +219,10 @@
 
         <TextView
             android:id="@+id/textView01"
-            android:layout_width="56dp"
-            android:layout_height="19dp"
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textAlignment="center"
             android:text="Lesbian"
             android:textColor="#FFFF"
             android:textSize="16sp" />
@@ -345,8 +346,8 @@
 
         <TextView
             android:id="@+id/textView10"
-            android:layout_width="56dp"
-            android:layout_height="19dp"
+            android:layout_width="57dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Gay"
             android:textAlignment="center"
