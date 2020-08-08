@@ -30,13 +30,6 @@ class ProfileVerActivity : AppCompatActivity() {
         }
 
     }
-
-//    override fun onResume() {
-//        Handler().postDelayed({
-//            startActivity(Intent(this,ProfileActivity::class.java))
-//        },6000)
-//        super.onResume()
-//    }
     companion object{
             const val CAMERA_PERM_CODE=1
         const val CAMERA_REQUEST_CODE=10
