@@ -3,6 +3,7 @@ package com.example.loveactuallymeandroidapp.ui.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.loveactuallymeandroidapp.R
@@ -25,6 +26,7 @@ class SignUpActivity : AppCompatActivity() {
             finish()
         }
         sign_up_button.setOnClickListener {
+            Toast.makeText(this, "This", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this,OtpActivity::class.java))
         }
         policy_tv.setOnClickListener {
