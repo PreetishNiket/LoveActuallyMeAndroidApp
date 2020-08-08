@@ -26,7 +26,6 @@ class SignUpActivity : AppCompatActivity() {
             finish()
         }
         sign_up_button.setOnClickListener {
-            Toast.makeText(this, "This", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this,OtpActivity::class.java))
         }
         policy_tv.setOnClickListener {
