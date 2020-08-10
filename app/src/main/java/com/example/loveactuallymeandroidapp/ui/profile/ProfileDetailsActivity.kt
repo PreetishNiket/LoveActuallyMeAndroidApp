@@ -14,6 +14,7 @@ class ProfileDetailsActivity : AppCompatActivity() {
     private lateinit var imageUri: Uri
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_profile_details)
         if (man.isChecked){
             woman.isChecked=false

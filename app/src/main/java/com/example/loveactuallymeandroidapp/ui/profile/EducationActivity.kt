@@ -11,6 +11,7 @@ class EducationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_education)
+        supportActionBar?.hide()
         skip_e.setOnClickListener {
             startActivity(Intent(this,ProfileVerActivity::class.java))
         }

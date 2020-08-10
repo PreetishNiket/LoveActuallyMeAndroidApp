@@ -24,7 +24,7 @@ class ProfileVerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_ver)
-
+        supportActionBar?.hide()
         click_photo.setOnClickListener {
                     askPermission()
         }

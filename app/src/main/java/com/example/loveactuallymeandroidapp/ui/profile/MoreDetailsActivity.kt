@@ -1,6 +1,6 @@
 package com.example.loveactuallymeandroidapp.ui.profile
 
-import android.app.Activity
+
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -11,13 +11,12 @@ import com.example.loveactuallymeandroidapp.MainActivity
 import com.example.loveactuallymeandroidapp.R
 import kotlinx.android.synthetic.main.activity_more_details.*
 import kotlinx.android.synthetic.main.activity_more_details.tv
-import kotlinx.android.synthetic.main.activity_profile.*
-import kotlinx.android.synthetic.main.activity_profile_details.*
 
 class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_more_details)
+        supportActionBar?.hide()
         if (intent.extras!=null){
             val imageUri= Uri.parse(intent.getStringExtra("image1"))
             profile_photo1.setImageURI(imageUri)
@@ -26,7 +25,8 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
         val userName=intent.getStringExtra("name")
         tv.text="Hello\n${userName}"
         getStartedButton.setOnClickListener {
-            Toast.makeText(this, "Main Screen will be implemented Soon", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Main Screen will be implemented Soon", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this,MainActivity::class.java))
         }
         back1.setOnClickListener {
             finish()
