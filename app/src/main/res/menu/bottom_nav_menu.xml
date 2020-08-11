@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/profile_menu"
+            android:title="Profile"
+            app:showAsAction="always"
+            android:icon="@drawable/account_circle" />
+        <item
+            android:id="@+id/home_menu"
+            android:title="Home"
+            app:showAsAction="always"
+            android:icon="@drawable/loveactually_logo" />
 
-    <item
-        android:id="@+id/navigation_profile"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/profile_verification"
-        android:title="@string/title_home" />
+        <item
+            android:id="@+id/chat_menu"
+            android:title="Chat"
+            app:showAsAction="always"
+            android:icon="@drawable/chat_icon" />
+    </group>
 
-    <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/logo"
-        app:showAsAction="always"
-        android:title="@string/title_dashboard" />
-
-    <item
-        android:id="@+id/navigation_chat"
-        android:icon="@drawable/chat_icon"
-        android:iconTint="@color/white"
-        app:showAsAction="ifRoom"
-        android:title="@string/title_notifications" />
 
 </menu>

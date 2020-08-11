@@ -9,4 +9,6 @@
     <string name="google">Google</string>
     <string name="la_will_receive_your_name_and_profile_n_picture_friends_list_city_photos_n_gender_and_email_address">LA will receive your name and profile\n picture, friends list, city, photos,\n gender and email address</string>
     <string name="this_doesn_t_let_the_app_post_to_n_facebook_or_linkedin">This doesn’t let the app post to\n Facebook or linkedIn</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

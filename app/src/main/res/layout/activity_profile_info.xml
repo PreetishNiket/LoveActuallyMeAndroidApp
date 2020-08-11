@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back"
-    tools:context=".ui.profileFrag.ProfileFragment">
+    tools:context=".ui.ProfileInfoActivity">
     <ImageView
         android:id="@+id/back1"
         android:layout_width="45dp"
@@ -172,4 +172,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
