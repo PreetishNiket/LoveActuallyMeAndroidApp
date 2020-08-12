@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
+import com.example.loveactuallymeandroidapp.utlis.ProfileInfo
 
 class ProfileInfoAdapter(private val list: ArrayList<ProfileInfo>) :RecyclerView.Adapter<ProfileInfoAdapter.InfoViewHolder>() {
 

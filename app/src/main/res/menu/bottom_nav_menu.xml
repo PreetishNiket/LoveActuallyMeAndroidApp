@@ -11,6 +11,8 @@
             android:id="@+id/home_menu"
             android:title="Home"
             app:showAsAction="always"
+            android:iconTint="#FF0000"
+            android:iconTintMode="src_in"
             android:icon="@drawable/loveactually_logo" />
 
         <item

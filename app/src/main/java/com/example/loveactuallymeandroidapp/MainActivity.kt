@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
         nav_view.setOnNavigationItemSelectedListener(mBottomNav)
+        switchBetweenFragments(homeFragment)
     }
     private fun switchBetweenFragments(fragment: Fragment) {
         val fragmentTransaction=supportFragmentManager.beginTransaction()
@@ -51,5 +52,10 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
         fragmentTransaction.isAddToBackStackAllowed
         fragmentTransaction.commit()
+    }
+
+    override fun onResume() {
+        switchBetweenFragments(homeFragment)
+        super.onResume()
     }
 }
