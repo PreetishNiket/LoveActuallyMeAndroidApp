@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="130dp"
+    app:cardCornerRadius="10dp"
+    android:layout_marginStart="25dp"
+
+    android:layout_marginBottom="25dp"
+    android:layout_height="167dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/user_img"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                app:srcCompat="@drawable/ex_img" />
+            <TextView
+                android:id="@+id/name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:layout_below="@id/user_img"
+                android:layout_centerHorizontal="true"
+                android:text="Cody Fisher"/>
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_below="@id/name_tv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="2dp"
+                android:text="Active Now"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="8sp" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_below="@id/name_tv"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="2dp"
+                android:layout_toStartOf="@id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/status_icon" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
