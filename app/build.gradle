@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -29,6 +30,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -46,6 +50,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //liveData
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    //nav
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
     //country code picker
@@ -58,4 +63,5 @@ dependencies {
     implementation 'com.github.drawers:SpinnerDatePicker:1.0.6'
     //RangeView
     implementation 'com.github.Innovattic:range-seek-bar:v1.0.6'
+
 }
