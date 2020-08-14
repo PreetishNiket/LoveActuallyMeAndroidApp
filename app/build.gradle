@@ -3,13 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.example.loveactuallymeandroidapp"
         minSdkVersion 24
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -50,11 +50,12 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
     //country code picker
     implementation 'com.hbb20:ccp:2.4.0'
-    //pinview
+    //PinView
     implementation 'com.github.GoodieBag:Pinview:v1.4'
     //circular imageView
     implementation 'com.mikhaellopez:circularimageview:4.2.0'
     //DatePickerSpinner
     implementation 'com.github.drawers:SpinnerDatePicker:1.0.6'
-
+    //RangeView
+    implementation 'com.github.Innovattic:range-seek-bar:v1.0.6'
 }

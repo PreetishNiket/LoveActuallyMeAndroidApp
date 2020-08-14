@@ -17,7 +17,7 @@ open class BottomSheetFragment: BottomSheetDialogFragment(), View.OnClickListene
         val btn1:Button=view.findViewById(R.id.button)
         val btn2:Button=view.findViewById(R.id.button)
         btn.setOnClickListener(this)
-        btn2.setOnClickListener(this)
+        btn1.setOnClickListener(this)
         btn2.setOnClickListener(this)
         return view
     }

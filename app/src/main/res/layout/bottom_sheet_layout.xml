@@ -1,73 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bottom_sheet_back"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
         android:text="Filter"
-        android:textSize="32sp"
         android:textColor="#000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="32sp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="87dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="32dp"
+        android:layout_below="@id/textView22"
         android:text="Man"
-        android:background="@drawable/bottom_sheet_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.038" />
+        android:background="@drawable/bottom_sheet_button" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView22"
         android:text="Women"
-        android:background="@drawable/bottom_sheet_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.161" />
+        android:background="@drawable/bottom_sheet_button" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/button2"
+        android:layout_below="@id/textView22"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="45dp"
         android:text="Everyone"
-        android:background="@drawable/bottom_sheet_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.891"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.161" />
+        android:background="@drawable/bottom_sheet_button" />
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Looking for"
+        android:textAlignment="center"
+        android:layout_below="@id/textView"
+        android:layout_marginStart="32dp"
         android:textSize="12sp"
+        android:textColor="#000" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age"
         android:textColor="#000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="12sp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/button"/>
+    <RelativeLayout
+        android:id="@+id/ll"
+        android:layout_width="343dp"
+        android:layout_height="66dp"
+        android:layout_below="@id/button2"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bottom_sheet_button"
+        android:layout_marginTop="45dp">
+
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Between 18 and 25"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:textColor="#000"/>
+
+        <com.innovattic.rangeseekbar.RangeSeekBar
+            android:id="@+id/rangeSeekBar"
+            android:layout_below="@id/textView16"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="282dp"
+            android:layout_height="wrap_content"
+            app:rsb_initialMinThumbValue="0"
+            app:rsb_initialMaxThumbValue="88"
+            app:rsb_minThumbDrawable="@drawable/thumb"
+            app:rsb_maxThumbDrawable="@drawable/thumb"
+            app:rsb_trackSelectedColor="@color/pink"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/dis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distance"
+        android:textColor="#000"
+        android:textSize="12sp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/ll"/>
+    <RelativeLayout
+        android:id="@+id/ll2"
+        android:layout_width="343dp"
+        android:layout_height="66dp"
+        android:layout_below="@id/dis"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bottom_sheet_button"
+        android:layout_marginTop="10dp">
+
+
+        <TextView
+            android:id="@+id/dis_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Up to 80 kilometers away"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:textColor="#000"/>
+        <com.innovattic.rangeseekbar.RangeSeekBar
+            android:id="@+id/rangeSeekBar2"
+            android:layout_below="@id/dis_tv"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="282dp"
+            android:layout_height="wrap_content"
+            app:rsb_initialMinThumbValue="18"
+            app:rsb_initialMaxThumbValue="66"
+            app:rsb_minThumbDrawable="@drawable/thumb"
+            app:rsb_maxThumbDrawable="@drawable/thumb"
+            app:rsb_trackSelectedColor="@color/pink"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
