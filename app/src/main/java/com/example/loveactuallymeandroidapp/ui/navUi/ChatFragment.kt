@@ -50,8 +50,10 @@ class ChatFragment : Fragment() {
         val v= inflater.inflate(R.layout.fragment_chat, container, false)
         v.rv_v.layoutManager=LinearLayoutManager(v.context)
         v.rv_v.adapter=ChatVerticalAdapter(v.context,list1)
+        v.rv_v.setHasFixedSize(true)
         v.rv_h.layoutManager=LinearLayoutManager(v.context,LinearLayoutManager.HORIZONTAL,false)
         v.rv_h.adapter=ChatHorizontalAdapter(v.context,list2)
+        v.rv_h.setHasFixedSize(true)
         v.back1.setOnClickListener{
             Toast.makeText(v.context, "No use", Toast.LENGTH_SHORT).show()
         }
