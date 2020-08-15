@@ -7,7 +7,7 @@
     android:background="@color/back"
     tools:context=".ui.profile.ProfileDetailsActivity">
     <ImageView
-        android:id="@+id/back"
+        android:id="@+id/back1"
         android:layout_width="45dp"
         android:layout_height="53dp"
         app:layout_constraintBottom_toBottomOf="parent"

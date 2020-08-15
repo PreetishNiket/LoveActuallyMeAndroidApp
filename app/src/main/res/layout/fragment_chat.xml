@@ -6,40 +6,54 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/back"
     tools:context=".ui.navUi.ChatFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/back1"
+            android:layout_width="45dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
-    <!-- TODO: Update blank fragment layout -->
-    <ImageView
-        android:id="@+id/back"
-        android:layout_width="45dp"
-        android:layout_height="53dp"
-        android:layout_margin="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="98dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="36dp"
+            android:text="Chat"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:textColor="@color/pink"
+            android:textSize="25sp"/>
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="98dp"
-        android:layout_height="33dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="29dp"
-        android:text="Chat"
-        android:textAlignment="center"
-        android:textColor="@color/pink"
-        android:textSize="25sp"/>
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="44dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="35dp"
+            android:layout_toEndOf="@id/textView21"
+            android:layout_marginStart="85dp"
+            app:srcCompat="@drawable/like_filter" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_h"
+            android:layout_width="match_parent"
+            android:layout_below="@id/textView21"
+            android:layout_marginTop="5dp"
+            android:layout_height="107dp"
+            tools:listitem="@layout/item_rv_h_chat"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_v"
+            android:layout_width="match_parent"
+            android:layout_below="@id/rv_h"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            tools:listitem="@layout/item_rv_v_chat" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="44dp"
-        android:layout_height="30dp"
-        android:layout_gravity="end"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="25dp"
-        app:srcCompat="@drawable/like_filter" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:text="Chat Screen Will Be implemented" />
+    </RelativeLayout>
+
 
 </FrameLayout>

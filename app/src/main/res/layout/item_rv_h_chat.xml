@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root1"
+    android:orientation="vertical"
+    android:background="@color/back"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp">
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/circularImageView1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/ex_img"
+            app:civ_border_width="0dp"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/ex_img" />
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignEnd="@id/circularImageView1"
+            app:srcCompat="@drawable/status_icon"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="10dp"/>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/name_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UserName"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginStart="8sp"/>
+
+
+
+</LinearLayout>

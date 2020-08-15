@@ -27,7 +27,7 @@ class LikeYouActivity : AppCompatActivity() {
         supportActionBar?.hide()
         like_you_rv.layoutManager=GridLayoutManager(this,2,LinearLayoutManager.VERTICAL,false)
         like_you_rv.adapter=LikeYouAdapter(applicationContext,list)
-        back.setOnClickListener {
+        back1.setOnClickListener {
             finish()
         }
     }

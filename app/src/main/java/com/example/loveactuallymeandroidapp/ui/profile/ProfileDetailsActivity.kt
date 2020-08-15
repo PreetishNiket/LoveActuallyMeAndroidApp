@@ -4,10 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.example.loveactuallymeandroidapp.R
-import com.tsongkha.spinnerdatepicker.DatePickerDialog
-import com.tsongkha.spinnerdatepicker.SpinnerDatePickerDialogBuilder
 import kotlinx.android.synthetic.main.activity_profile_details.*
 
 class ProfileDetailsActivity : AppCompatActivity() {
@@ -26,7 +23,7 @@ class ProfileDetailsActivity : AppCompatActivity() {
             imageUri=Uri.parse(intent.getStringExtra("image"))
             profile_photo_dt.setImageURI(imageUri)
         }
-        back.setOnClickListener {
+        back1.setOnClickListener {
             finish()
         }
         continueButton.setOnClickListener{

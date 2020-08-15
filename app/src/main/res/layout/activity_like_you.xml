@@ -8,7 +8,7 @@
     tools:context=".ui.LikeYouActivity">
 
     <ImageView
-        android:id="@+id/back"
+        android:id="@+id/back1"
         android:layout_width="45dp"
         android:layout_height="53dp"
        android:layout_margin="25dp"
@@ -39,6 +39,6 @@
         android:layout_width="406dp"
         android:layout_marginStart="12dp"
         android:layout_height="match_parent"
-        android:layout_below="@+id/back"
+        android:layout_below="@+id/back1"
         tools:listitem="@layout/item_like_you" />
 </RelativeLayout>

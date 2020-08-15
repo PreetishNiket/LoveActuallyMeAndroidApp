@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/root"
+    android:layout_height="match_parent"
+    android:background="@color/back">
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/circularImageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/ex_img"
+        android:src="@drawable/ex_img"
+        app:civ_border_width="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="1dp"/>
+
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UserName"
+        android:textSize="16sp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_toEndOf="@id/circularImageView"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="17sp"/>
+    <TextView
+        android:id="@+id/last_chat_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="That’s hilarious, really · July 16"
+        android:textStyle="normal"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        android:layout_marginTop="24dp"
+        android:layout_below="@id/name_tv"
+        android:layout_marginStart="17dp"
+        android:layout_toEndOf="@id/circularImageView"/>
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignEnd="@id/circularImageView"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="6dp"
+        app:srcCompat="@drawable/status_icon" />
+</RelativeLayout>
