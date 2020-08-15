@@ -30,14 +30,14 @@ class ChatFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-    val list1= arrayListOf(
+    private val list1= arrayListOf(
         Chat1(R.drawable.ex_img,"Cody Fisher","That’s hilarious, really · July 16"),
         Chat1(R.drawable.ex_img1,"Penna Fox","Why? · July 16"),
         Chat1(R.drawable.ex_img2,"Rose Martin","Hey · July 16"),
         Chat1(R.drawable.ex_img,"Hell Gay","Nice photo! Where are you? · July 16"),
         Chat1(R.drawable.ex_img2,"Rose Martin","Hey Handsome · July 16"),
         Chat1(R.drawable.ex_img2," Debi Kim","Hey dude! How’s it going? · July 16"))
-    val list2= arrayListOf(
+    private val list2= arrayListOf(
         Chat2(R.drawable.ex_img,"Cody Fisher"),
         Chat2(R.drawable.ex_img1,"Penna Fox"),
         Chat2(R.drawable.ex_img2,"Rose Martin"),
