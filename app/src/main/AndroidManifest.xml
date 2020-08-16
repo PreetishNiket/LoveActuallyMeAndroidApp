@@ -12,13 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.LikeYouActivity"
+        <activity android:name=".ui.other.LikeYouActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.SettingsActivity"
+        <activity android:name=".ui.other.SettingsActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.ProfileInfo2Activity"
+        <activity android:name=".ui.other.ProfileInfo2Activity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.ProfileInfoActivity"
+        <activity android:name=".ui.other.ProfileInfoActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.profile.MoreDetailsActivity"

@@ -1,4 +1,4 @@
-package com.example.loveactuallymeandroidapp.ui
+package com.example.loveactuallymeandroidapp.ui.other
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

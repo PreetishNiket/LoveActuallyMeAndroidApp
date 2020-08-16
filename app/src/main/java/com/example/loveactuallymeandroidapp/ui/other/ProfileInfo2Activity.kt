@@ -1,4 +1,4 @@
-package com.example.loveactuallymeandroidapp.ui
+package com.example.loveactuallymeandroidapp.ui.other
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -35,7 +35,8 @@ class ProfileInfo2Activity : AppCompatActivity() {
            profile_info_rv.adapter=ProfileInfoAdapter(list)
         profile_info_rv.setHasFixedSize(true)
         settings.setOnClickListener {
-            startActivity(Intent(this,SettingsActivity::class.java))
+            startActivity(Intent(this,
+                SettingsActivity::class.java))
         }
     }
 }

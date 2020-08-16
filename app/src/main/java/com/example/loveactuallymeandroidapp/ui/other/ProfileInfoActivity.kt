@@ -1,4 +1,4 @@
-package com.example.loveactuallymeandroidapp.ui
+package com.example.loveactuallymeandroidapp.ui.other
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,8 @@ class ProfileInfoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile_info)
         supportActionBar?.hide()
         set_pro.setOnClickListener {
-            startActivity(Intent(this,ProfileInfo2Activity::class.java))
+            startActivity(Intent(this,
+                ProfileInfo2Activity::class.java))
         }
         back1.setOnClickListener {
             finish()

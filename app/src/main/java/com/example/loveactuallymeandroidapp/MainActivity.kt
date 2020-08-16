@@ -6,10 +6,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
-import com.example.loveactuallymeandroidapp.ui.ProfileInfoActivity
+import com.example.loveactuallymeandroidapp.ui.other.ProfileInfoActivity
 import com.example.loveactuallymeandroidapp.ui.navUi.ChatFragment
 import com.example.loveactuallymeandroidapp.ui.navUi.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*

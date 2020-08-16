@@ -6,17 +6,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 import com.example.loveactuallymeandroidapp.R
-import com.example.loveactuallymeandroidapp.ui.LikeYouActivity
+import com.example.loveactuallymeandroidapp.ui.other.LikeYouActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.bottom_sheet_layout.view.*
-import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class HomeFragment : Fragment(), View.OnClickListener {
