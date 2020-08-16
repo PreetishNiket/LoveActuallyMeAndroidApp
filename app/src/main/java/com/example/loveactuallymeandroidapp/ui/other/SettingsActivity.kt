@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.MainRvAdapter
+import com.example.loveactuallymeandroidapp.utlis.DefaultItemDecorator
 import com.example.loveactuallymeandroidapp.utlis.dataClass.Section
 import kotlinx.android.synthetic.main.activity_settings.*
 
@@ -19,7 +20,7 @@ class SettingsActivity : AppCompatActivity() {
         }
         initData()
         main_rv_set.adapter=MainRvAdapter(sectionList)
-        main_rv_set.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+        main_rv_set.addItemDecoration(DefaultItemDecorator(resources.getDimensionPixelSize(R.dimen.bottom)))
     }
     private fun initData(){
         val sectionNameOne="Account Setting"
