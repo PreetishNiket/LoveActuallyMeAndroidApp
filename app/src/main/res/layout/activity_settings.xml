@@ -26,6 +26,14 @@
             android:layout_below="@id/back_set"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
            tools:listitem="@layout/item_section_row"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textSize="16sp"
+            android:textColor="@color/pink"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"/>
     </RelativeLayout>
 
 

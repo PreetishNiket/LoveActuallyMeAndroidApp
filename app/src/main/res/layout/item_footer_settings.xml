@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <Button
         android:id="@+id/log_out_button"
         android:layout_width="272dp"
@@ -31,6 +31,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/textView20"
         android:layout_marginTop="35dp"
+        android:layout_marginBottom="105dp"
         android:background="@drawable/button_background"
         android:text="DELETE ACCOUNT"
         android:textColor="#ffff"
