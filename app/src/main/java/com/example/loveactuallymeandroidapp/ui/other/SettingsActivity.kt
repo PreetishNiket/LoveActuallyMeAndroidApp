@@ -19,7 +19,7 @@ class SettingsActivity : AppCompatActivity() {
             finish()
         }
         initData()
-        main_rv_set.adapter=MainRvAdapter(sectionList)
+        main_rv_set.adapter=MainRvAdapter(this,sectionList)
         main_rv_set.addItemDecoration(DefaultItemDecorator(resources.getDimensionPixelSize(R.dimen.bottom)))
     }
     private fun initData(){

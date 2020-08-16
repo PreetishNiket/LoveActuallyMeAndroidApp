@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/log_out_button"
+        android:layout_width="272dp"
+        android:layout_height="45dp"
+        android:background="@drawable/button_background"
+        android:text="LOG OUT"
+        android:textColor="#ffff"
+        android:layout_marginTop="72dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:layout_below="@id/log_out_button"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
+        android:text="Or"
+        android:textStyle="bold"
+        android:textSize="32sp"/>
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="272dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView20"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/button_background"
+        android:text="DELETE ACCOUNT"
+        android:textColor="#ffff"
+        android:textSize="16sp" />
+
+
+</RelativeLayout>

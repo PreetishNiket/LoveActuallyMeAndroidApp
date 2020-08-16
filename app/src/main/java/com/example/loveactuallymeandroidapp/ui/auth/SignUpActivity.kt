@@ -3,7 +3,6 @@ package com.example.loveactuallymeandroidapp.ui.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.loveactuallymeandroidapp.R
@@ -25,7 +24,7 @@ class SignUpActivity : AppCompatActivity() {
         back_finish.setOnClickListener {
             finish()
         }
-        sign_up_button.setOnClickListener {
+        log_out_button.setOnClickListener {
             startActivity(Intent(this,OtpActivity::class.java))
         }
         policy_tv.setOnClickListener {
