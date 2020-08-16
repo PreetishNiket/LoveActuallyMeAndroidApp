@@ -5,12 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
-import com.example.loveactuallymeandroidapp.utlis.Chat2
+import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat2
 
 class ChatHorizontalAdapter(val context: Context, private val list2: ArrayList<Chat2>): RecyclerView.Adapter<ChatHorizontalAdapter.ChatViewHolder>() {
     inner class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){

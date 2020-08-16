@@ -6,20 +6,61 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.LikeYouAdapter
-import com.example.loveactuallymeandroidapp.utlis.LikeYou
+import com.example.loveactuallymeandroidapp.utlis.dataClass.LikeYou
 import kotlinx.android.synthetic.main.activity_like_you.*
 
 class LikeYouActivity : AppCompatActivity() {
-    val list= arrayListOf(LikeYou(R.drawable.ex_img,"Cody Fisher","Active Now"),
-        LikeYou(R.drawable.ex_img1,"Penna Fox","Active Now"),
-        LikeYou(R.drawable.ex_img2,"Rose Martin","Active Now"),
-        LikeYou(R.drawable.ex_img,"Hell Gay","Active Now"),
-        LikeYou(R.drawable.ex_img,"Hannah Cody","Active Now"),
-        LikeYou(R.drawable.ex_img,"Martha Baker","Active Now"),
-        LikeYou(R.drawable.ex_img,"User Name","Active Now"),
-        LikeYou(R.drawable.ex_img,"User Name","Active Now"),
-        LikeYou(R.drawable.ex_img,"User Name","Active Now"),
-        LikeYou(R.drawable.ex_img,"User Name","Active Now")
+    val list= arrayListOf(
+        LikeYou(
+            R.drawable.ex_img,
+            "Cody Fisher",
+            "Active Now"
+        ),
+        LikeYou(
+            R.drawable.ex_img1,
+            "Penna Fox",
+            "Active Now"
+        ),
+        LikeYou(
+            R.drawable.ex_img2,
+            "Rose Martin",
+            "Active Now"
+        ),
+        LikeYou(
+            R.drawable.ex_img,
+            "Hell Gay",
+            "Active Now"
+        ),
+        LikeYou(
+            R.drawable.ex_img,
+            "Hannah Cody",
+            "Active Now"
+        ),
+        LikeYou(
+            R.drawable.ex_img,
+            "Martha Baker",
+            "Active Now"
+        ),
+        LikeYou(
+            R.drawable.ex_img,
+            "User Name",
+            "Active Now"
+        ),
+        LikeYou(
+            R.drawable.ex_img,
+            "User Name",
+            "Active Now"
+        ),
+        LikeYou(
+            R.drawable.ex_img,
+            "User Name",
+            "Active Now"
+        ),
+        LikeYou(
+            R.drawable.ex_img,
+            "User Name",
+            "Active Now"
+        )
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

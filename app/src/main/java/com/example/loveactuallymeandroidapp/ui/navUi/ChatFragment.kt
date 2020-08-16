@@ -6,13 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.ChatHorizontalAdapter
 import com.example.loveactuallymeandroidapp.adapter.ChatVerticalAdapter
-import com.example.loveactuallymeandroidapp.utlis.Chat1
-import com.example.loveactuallymeandroidapp.utlis.Chat2
+import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat1
+import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat2
 import kotlinx.android.synthetic.main.fragment_chat.view.*
 
 private const val ARG_PARAM1 = "param1"
@@ -31,19 +30,63 @@ class ChatFragment : Fragment() {
         }
     }
     private val list1= arrayListOf(
-        Chat1(R.drawable.ex_img,"Cody Fisher","That’s hilarious, really · July 16"),
-        Chat1(R.drawable.ex_img1,"Penna Fox","Why? · July 16"),
-        Chat1(R.drawable.ex_img2,"Rose Martin","Hey · July 16"),
-        Chat1(R.drawable.ex_img,"Hell Gay","Nice photo! Where are you? · July 16"),
-        Chat1(R.drawable.ex_img2,"Rose Martin","Hey Handsome · July 16"),
-        Chat1(R.drawable.ex_img2," Debi Kim","Hey dude! How’s it going? · July 16"))
+        Chat1(
+            R.drawable.ex_img,
+            "Cody Fisher",
+            "That’s hilarious, really · July 16"
+        ),
+        Chat1(
+            R.drawable.ex_img1,
+            "Penna Fox",
+            "Why? · July 16"
+        ),
+        Chat1(
+            R.drawable.ex_img2,
+            "Rose Martin",
+            "Hey · July 16"
+        ),
+        Chat1(
+            R.drawable.ex_img,
+            "Hell Gay",
+            "Nice photo! Where are you? · July 16"
+        ),
+        Chat1(
+            R.drawable.ex_img2,
+            "Rose Martin",
+            "Hey Handsome · July 16"
+        ),
+        Chat1(
+            R.drawable.ex_img2,
+            " Debi Kim",
+            "Hey dude! How’s it going? · July 16"
+        )
+    )
     private val list2= arrayListOf(
-        Chat2(R.drawable.ex_img,"Cody Fisher"),
-        Chat2(R.drawable.ex_img1,"Penna Fox"),
-        Chat2(R.drawable.ex_img2,"Rose Martin"),
-        Chat2(R.drawable.ex_img,"Hell Gay"),
-        Chat2(R.drawable.ex_img2,"Rose Martin"),
-        Chat2(R.drawable.ex_img2," Debi Kim"))
+        Chat2(
+            R.drawable.ex_img,
+            "Cody Fisher"
+        ),
+        Chat2(
+            R.drawable.ex_img1,
+            "Penna Fox"
+        ),
+        Chat2(
+            R.drawable.ex_img2,
+            "Rose Martin"
+        ),
+        Chat2(
+            R.drawable.ex_img,
+            "Hell Gay"
+        ),
+        Chat2(
+            R.drawable.ex_img2,
+            "Rose Martin"
+        ),
+        Chat2(
+            R.drawable.ex_img2,
+            " Debi Kim"
+        )
+    )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
