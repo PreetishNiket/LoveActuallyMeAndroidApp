@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     private val homeFragment=HomeFragment()
     private val chatFragment=ChatFragment()
+    //firebasebranch
     private val mBottomNav=BottomNavigationView.OnNavigationItemSelectedListener {
         when(it.itemId){
             R.id.home_menu ->{
