@@ -2,6 +2,7 @@ package com.example.loveactuallymeandroidapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.EditText
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -14,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     private val homeFragment=HomeFragment()
     private val chatFragment=ChatFragment()
-    //firebasebranch
     private val mBottomNav=BottomNavigationView.OnNavigationItemSelectedListener {
         when(it.itemId){
             R.id.home_menu ->{
@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         }
         false
     }
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

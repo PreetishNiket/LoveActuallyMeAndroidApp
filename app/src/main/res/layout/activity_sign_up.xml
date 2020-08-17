@@ -59,7 +59,7 @@
         android:focusable="auto"
         android:focusableInTouchMode="true"
         android:hint="Phone Number"
-        android:inputType="phone"
+        android:inputType="number"
         android:textColor="#fff"
         android:textColorHint="#868686"
         app:layout_constraintBottom_toBottomOf="parent"
