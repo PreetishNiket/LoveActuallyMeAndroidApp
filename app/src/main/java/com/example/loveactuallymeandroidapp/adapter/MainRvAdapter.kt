@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
-import com.example.loveactuallymeandroidapp.utlis.dataClass.Section
+import com.example.loveactuallymeandroidapp.utils.dataClass.Section
 
 class MainRvAdapter(private val context:Context,private val sectionList: ArrayList<Section>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object{

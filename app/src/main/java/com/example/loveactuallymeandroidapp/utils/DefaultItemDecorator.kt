@@ -1,4 +1,4 @@
-package com.example.loveactuallymeandroidapp.utlis
+package com.example.loveactuallymeandroidapp.utils
 
 import android.graphics.Rect
 import android.view.View

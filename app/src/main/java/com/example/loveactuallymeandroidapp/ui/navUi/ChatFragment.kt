@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.ChatHorizontalAdapter
 import com.example.loveactuallymeandroidapp.adapter.ChatVerticalAdapter
-import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat1
-import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat2
+import com.example.loveactuallymeandroidapp.utils.dataClass.Chat1
+import com.example.loveactuallymeandroidapp.utils.dataClass.Chat2
 import kotlinx.android.synthetic.main.fragment_chat.view.*
 
 private const val ARG_PARAM1 = "param1"

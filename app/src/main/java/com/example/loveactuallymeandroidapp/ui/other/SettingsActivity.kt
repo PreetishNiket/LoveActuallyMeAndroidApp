@@ -2,11 +2,10 @@ package com.example.loveactuallymeandroidapp.ui.other
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.MainRvAdapter
-import com.example.loveactuallymeandroidapp.utlis.DefaultItemDecorator
-import com.example.loveactuallymeandroidapp.utlis.dataClass.Section
+import com.example.loveactuallymeandroidapp.utils.DefaultItemDecorator
+import com.example.loveactuallymeandroidapp.utils.dataClass.Section
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity() {

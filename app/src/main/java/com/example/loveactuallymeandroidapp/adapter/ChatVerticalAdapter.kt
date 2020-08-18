@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
-import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat1
+import com.example.loveactuallymeandroidapp.utils.dataClass.Chat1
 
 class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Chat1>): RecyclerView.Adapter<ChatVerticalAdapter.ChatViewHolder>() {
 
