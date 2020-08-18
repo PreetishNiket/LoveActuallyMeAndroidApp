@@ -21,6 +21,7 @@ class SignUpActivity : AppCompatActivity() {
         })
         login_text.setOnClickListener {
             startActivity(Intent(this,LogInActivity::class.java))
+            finish()
         }
         back_finish.setOnClickListener {
             finish()
@@ -34,6 +35,7 @@ class SignUpActivity : AppCompatActivity() {
                 {
 
                     startActivity(Intent(this, OtpActivity::class.java))
+                    finish()
                 }
                 else{
                     editTextPhone.setError("Enter a valid mobile number")
@@ -45,6 +47,7 @@ class SignUpActivity : AppCompatActivity() {
         }
         policy_tv.setOnClickListener {
             startActivity(Intent(this,PolicyActivity::class.java))
+            finish()
         }
 
 
