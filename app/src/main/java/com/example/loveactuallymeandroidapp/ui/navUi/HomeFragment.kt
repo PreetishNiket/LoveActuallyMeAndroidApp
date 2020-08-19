@@ -1,29 +1,42 @@
 package com.example.loveactuallymeandroidapp.ui.navUi
 
-import android.content.Context
+
 import android.content.Intent
-import android.content.res.Resources
+
 import android.graphics.Color
-import android.graphics.Point
 import android.os.Bundle
-import android.util.DisplayMetrics
+import android.util.Log
 import android.view.*
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.ui.other.LikeYouActivity
+import com.example.loveactuallymeandroidapp.utils.dataClass.Profile
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.mindorks.placeholderview.SwipeDecor
-import com.mindorks.placeholderview.SwipePlaceHolderView
+import com.lorentzos.flingswipe.SwipeFlingAdapterView
 import kotlinx.android.synthetic.main.bottom_sheet_layout.view.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.item_card_view_profile.view.*
 
 
 class HomeFragment : Fragment(), View.OnClickListener {
+    private var arrayAdapter: ArrayAdapter<String>? = null
+    private var i = 0
+    private var al = ArrayList<String>()
+    var rowItems: MutableList<Profile>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        al.add("Preetish")
+        al.add("Gopal")
+        al.add("Rajneesh")
+        al.add("Kishore")
+        al.add("Dharmerdar")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,25 +51,44 @@ class HomeFragment : Fragment(), View.OnClickListener {
             startActivity(Intent(context, LikeYouActivity::class.java))
         }
 
+        arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_card_view_profile, R.id.helloText,al)
+        frag.frame.adapter = arrayAdapter
+        frag.frame.setFlingListener(object : SwipeFlingAdapterView.onFlingListener {
+            override fun removeFirstObjectInAdapter() {
+                al.add("XML $i")
+                al.removeAt(0)
+                arrayAdapter?.notifyDataSetChanged()
+            }
+
+            override fun onLeftCardExit(p0: Any?) {
+                Toast.makeText(requireContext(), "Left", Toast.LENGTH_SHORT).show()
+                frag.item_swipe_left_indicator.visibility=View.VISIBLE
+                frag.item_swipe_right_indicator.visibility=View.GONE
+            }
+
+            override fun onRightCardExit(p0: Any?) {
+                Toast.makeText(requireContext(), "Right", Toast.LENGTH_SHORT).show()
+                frag.item_swipe_right_indicator.visibility=View.VISIBLE
+                frag.item_swipe_left_indicator.visibility=View.GONE
+            }
+
+            override fun onAdapterAboutToEmpty(p0: Int) {
+                arrayAdapter?.notifyDataSetChanged()
+                Log.d("LIST", "notified")
+                i++
+            }
+
+            override fun onScroll(scroll: Float) {
+//                Toast.makeText(requireContext(), "On Scroll", Toast.LENGTH_SHORT).show()
+                if (scroll==24.0f){
+
+                }
+
+            }
+
+        })
         return frag
     }
-
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        val bottomMargin: Int =
-//        val windowSize: Point = getDisplaySize(requireActivity().windowManager)
-//        swipeView.getBuilder<>().setDisplayViewCount(3)
-//            .setSwipeDecor(
-//                SwipeDecor()
-//                    .setViewWidth(windowSize.x)
-//                    .setViewHeight(windowSize.y - bottomMargin)
-//                    .setViewGravity(Gravity.TOP)
-//                    .setPaddingTop(20)
-//                    .setRelativeScale(0.01f)
-//                    .setSwipeInMsgLayoutId(R.layout.tinder_swipe_in_msg_view)
-//                    .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_out_msg_view)
-//            )
-//    }
 
     override fun onClick(view: View) {
         if (view.id== R.id.button){
