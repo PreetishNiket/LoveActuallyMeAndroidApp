@@ -1,5 +1,6 @@
 package com.example.loveactuallymeandroidapp.ui.profile
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -27,6 +28,7 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
     var thisDate= String()
     var localTime= String()
 
+    @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_socializing)
@@ -248,6 +250,7 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                                 Toast.LENGTH_SHORT
                             ).show()
                             startActivity(Intent(this, ReligiousActivity::class.java))
+                            finish()
                         }
                         .addOnFailureListener {
                             Toast.makeText(
