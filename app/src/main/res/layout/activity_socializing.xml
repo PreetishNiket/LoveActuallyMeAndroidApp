@@ -22,8 +22,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="127dp"
-        android:layout_height="30dp"
+        android:layout_width="297dp"
+        android:layout_height="65dp"
         android:text="Socializing"
         android:textAlignment="center"
         android:textColor="#EC6273"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintVertical_bias="0.079" />
 
     <EditText
         android:id="@+id/editTextTextPersonAbout"
@@ -109,73 +109,48 @@
         app:tint="#ffffff" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView6"
+        android:id="@+id/cardView13"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        app:cardBackgroundColor="#EC6273"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="NEXT"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="115dp"
         android:layout_height="35dp"
         android:layout_marginStart="64dp"
-        android:layout_marginBottom="292dp"
+        android:layout_marginBottom="268dp"
         app:cardBackgroundColor="#868686"
         app:cardCornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.724"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView00"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView10"
+            android:layout_width="57dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Straight"
-            android:textColor="#FFFF"
-            android:textSize="16sp" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView12"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="48dp"
-        app:cardBackgroundColor="#868686"
-        app:cardCornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView9"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            android:id="@+id/textView04"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Bicurious"
-            android:textColor="#FFFF"
-            android:textSize="16sp" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView9"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="95dp"
-        app:cardBackgroundColor="#868686"
-        app:cardCornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView8"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            android:id="@+id/textView03"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Pansexual"
+            android:text="Gay"
+            android:textAlignment="center"
             android:textColor="#FFFF"
             android:textSize="16sp" />
 
@@ -201,6 +176,31 @@
             android:layout_height="19dp"
             android:layout_gravity="center"
             android:text="Asexual"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView9"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="95dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView8"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Pansexual"
             android:textColor="#FFFF"
             android:textSize="16sp" />
 
@@ -245,7 +245,7 @@
         app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView4"
-        app:layout_constraintVertical_bias="0.017">
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/textView14"
@@ -253,29 +253,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Aromatic"
-            android:textColor="#FFFF"
-            android:textSize="16sp" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView13"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
-        app:cardBackgroundColor="#EC6273"
-        app:cardCornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954">
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="NEXT"
             android:textColor="#FFFF"
             android:textSize="16sp" />
 
@@ -293,7 +270,7 @@
         app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3"
-        app:layout_constraintVertical_bias="0.159">
+        app:layout_constraintVertical_bias="0.217">
 
         <TextView
             android:id="@+id/textView13"
@@ -305,6 +282,54 @@
             android:textColor="#FFFF"
             android:textSize="16sp" />
 
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView12"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="48dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView9"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Bicurious"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="268dp"
+        app:cardBackgroundColor="#868686"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Straight"
+            android:textColor="#FFFF"
+            android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -345,7 +370,7 @@
         app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.173">
+        app:layout_constraintVertical_bias="0.222">
 
         <TextView
             android:id="@+id/textView11"
@@ -353,31 +378,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Bisexual"
-            android:textColor="#FFFF"
-            android:textSize="16sp" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="292dp"
-        app:cardBackgroundColor="#868686"
-        app:cardCornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.724"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="57dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Gay"
-            android:textAlignment="center"
             android:textColor="#FFFF"
             android:textSize="16sp" />
 

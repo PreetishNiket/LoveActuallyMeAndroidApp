@@ -16,13 +16,13 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
         supportActionBar?.hide()
         add_photo.setOnClickListener {
+            add_photo.setCardBackgroundColor(R.drawable.button_background)
             val intent=Intent()
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT
             startActivityForResult(Intent.createChooser(intent,"Pick An Image"), GALLERY_PICKER_CODE)
         }
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode== GALLERY_PICKER_CODE&&resultCode== Activity.RESULT_OK&&data!=null){
             val imageData=data.data

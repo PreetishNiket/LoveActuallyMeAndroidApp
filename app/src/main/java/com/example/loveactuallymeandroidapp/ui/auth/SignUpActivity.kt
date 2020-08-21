@@ -1,5 +1,6 @@
 package com.example.loveactuallymeandroidapp.ui.auth
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,6 @@ import com.example.loveactuallymeandroidapp.R
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {
-
     private lateinit var signUpViewModel:SignUpViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,7 @@ class SignUpActivity : AppCompatActivity() {
             finish()
         }
         log_out_button.setOnClickListener {
-           val PhoneNumber=editTextPhone.text
+           val PhoneNumber= editTextPhone.text.toString()
 
             if (!(PhoneNumber.isEmpty()) && PhoneNumber.length.equals(10)) {
                 val firstDigit = PhoneNumber.substring(0, 1).toInt()
@@ -35,6 +35,10 @@ class SignUpActivity : AppCompatActivity() {
                 {
 
                     startActivity(Intent(this, OtpActivity::class.java))
+                    val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+                    val editor=preference.edit()
+                    editor.putString("mobilenumber",PhoneNumber)
+                    editor.apply()
                     finish()
                 }
                 else{

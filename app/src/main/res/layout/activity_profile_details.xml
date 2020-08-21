@@ -33,8 +33,9 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053"
+        app:layout_constraintVertical_bias="0.056"
         app:srcCompat="@drawable/profile_verification" />
+
 
     <TextView
         android:id="@+id/textView"
@@ -47,44 +48,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.33" />
-
-    <RadioButton
-        android:id="@+id/man"
-        android:layout_width="100dp"
-        android:layout_height="34dp"
-        android:buttonTint="@color/pink"
-        android:text="Man"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:checked="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417" />
-
-    <RadioButton
-        android:id="@+id/woman"
-        android:layout_width="123dp"
-        android:layout_height="35dp"
-        android:buttonTint="@color/pink"
-        android:text="Women"
-        android:checked="false"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.756"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
+        app:layout_constraintVertical_bias="0.343" />
 
     <Button
         android:id="@+id/continueButton"
@@ -99,7 +66,8 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.903" />
+        app:layout_constraintVertical_bias="0.9" />
+
 
     <TextView
         android:id="@+id/textView1"
@@ -112,54 +80,117 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.512" />
+        app:layout_constraintVertical_bias="0.522" />
 
-    <Spinner
-        android:id="@+id/spinner"
+    <EditText
+        android:id="@+id/dob"
         android:layout_width="237dp"
-        android:layout_height="31dp"
-        android:backgroundTint="@color/pink"
+        android:layout_height="46dp"
+        android:background="@drawable/border"
+        android:drawableStart="@drawable/ic_baseline_date_range_24"
+        android:drawableEnd="@drawable/ic_baseline_arrow_drop_down_24"
+        android:drawablePadding="20dp"
+        android:drawableTint="#ffffff"
+        android:focusable="false"
+        android:hint="Date of Birth"
+        android:keyboardNavigationCluster="false"
+        android:onClick="view"
+        android:padding="10dp"
+        android:shadowColor="@android:color/black"
+        android:textColor="#EC6273"
+        android:textColorHint="#EC6273"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.597"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585" />
+        app:layout_constraintVertical_bias="0.602" />
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="64dp"
-        android:layout_height="28dp"
+        android:layout_width="88dp"
+        android:layout_height="43dp"
         android:text="Name"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintHorizontal_bias="0.188"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.648" />
+        app:layout_constraintVertical_bias="0.69" />
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="237dp"
+        android:layout_height="39dp"
+        android:backgroundTint="#868686"
+        android:ems="10"
+        android:hint="Add Your Name"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        android:textColor="#EC6273"
+        android:textColorHint="#C6ADB5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.767" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="237dp"
-            android:layout_height="39dp"
-            android:backgroundTint="#868686"
-            android:ems="10"
-            android:hint="Add Your Name"
-            android:textAlignment="textStart"
-            android:inputType="textPersonName"
+    <RadioGroup
+        android:id="@+id/radiogrp"
+        android:layout_width="293dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.43">
+
+        <RadioButton
+            android:id="@+id/man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:buttonTint="@color/pink"
+            android:checked="false"
+            android:text="Man"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:textColorHint="#C6ADB5"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.182"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.723"/>
+            app:layout_constraintVertical_bias="0.422" />
+
+        <RadioButton
+            android:id="@+id/woman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/pink"
+            android:checked="false"
+            android:text="Women"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.643"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.409" />
+
+    </RadioGroup>
 
 
 

@@ -1,18 +1,33 @@
 package com.example.loveactuallymeandroidapp.ui.profile
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.example.loveactuallymeandroidapp.R
 import kotlinx.android.synthetic.main.activity_profile_details.*
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ProfileDetailsActivity : AppCompatActivity() {
+    var datePickerDialog: DatePickerDialog? = null
+    var thisDate= String()
+
     private lateinit var imageUri: Uri
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
         setContentView(R.layout.activity_profile_details)
+
+
+        val currentDate = SimpleDateFormat("dd/MM/yyyy")
+        val todayDate = Date()
+        thisDate = currentDate.format(todayDate)
+
+
         if (man.isChecked){
             woman.isChecked=false
         }
@@ -28,10 +43,25 @@ class ProfileDetailsActivity : AppCompatActivity() {
         }
         continueButton.setOnClickListener{
             val name=editTextTextPersonName.text.toString()
-            val i=Intent(this,MoreDetailsActivity::class.java)
-            i.putExtra("image1",imageUri.toString())
-            i.putExtra("name",name)
+            val i=Intent(this, MoreDetailsActivity::class.java)
+            i.putExtra("image1", imageUri.toString())
+            i.putExtra("name", name)
             startActivity(i)
         }
     }
-}
+
+        fun view(view: View?) {
+            val c = Calendar.getInstance()
+            val mYear = c[Calendar.YEAR] // current year
+            val mMonth = c[Calendar.MONTH] // current month
+            val mDay = c[Calendar.DAY_OF_MONTH] // current day
+            // date picker dialog
+            datePickerDialog = DatePickerDialog(
+                this@ProfileDetailsActivity,
+                { view, year, monthOfYear, dayOfMonth -> // set day of month , month and year value in the edit text
+                    dob.setText(dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year)
+                }, mYear, mMonth, mDay
+            )
+            datePickerDialog!!.show()
+        }
+    }
