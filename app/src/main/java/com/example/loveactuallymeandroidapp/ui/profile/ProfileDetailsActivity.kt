@@ -43,7 +43,7 @@ class ProfileDetailsActivity : AppCompatActivity() {
             val name=editTextTextPersonName.text.toString()
             val i=Intent(this, MoreDetailsActivity::class.java)
 
-
+//radio button checking
             if (man.isChecked){
                 woman.isChecked=false
                 gender="Man"
