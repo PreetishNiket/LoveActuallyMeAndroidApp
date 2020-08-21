@@ -225,10 +225,7 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
             R.id.cardView13 -> {
 
                 if (editTextTextPersonAbout.text.isNotEmpty() && imageselected.isNotEmpty() && typeselected.isNotEmpty()) {
-                    val preference = getSharedPreferences(
-                        resources.getString(R.string.app_name),
-                        Context.MODE_PRIVATE
-                    )
+                    val preference = getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
                     val editor = preference.edit()
                     editor.putString("ability", imageselected)
                     editor.putString("type", typeselected)
