@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.ui.other.LikeYouActivity
 import com.example.loveactuallymeandroidapp.utils.dataClass.Profile
+import com.example.loveactuallymeandroidapp.utils.dataClass.User
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.lorentzos.flingswipe.SwipeFlingAdapterView
 import kotlinx.android.synthetic.main.bottom_sheet_layout.view.*
@@ -27,7 +28,12 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private var arrayAdapter: ArrayAdapter<String>? = null
     private var i = 0
     private var al = ArrayList<String>()
+//    private val list= arrayListOf(User(R.drawable.ex_img),
+//                                User(R.drawable.ex_img1),
+//                                User(R.drawable.ex_img2)
+//    )
     var rowItems: MutableList<Profile>? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +42,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
         al.add("Gopal")
         al.add("Rajneesh")
         al.add("Kishore")
-        al.add("Dharmerdar")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
