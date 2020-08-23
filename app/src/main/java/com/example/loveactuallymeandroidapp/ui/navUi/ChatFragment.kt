@@ -13,6 +13,7 @@ import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.ChatHorizontalAdapter
 import com.example.loveactuallymeandroidapp.adapter.ChatVerticalAdapter
 import com.example.loveactuallymeandroidapp.adapter.UserOnItemClickListener
+import com.example.loveactuallymeandroidapp.adapter.UserOnItemClickListener1
 import com.example.loveactuallymeandroidapp.utils.dataClass.Chat1
 import com.example.loveactuallymeandroidapp.utils.dataClass.Chat2
 import kotlinx.android.synthetic.main.fragment_chat.view.*
@@ -99,7 +100,13 @@ class ChatFragment : Fragment() {
         v.rv_v.setHasFixedSize(true)
 
         v.rv_h.layoutManager=LinearLayoutManager(v.context,LinearLayoutManager.HORIZONTAL,false)
-        v.rv_h.adapter=ChatHorizontalAdapter(v.context,list2)
+        val adapter2=ChatHorizontalAdapter(v.context,list2)
+        v.rv_h.adapter=adapter2
+        adapter2.onItemClickListener1=object :UserOnItemClickListener1{
+            override fun onItemClick(list: Chat2) {
+                Toast.makeText(v.context, "Item", Toast.LENGTH_SHORT).show()
+            }
+        }
         v.rv_h.setHasFixedSize(true)
         v.back1.setOnClickListener{
             Toast.makeText(v.context, "No use", Toast.LENGTH_SHORT).show()

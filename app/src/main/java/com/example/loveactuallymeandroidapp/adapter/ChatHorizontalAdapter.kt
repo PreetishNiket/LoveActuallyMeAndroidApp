@@ -11,7 +11,9 @@ import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.utils.dataClass.Chat2
 
 class ChatHorizontalAdapter(val context: Context, private val list2: ArrayList<Chat2>): RecyclerView.Adapter<ChatHorizontalAdapter.ChatViewHolder>() {
-    inner class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
+    var onItemClickListener1:UserOnItemClickListener1?=null
+    class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
+
         val userName: TextView =view.findViewById(R.id.name_tv1)
         val img: ImageView =view.findViewById(R.id.circularImageView1)
     }
@@ -27,6 +29,12 @@ class ChatHorizontalAdapter(val context: Context, private val list2: ArrayList<C
         with(holder){
             img.setImageResource(list2[position].userImage)
             userName.text= list2[position].Username
+            userName.setOnClickListener {
+                onItemClickListener1?.onItemClick(list2[position])
+            }
         }
     }
+}
+interface UserOnItemClickListener1{
+    fun onItemClick(list:Chat2)
 }
