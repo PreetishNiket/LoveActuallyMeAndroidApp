@@ -90,7 +90,6 @@ class ChatFragment : Fragment() {
         v.rv_h.layoutManager=LinearLayoutManager(v.context,LinearLayoutManager.HORIZONTAL,false)
         v.rv_h.adapter=ChatHorizontalAdapter(v.context,list2)
         v.rv_h.setHasFixedSize(true)
-
         v.back1.setOnClickListener{
             Toast.makeText(v.context, "No use", Toast.LENGTH_SHORT).show()
         }

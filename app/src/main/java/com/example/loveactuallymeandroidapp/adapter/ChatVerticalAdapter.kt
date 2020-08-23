@@ -14,7 +14,7 @@ import com.example.loveactuallymeandroidapp.utils.dataClass.Chat1
 
 class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Chat1>): RecyclerView.Adapter<ChatVerticalAdapter.ChatViewHolder>() {
 
-    inner class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
+    class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
         val userName:TextView=view.findViewById(R.id.name_tv)
         val lastMsg:TextView=view.findViewById(R.id.last_chat_tv)
         val img:ImageView=view.findViewById(R.id.circularImageView)
