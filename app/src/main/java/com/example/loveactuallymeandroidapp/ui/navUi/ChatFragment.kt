@@ -1,5 +1,6 @@
 package com.example.loveactuallymeandroidapp.ui.navUi
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.loveactuallymeandroidapp.ConversationActivity
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.ChatHorizontalAdapter
 import com.example.loveactuallymeandroidapp.adapter.ChatVerticalAdapter
+import com.example.loveactuallymeandroidapp.adapter.UserOnItemClickListener
 import com.example.loveactuallymeandroidapp.utils.dataClass.Chat1
 import com.example.loveactuallymeandroidapp.utils.dataClass.Chat2
 import kotlinx.android.synthetic.main.fragment_chat.view.*
@@ -84,7 +87,15 @@ class ChatFragment : Fragment() {
         val v= inflater.inflate(R.layout.fragment_chat, container, false)
 
         v.rv_v.layoutManager=LinearLayoutManager(v.context)
-        v.rv_v.adapter=ChatVerticalAdapter(v.context,list1)
+        val adapter1=ChatVerticalAdapter(v.context,list1)
+        v.rv_v.adapter=adapter1
+        adapter1.onItemClickListener=object :UserOnItemClickListener{
+            override fun onItemClick(item: Chat1) {
+                startActivity(Intent(v.context, ConversationActivity::class.java))
+            }
+
+        }
+
         v.rv_v.setHasFixedSize(true)
 
         v.rv_h.layoutManager=LinearLayoutManager(v.context,LinearLayoutManager.HORIZONTAL,false)

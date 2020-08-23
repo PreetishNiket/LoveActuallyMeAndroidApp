@@ -14,6 +14,8 @@ import com.example.loveactuallymeandroidapp.utils.dataClass.Chat1
 
 class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Chat1>): RecyclerView.Adapter<ChatVerticalAdapter.ChatViewHolder>() {
 
+    var onItemClickListener:UserOnItemClickListener?=null
+
     class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
         val userName:TextView=view.findViewById(R.id.name_tv)
         val lastMsg:TextView=view.findViewById(R.id.last_chat_tv)
@@ -38,5 +40,11 @@ class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Cha
         holder.root.setOnClickListener {
             Toast.makeText(context, "This will Open chat Activity which will only be implemented when we will implement backend", Toast.LENGTH_SHORT).show()
         }
+        holder.root.setOnClickListener {
+           onItemClickListener?.onItemClick(list1[position])
+        }
     }
+}
+interface UserOnItemClickListener{
+    fun onItemClick(item:Chat1)
 }
