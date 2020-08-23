@@ -1,6 +1,7 @@
 package com.example.loveactuallymeandroidapp.ui.profile
 
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.loveactuallymeandroidapp.MainActivity
 import com.example.loveactuallymeandroidapp.R
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_more_details.*
 import kotlinx.android.synthetic.main.activity_more_details.tv
 
@@ -25,8 +27,51 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
         val userName=intent.getStringExtra("name")
         tv.text="Hello\n${userName}"
         getStartedButton.setOnClickListener {
-//            Toast.makeText(this, "Main Screen will be implemented Soon", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this,MainActivity::class.java))
+//           Toast.makeText(this, "Main Screen will be implemented Soon", Toast.LENGTH_SHORT).show()
+            val preference = getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+            val mobile = preference.getString("mobilenumber", null).toString()
+            val about = preference.getString("about", null).toString()
+            val ability = preference.getString("ability", null).toString()
+            val type = preference.getString("type", null).toString()
+            val religion = preference.getString("religion", null).toString()
+            val education = preference.getString("education", null).toString()
+            val gender = preference.getString("gender", null).toString()
+            val dob = preference.getString("dateofbirth", null).toString()
+            val name = preference.getString("name", null).toString()
+
+            val Userdetails = hashMapOf(
+                "Mobile Number" to mobile,
+                "About" to about,
+                "Ability" to ability,
+                "Type of person" to type,
+                "Religious Belief" to religion,
+                "Education" to education,
+                "Gender" to gender,
+                "Date of Birth" to dob,
+                "Name" to name
+            )
+            val db = FirebaseFirestore.getInstance()
+
+            db.collection("users").document(mobile)
+                .set(Userdetails)
+                .addOnSuccessListener {
+                    Toast.makeText(
+                        applicationContext,
+                        "Profile Created Successfully",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    startActivity(Intent(this,MainActivity::class.java))
+                    finish()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(
+                        applicationContext,
+                        "Error",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+
         }
         back1.setOnClickListener {
             finish()

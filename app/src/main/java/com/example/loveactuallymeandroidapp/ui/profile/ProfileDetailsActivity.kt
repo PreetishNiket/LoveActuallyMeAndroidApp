@@ -41,41 +41,45 @@ class ProfileDetailsActivity : AppCompatActivity() {
         }
         continueButton.setOnClickListener{
             val name=editTextTextPersonName.text.toString()
-            val i=Intent(this, MoreDetailsActivity::class.java)
+
 
 //radio button checking
             if (man.isChecked){
                 woman.isChecked=false
                 gender="Man"
-                Toast.makeText(this@ProfileDetailsActivity, gender, Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@ProfileDetailsActivity, gender, Toast.LENGTH_SHORT).show()
             }
             if (woman.isChecked){
                 man.isChecked=false
                 gender="Women"
-                Toast.makeText(this@ProfileDetailsActivity, gender, Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@ProfileDetailsActivity, gender, Toast.LENGTH_SHORT).show()
 
             }
 
 
 
-            val preference = getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
-            val editor = preference.edit()
-            editor.putString("Gender", gender)
-            editor.putString("DateofBirth", dateofbirth)
-            editor.putString("Name", name)
-            editor.apply()
+if(gender.isNotEmpty()&&dateofbirth.isNotEmpty()&&name.isNotEmpty()) {
 
-
-
-            i.putExtra("image1", imageUri.toString())
-            i.putExtra("name", name)
-            startActivity(i)
+    val preference = getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+    val editor = preference.edit()
+    editor.putString("gender", gender)
+    editor.putString("dateofbirth", dateofbirth)
+    editor.putString("name", name)
+    editor.apply()
+    val i = Intent(this, MoreDetailsActivity::class.java)
+    i.putExtra("image1", imageUri.toString())
+    i.putExtra("name", name)
+    startActivity(i)
+}
+            else{
+    Toast.makeText(this,"Enter all the details", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
         fun view(view: View?) {
             val c = Calendar.getInstance()
-            val mYear = c[Calendar.YEAR] // current year
+            val mYear = c[Calendar.YEAR]-18 // current year
             val mMonth = c[Calendar.MONTH] // current month
             val mDay = c[Calendar.DAY_OF_MONTH] // current day
             // date picker dialog
@@ -84,7 +88,7 @@ class ProfileDetailsActivity : AppCompatActivity() {
                 { view, year, monthOfYear, dayOfMonth -> // set day of month , month and year value in the edit text
                     dateofbirth=dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year
                     dob.setText(dateofbirth)
-                    Toast.makeText(this@ProfileDetailsActivity, dateofbirth, Toast.LENGTH_SHORT).show()
+                   // Toast.makeText(this@ProfileDetailsActivity, dateofbirth, Toast.LENGTH_SHORT).show()
                 }, mYear, mMonth, mDay
             )
             datePickerDialog!!.show()

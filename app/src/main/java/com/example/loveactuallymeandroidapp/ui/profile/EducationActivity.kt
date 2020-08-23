@@ -1,5 +1,6 @@
 package com.example.loveactuallymeandroidapp.ui.profile
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -42,7 +43,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
                 //the type of person is stored in typeselected based on user seletion
-                educationselected = "Agnostic"
+                educationselected = "High School"
             }
             R.id.cardView2 -> run {
                 cardView2.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -52,7 +53,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView6.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "Atheist"
+                educationselected = "In College"
             }
             R.id.cardView4 -> {
                 cardView4.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -62,7 +63,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView6.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "Buddhist"
+                educationselected = "Masters"
             }
             R.id.cardView3 -> {
                 cardView3.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -72,7 +73,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView6.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "Christian"
+                educationselected = "Graduate"
             }
             R.id.cardView6 -> {
                 cardView6.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -82,7 +83,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView1.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "Hindu"
+                educationselected = "Post Graduate"
             }
             R.id.cardView5 -> {
                 cardView5.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -92,7 +93,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView6.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView1.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "Jain"
+                educationselected = "M.Phil"
             }
             R.id.cardView7 -> {
                 cardView7.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -102,12 +103,16 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView6.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView1.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "Jewish"
+                educationselected = "Phd"
             }
 
         }
         if (educationselected.isNotEmpty())
         {
+            val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+            val editor=preference.edit()
+            editor.putString("education",educationselected)
+            editor.apply()
             startActivity(Intent(this, ProfileVerActivity::class.java))
             finish()
         }

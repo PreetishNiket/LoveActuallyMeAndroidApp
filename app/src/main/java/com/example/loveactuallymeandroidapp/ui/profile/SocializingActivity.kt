@@ -20,13 +20,11 @@ import java.util.*
 
 @Suppress("DEPRECATION")
 class SocializingActivity : AppCompatActivity(), View.OnClickListener {
-    var fauth: FirebaseAuth? = null
-    var mFireStore: FirebaseFirestore? = null
     var imageselected = String()
+    var about = String()
     var typeselected = String()
-    var mobile = String()
-    var thisDate= String()
-    var localTime= String()
+    var thisDate = String()
+    var localTime = String()
 
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +61,6 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
         }
 
     }
-
 
 
     override fun onClick(v: View) {
@@ -225,55 +222,30 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                 typeselected = "Bicurious"
             }
             R.id.cardView13 -> {
+                about = editTextTextPersonAbout.text.toString()
+                if (about.isNotEmpty() && imageselected.isNotEmpty() && typeselected.isNotEmpty()) {
+                    val preference = getSharedPreferences(
+                        resources.getString(R.string.app_name),
+                        Context.MODE_PRIVATE
+                    )
 
-                if (editTextTextPersonAbout.text.isNotEmpty() && imageselected.isNotEmpty() && typeselected.isNotEmpty()) {
-                    val preference = getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
                     val editor = preference.edit()
                     editor.putString("ability", imageselected)
+                    editor.putString("about", about)
                     editor.putString("type", typeselected)
-                    mobile = preference.getString("mobilenumber", null).toString()
+                    //mobile = preference.getString("mobilenumber", null).toString()
                     editor.apply()
-                    Toast.makeText(applicationContext, mobile, Toast.LENGTH_SHORT).show()
-                    val details = hashMapOf(
-                        "mobile" to mobile,
-                        "ability" to imageselected,
-                        "type" to typeselected
-                    )
-                    val db = FirebaseFirestore.getInstance()
+                    startActivity(Intent(this, ReligiousActivity::class.java))
+                    //Toast.makeText(applicationContext, mobile, Toast.LENGTH_SHORT).show()
 
-                    db.collection("users").document(mobile)
-                        .set(details)
-                        .addOnSuccessListener {
-                            Toast.makeText(
-                                applicationContext,
-                                "Data Stored",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            startActivity(Intent(this, ReligiousActivity::class.java))
-                            finish()
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(
-                                applicationContext,
-                                "Error",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                } else {
-                    Toast.makeText(
-                        applicationContext,
-                        "Enter all the details Properly.",
-                        Toast.LENGTH_SHORT
-                    ).show()
                 }
+
+
             }
-
-
-
+            //val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+            // mobile= preference.getString("mobilenumber",null).toString()
+            // textView.setText(mobile)
         }
-        //val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
-       // mobile= preference.getString("mobilenumber",null).toString()
-       // textView.setText(mobile)
-    }
 
+    }
 }

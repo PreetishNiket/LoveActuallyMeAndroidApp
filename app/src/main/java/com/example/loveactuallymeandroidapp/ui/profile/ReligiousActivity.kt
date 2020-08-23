@@ -1,5 +1,6 @@
 package com.example.loveactuallymeandroidapp.ui.profile
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -180,6 +181,10 @@ class ReligiousActivity : AppCompatActivity(), View.OnClickListener {
         }
         if (religionselected.isNotEmpty())
         {
+            val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+            val editor=preference.edit()
+            editor.putString("religion",religionselected)
+            editor.apply()
             startActivity(Intent(this,EducationActivity::class.java))
             finish()
         }

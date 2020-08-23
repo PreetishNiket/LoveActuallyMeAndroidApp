@@ -16,7 +16,6 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
         supportActionBar?.hide()
         add_photo.setOnClickListener {
-            add_photo.setCardBackgroundColor(R.drawable.button_background)
             val intent=Intent()
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT

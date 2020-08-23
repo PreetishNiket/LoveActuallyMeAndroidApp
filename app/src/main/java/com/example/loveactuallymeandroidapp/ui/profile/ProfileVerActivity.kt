@@ -1,30 +1,36 @@
 package com.example.loveactuallymeandroidapp.ui.profile
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import android.provider.MediaStore
-import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.loveactuallymeandroidapp.MainActivity
 import com.example.loveactuallymeandroidapp.R
-import com.example.loveactuallymeandroidapp.ui.auth.SignUpActivity
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_profile_ver.*
 
 
 class ProfileVerActivity : AppCompatActivity() {
+    var storage: FirebaseStorage? = null
+    var  selectedImageURI=String
+    var storageReference: StorageReference? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_ver)
         supportActionBar?.hide()
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage!!.getReference();
         click_photo.setOnClickListener {
                     askPermission()
         }
@@ -40,8 +46,10 @@ class ProfileVerActivity : AppCompatActivity() {
                 this,
                 Manifest.permission.CAMERA
             ) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA),
-                CAMERA_PERM_CODE)
+            ActivityCompat.requestPermissions(
+                this, arrayOf(Manifest.permission.CAMERA),
+                CAMERA_PERM_CODE
+            )
 
         }else{
             openCamera()
@@ -51,7 +59,8 @@ class ProfileVerActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
-        grantResults: IntArray) {
+        grantResults: IntArray
+    ) {
         if (requestCode == CAMERA_PERM_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 openCamera()
@@ -73,14 +82,39 @@ class ProfileVerActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode== CAMERA_REQUEST_CODE){
+            val imageUri = data!!.data
             val image:Bitmap= data?.extras?.get("data") as Bitmap
+            //   profileImage.setImageURI(imageUri);
+            if (imageUri != null) {
+                uploadImageToFirebase(imageUri)
+            }
             profile_ver_iv.setImageBitmap(image)
             profile_ver_iv.handler.postDelayed({
                 Toast.makeText(this, "Verified", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this,ProfileActivity::class.java))
-            },500)
+                startActivity(Intent(this, ProfileActivity::class.java))
+            }, 500)
 
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
+    private fun uploadImageToFirebase(imageUri: Uri) {
+        // uplaod image to firebase storage
+        val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+        val mobile=preference.getString("mobilenumber",null).toString()
+
+        val fileRef = storageReference!!.child("users/" + mobile + "/profile.jpg")
+        fileRef.putFile(imageUri).addOnSuccessListener {
+            fileRef.downloadUrl.addOnSuccessListener { uri ->
+                Picasso.get().load(uri).into(profile_ver_iv)
+                val profileRef = storageReference!!.child("users/" + mobile + "/profile.jpg")
+                profileRef.downloadUrl.addOnSuccessListener { uri ->
+                    Picasso.get().load(uri).into(profile_ver_iv)
+                }
+            }
+        }.addOnFailureListener {
+            Toast.makeText(this@ProfileVerActivity, "Failed.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
 }
