@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "383096824387",
+    "firebase_url": "https://loveactuallymeandroidapp.firebaseio.com",
+    "project_id": "loveactuallymeandroidapp",
+    "storage_bucket": "loveactuallymeandroidapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383096824387:android:ee4be1a165868eea052af6",
+        "android_client_info": {
+          "package_name": "com.example.loveactuallymeandroidapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383096824387-s9gvdd8jvrto5944k08aiengmh6p4son.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.loveactuallymeandroidapp",
+            "certificate_hash": "7797b0b7060ea56139bea81357ecdebbc404cad9"
+          }
+        },
+        {
+          "client_id": "383096824387-k3c08n28epcob9grtq68bm81mki4amo1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBoe2eJll3kOJoVt6bbnfkpOqriqksBvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383096824387-k3c08n28epcob9grtq68bm81mki4amo1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
