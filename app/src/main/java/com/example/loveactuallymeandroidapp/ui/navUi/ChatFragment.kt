@@ -94,9 +94,7 @@ class ChatFragment : Fragment() {
             override fun onItemClick(item: Chat1) {
                 startActivity(Intent(v.context, ConversationActivity::class.java))
             }
-
         }
-
         v.rv_v.setHasFixedSize(true)
 
         v.rv_h.layoutManager=LinearLayoutManager(v.context,LinearLayoutManager.HORIZONTAL,false)
