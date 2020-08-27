@@ -36,7 +36,11 @@ class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Cha
             lastMsg.text=list1[position].lastMsg
         }
         holder.root.setOnClickListener {
+// <<<<<<< HEAD
             Toast.makeText(context, "This will Open chat Activity which will only be implemented when we will implement backend", Toast.LENGTH_SHORT).show()
+// =======
+           onItemClickListener?.onItemClick(list1[position])
+// >>>>>>> bccc6efc1850fe9ff19dda55303e7621a68eed85
         }
     }
 }

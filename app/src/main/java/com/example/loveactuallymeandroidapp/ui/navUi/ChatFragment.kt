@@ -92,7 +92,17 @@ class ChatFragment : Fragment() {
 
         val v= inflater.inflate(R.layout.fragment_chat, container, false)
         v.rv_v.layoutManager=LinearLayoutManager(v.context)
+// <<<<<<< HEAD
         v.rv_v.adapter=ChatVerticalAdapter(v.context,list1)
+// =======
+        val adapter1=ChatVerticalAdapter(v.context,list1)
+        v.rv_v.adapter=adapter1
+        adapter1.onItemClickListener=object :UserOnItemClickListener{
+            override fun onItemClick(item: Chat1) {
+                startActivity(Intent(v.context, ConversationActivity::class.java))
+            }
+        }
+// >>>>>>> bccc6efc1850fe9ff19dda55303e7621a68eed85
         v.rv_v.setHasFixedSize(true)
         v.rv_h.layoutManager=LinearLayoutManager(v.context,LinearLayoutManager.HORIZONTAL,false)
         v.rv_h.adapter=ChatHorizontalAdapter(v.context,list2)
