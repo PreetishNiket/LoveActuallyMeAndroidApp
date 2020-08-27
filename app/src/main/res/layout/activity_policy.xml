@@ -35,12 +35,12 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="219dp"
-        android:layout_height="38dp"
-        android:textSize="16sp"
+        android:layout_width="220dp"
+        android:layout_height="57dp"
+        android:text="@string/this_doesn_t_let_the_app_post_to_n_facebook_or_linkedin"
         android:textAlignment="center"
         android:textColor="#FFF"
-        android:text="@string/this_doesn_t_let_the_app_post_to_n_facebook_or_linkedin"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

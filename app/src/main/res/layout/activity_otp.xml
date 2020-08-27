@@ -20,8 +20,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="236dp"
-        android:layout_height="38dp"
+        android:layout_width="245dp"
+        android:layout_height="42dp"
         android:text="OTP Verification"
         android:textColor="#EC6273"
         android:textSize="32sp"
@@ -47,20 +47,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.883" />
-
-    <!--    <TextView-->
-<!--        android:id="@+id/textView13"-->
-<!--        android:layout_width="53dp"-->
-<!--        android:layout_height="19dp"-->
-<!--        android:text="send to"-->
-<!--        android:textColor="#868686"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.765"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.3" />-->
-
     <TextView
         android:id="@+id/textView12"
         android:layout_width="277dp"
