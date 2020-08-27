@@ -7,22 +7,18 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loveactuallymeandroidapp.R
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_socializing.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 @Suppress("DEPRECATION")
 class SocializingActivity : AppCompatActivity(), View.OnClickListener {
-    var imageselected = String()
+    private var imageSelected = String()
     var about = String()
-    var typeselected = String()
+    private var typeSelected = String()
     var thisDate = String()
     var localTime = String()
 
@@ -31,6 +27,8 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_socializing)
         supportActionBar?.hide()
+
+        //code?
         val currentDate = SimpleDateFormat("dd/MM/yyyy")
         val todayDate = Date()
         thisDate = currentDate.format(todayDate).toString()
@@ -62,33 +60,32 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-
     override fun onClick(v: View) {
 
         //Used to check whether user is 'able' or 'pwd'
-        when (v.getId()) {
+        when (v.id) {
             R.id.imageView -> {
                 imageView2.setColorFilter(
-                    getResources().getColor(R.color.white),
+                    resources.getColor(R.color.white),
                     PorterDuff.Mode.SRC_ATOP
                 )
                 imageView.setColorFilter(
-                    getResources().getColor(R.color.pink),
+                    resources.getColor(R.color.pink),
                     PorterDuff.Mode.SRC_ATOP
                 )
                 //stores the information in image selected based on what user clicked
-                imageselected = "able"
+                imageSelected = "able"
             }
             R.id.imageView2 -> {
                 imageView.setColorFilter(
-                    getResources().getColor(R.color.white),
+                    resources.getColor(R.color.white),
                     PorterDuff.Mode.SRC_ATOP
                 )
                 imageView2.setColorFilter(
-                    getResources().getColor(R.color.pink),
+                    resources.getColor(R.color.pink),
                     PorterDuff.Mode.SRC_ATOP
                 )
-                imageselected = "pwd"
+                imageSelected = "pwd"
             }
             R.id.cardView -> {
                 cardView.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -101,8 +98,8 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                 cardView8.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView9.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView12.setCardBackgroundColor(Color.parseColor("#868686"))
-                //the type of person is stored in typeselected based on user seletion
-                typeselected = "Gay"
+                //the type of person is stored in typeSelected based on user selection
+                typeSelected = "Gay"
             }
             R.id.cardView2 -> {
                 cardView2.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -115,7 +112,7 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                 cardView8.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView9.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView12.setCardBackgroundColor(Color.parseColor("#868686"))
-                typeselected = "Bisexual"
+                typeSelected = "Bisexual"
             }
             R.id.cardView3 -> {
                 cardView3.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -128,7 +125,7 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                 cardView8.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView9.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView12.setCardBackgroundColor(Color.parseColor("#868686"))
-                typeselected = "Demisexual"
+                typeSelected = "Demisexual"
             }
             R.id.cardView4 -> {
                 cardView4.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -141,7 +138,7 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                 cardView8.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView9.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView12.setCardBackgroundColor(Color.parseColor("#868686"))
-                typeselected = "Queer"
+                typeSelected = "Queer"
             }
             R.id.cardView5 -> {
                 cardView5.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -154,7 +151,7 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                 cardView8.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView9.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView12.setCardBackgroundColor(Color.parseColor("#868686"))
-                typeselected = "Aromatic"
+                typeSelected = "Aromatic"
             }
             R.id.cardView6 -> {
                 cardView6.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -167,7 +164,7 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                 cardView8.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView9.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView12.setCardBackgroundColor(Color.parseColor("#868686"))
-                typeselected = "Straight"
+                typeSelected = "Straight"
             }
             R.id.cardView7 -> {
                 cardView7.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -180,7 +177,7 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                 cardView8.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView9.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView12.setCardBackgroundColor(Color.parseColor("#868686"))
-                typeselected = "lesbian"
+                typeSelected = "lesbian"
             }
             R.id.cardView8 -> {
                 cardView8.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -193,7 +190,7 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                 cardView.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView9.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView12.setCardBackgroundColor(Color.parseColor("#868686"))
-                typeselected = "Asexual"
+                typeSelected = "Asexual"
             }
             R.id.cardView9 -> {
                 cardView9.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -206,7 +203,7 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                 cardView8.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView12.setCardBackgroundColor(Color.parseColor("#868686"))
-                typeselected = "pansexual"
+                typeSelected = "pansexual"
             }
             R.id.cardView12 -> {
                 cardView12.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -219,33 +216,30 @@ class SocializingActivity : AppCompatActivity(), View.OnClickListener {
                 cardView8.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView9.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView.setCardBackgroundColor(Color.parseColor("#868686"))
-                typeselected = "Bicurious"
+                typeSelected = "Bicurious"
             }
             R.id.cardView13 -> {
                 about = editTextTextPersonAbout.text.toString()
-                if (about.isNotEmpty() && imageselected.isNotEmpty() && typeselected.isNotEmpty()) {
-                    val preference = getSharedPreferences(
-                        resources.getString(R.string.app_name),
-                        Context.MODE_PRIVATE
-                    )
+                if (about.isNotEmpty() && imageSelected.isNotEmpty() && typeSelected.isNotEmpty()) {
+                    val preference = getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
 
                     val editor = preference.edit()
-                    editor.putString("ability", imageselected)
+                    editor.putString("ability", imageSelected)
                     editor.putString("about", about)
-                    editor.putString("type", typeselected)
-                    //mobile = preference.getString("mobilenumber", null).toString()
+                    editor.putString("type", typeSelected)
                     editor.apply()
+
+                    //mobile = preference.getString("mobilenumber", null).toString()
+
                     startActivity(Intent(this, ReligiousActivity::class.java))
+
                     //Toast.makeText(applicationContext, mobile, Toast.LENGTH_SHORT).show()
 
                 }
-
-
             }
             //val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
             // mobile= preference.getString("mobilenumber",null).toString()
             // textView.setText(mobile)
         }
-
     }
 }

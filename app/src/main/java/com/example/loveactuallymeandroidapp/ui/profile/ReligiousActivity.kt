@@ -41,11 +41,9 @@ class ReligiousActivity : AppCompatActivity(), View.OnClickListener {
         back_finish.setOnClickListener {
             finish()
         }
-
     }
-
     override fun onClick(v: View) {
-        when (v.getId()) {
+        when (v.id) {
             R.id.cardView1 -> run {
                 cardView1.setCardBackgroundColor(Color.parseColor("#EC6273"))
                 cardView2.setCardBackgroundColor(Color.parseColor("#868686"))
@@ -57,7 +55,7 @@ class ReligiousActivity : AppCompatActivity(), View.OnClickListener {
                 cardView4.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView3.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView11.setCardBackgroundColor(Color.parseColor("#868686"))
-                //the type of person is stored in typeselected based on user seletion
+                //the type of person is stored in type selected based on user selection
                 religionselected = "Agnostic"
             }
             R.id.cardView2 -> run {
@@ -177,7 +175,6 @@ class ReligiousActivity : AppCompatActivity(), View.OnClickListener {
                 cardView1.setCardBackgroundColor(Color.parseColor("#868686"))
                 religionselected = "Zoroastrian"
             }
-
         }
         if (religionselected.isNotEmpty())
         {
