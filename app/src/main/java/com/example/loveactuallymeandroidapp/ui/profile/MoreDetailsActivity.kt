@@ -27,7 +27,7 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
         val userName=intent.getStringExtra("name")
         tv.text="Hello\n${userName}"
         getStartedButton.setOnClickListener {
-//           Toast.makeText(this, "Main Screen will be implemented Soon", Toast.LENGTH_SHORT).show()
+
             val preference = getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
             val mobile = preference.getString("mobilenumber", null).toString()
             val about = preference.getString("about", null).toString()
@@ -73,6 +73,7 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
 
 
         }
+
         back1.setOnClickListener {
             finish()
         }
@@ -88,7 +89,6 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
     }
     companion object{
         const val GALLERY_PICKER=1;
-
     }
     private  var int=0
     override fun onClick(v: View) {

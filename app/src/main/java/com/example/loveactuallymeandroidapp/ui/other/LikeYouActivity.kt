@@ -10,7 +10,7 @@ import com.example.loveactuallymeandroidapp.utlis.dataClass.LikeYou
 import kotlinx.android.synthetic.main.activity_like_you.*
 
 class LikeYouActivity : AppCompatActivity() {
-    val list= arrayListOf(
+    private val list= arrayListOf(
         LikeYou(
             R.drawable.ex_img,
             "Cody Fisher",

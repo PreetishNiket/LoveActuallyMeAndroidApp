@@ -11,7 +11,7 @@ import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat2
 
 class ChatHorizontalAdapter(val context: Context, private val list2: ArrayList<Chat2>): RecyclerView.Adapter<ChatHorizontalAdapter.ChatViewHolder>() {
-    inner class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
+    class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
         val userName: TextView =view.findViewById(R.id.name_tv1)
         val img: ImageView =view.findViewById(R.id.circularImageView1)
     }

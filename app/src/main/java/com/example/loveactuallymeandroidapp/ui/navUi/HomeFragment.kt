@@ -45,7 +45,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
         likeButton.setOnClickListener {
             startActivity(Intent(context, LikeYouActivity::class.java))
         }
-
         return frag
     }
     override fun onClick(view: View) {

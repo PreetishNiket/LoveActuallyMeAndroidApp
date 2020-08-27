@@ -1,5 +1,6 @@
 package com.example.loveactuallymeandroidapp.ui.navUi
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,27 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.loveactuallymeandroidapp.ConversationActivity
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.ChatHorizontalAdapter
 import com.example.loveactuallymeandroidapp.adapter.ChatVerticalAdapter
+import com.example.loveactuallymeandroidapp.adapter.UserOnItemClickListener
 import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat1
 import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat2
 import kotlinx.android.synthetic.main.fragment_chat.view.*
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class ChatFragment : Fragment() {
 
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
     private val list1= arrayListOf(
         Chat1(
@@ -92,9 +87,7 @@ class ChatFragment : Fragment() {
 
         val v= inflater.inflate(R.layout.fragment_chat, container, false)
         v.rv_v.layoutManager=LinearLayoutManager(v.context)
-// <<<<<<< HEAD
         v.rv_v.adapter=ChatVerticalAdapter(v.context,list1)
-// =======
         val adapter1=ChatVerticalAdapter(v.context,list1)
         v.rv_v.adapter=adapter1
         adapter1.onItemClickListener=object :UserOnItemClickListener{
@@ -102,8 +95,8 @@ class ChatFragment : Fragment() {
                 startActivity(Intent(v.context, ConversationActivity::class.java))
             }
         }
-// >>>>>>> bccc6efc1850fe9ff19dda55303e7621a68eed85
         v.rv_v.setHasFixedSize(true)
+
         v.rv_h.layoutManager=LinearLayoutManager(v.context,LinearLayoutManager.HORIZONTAL,false)
         v.rv_h.adapter=ChatHorizontalAdapter(v.context,list2)
         v.rv_h.setHasFixedSize(true)

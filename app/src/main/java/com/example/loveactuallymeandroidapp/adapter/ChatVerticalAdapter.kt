@@ -13,8 +13,8 @@ import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat1
 
 class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Chat1>): RecyclerView.Adapter<ChatVerticalAdapter.ChatViewHolder>() {
-
-    inner class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
+    var onItemClickListener:UserOnItemClickListener?=null
+    class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
         val userName:TextView=view.findViewById(R.id.name_tv)
         val lastMsg:TextView=view.findViewById(R.id.last_chat_tv)
         val img:ImageView=view.findViewById(R.id.circularImageView)
@@ -36,11 +36,10 @@ class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Cha
             lastMsg.text=list1[position].lastMsg
         }
         holder.root.setOnClickListener {
-// <<<<<<< HEAD
-            Toast.makeText(context, "This will Open chat Activity which will only be implemented when we will implement backend", Toast.LENGTH_SHORT).show()
-// =======
-           onItemClickListener?.onItemClick(list1[position])
-// >>>>>>> bccc6efc1850fe9ff19dda55303e7621a68eed85
+            onItemClickListener?.onItemClick(list1[position])
         }
     }
+}
+interface UserOnItemClickListener{
+    fun onItemClick(item:Chat1)
 }

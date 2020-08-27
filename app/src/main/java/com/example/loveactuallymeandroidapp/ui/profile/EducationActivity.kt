@@ -6,16 +6,16 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.example.loveactuallymeandroidapp.R
 import kotlinx.android.synthetic.main.activity_education.*
 
 class EducationActivity : AppCompatActivity(), View.OnClickListener {
-    var educationselected = String()
+    private var educationSelected = String()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_education)
         supportActionBar?.hide()
+
         cardView1.setOnClickListener(this)
         cardView2.setOnClickListener(this)
         cardView4.setOnClickListener(this)
@@ -23,6 +23,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
         cardView6.setOnClickListener(this)
         cardView5.setOnClickListener(this)
         cardView7.setOnClickListener(this)
+
         skip_e.setOnClickListener {
             startActivity(Intent(this, ProfileVerActivity::class.java))
             finish()
@@ -33,7 +34,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        when (v.getId()) {
+        when (v.id) {
             R.id.cardView1 -> run {
                 cardView1.setCardBackgroundColor(Color.parseColor("#EC6273"))
                 cardView2.setCardBackgroundColor(Color.parseColor("#868686"))
@@ -42,8 +43,8 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView6.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
-                //the type of person is stored in typeselected based on user seletion
-                educationselected = "High School"
+                //the type of person is stored in type selected based on user selection
+                educationSelected = "High School"
             }
             R.id.cardView2 -> run {
                 cardView2.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -53,7 +54,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView6.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "In College"
+                educationSelected = "In College"
             }
             R.id.cardView4 -> {
                 cardView4.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -63,7 +64,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView6.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "Masters"
+                educationSelected = "Masters"
             }
             R.id.cardView3 -> {
                 cardView3.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -73,7 +74,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView6.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "Graduate"
+                educationSelected = "Graduate"
             }
             R.id.cardView6 -> {
                 cardView6.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -83,7 +84,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView1.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "Post Graduate"
+                educationSelected = "Post Graduate"
             }
             R.id.cardView5 -> {
                 cardView5.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -93,7 +94,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView6.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView1.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView7.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "M.Phil"
+                educationSelected = "M.Phil"
             }
             R.id.cardView7 -> {
                 cardView7.setCardBackgroundColor(Color.parseColor("#EC6273"))
@@ -103,15 +104,15 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
                 cardView6.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView5.setCardBackgroundColor(Color.parseColor("#868686"))
                 cardView1.setCardBackgroundColor(Color.parseColor("#868686"))
-                educationselected = "Phd"
+                educationSelected = "Phd"
             }
 
         }
-        if (educationselected.isNotEmpty())
+        if (educationSelected.isNotEmpty())
         {
             val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
             val editor=preference.edit()
-            editor.putString("education",educationselected)
+            editor.putString("education",educationSelected)
             editor.apply()
             startActivity(Intent(this, ProfileVerActivity::class.java))
             finish()

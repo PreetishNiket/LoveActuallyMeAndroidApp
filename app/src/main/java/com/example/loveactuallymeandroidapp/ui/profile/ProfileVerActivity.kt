@@ -20,9 +20,9 @@ import kotlinx.android.synthetic.main.activity_profile_ver.*
 
 
 class ProfileVerActivity : AppCompatActivity() {
-    var storage: FirebaseStorage? = null
+    private var storage: FirebaseStorage? = null
     var  selectedImageURI=String
-    var storageReference: StorageReference? = null
+    private var storageReference: StorageReference? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class ProfileVerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile_ver)
         supportActionBar?.hide()
         storage = FirebaseStorage.getInstance();
-        storageReference = storage!!.getReference();
+        storageReference = storage!!.reference;
         click_photo.setOnClickListener {
                     askPermission()
         }
@@ -42,25 +42,14 @@ class ProfileVerActivity : AppCompatActivity() {
     }
 
     private fun askPermission() {
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.CAMERA
-            ) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(
-                this, arrayOf(Manifest.permission.CAMERA),
-                CAMERA_PERM_CODE
-            )
-
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_PERM_CODE)
         }else{
             openCamera()
         }
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         if (requestCode == CAMERA_PERM_CODE) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 openCamera()
@@ -83,7 +72,7 @@ class ProfileVerActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode== CAMERA_REQUEST_CODE){
             val imageUri = data!!.data
-            val image:Bitmap= data?.extras?.get("data") as Bitmap
+            val image:Bitmap= data.extras?.get("data") as Bitmap
             //   profileImage.setImageURI(imageUri);
             if (imageUri != null) {
                 uploadImageToFirebase(imageUri)
@@ -98,15 +87,15 @@ class ProfileVerActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
     }
     private fun uploadImageToFirebase(imageUri: Uri) {
-        // uplaod image to firebase storage
+        // upload image to firebase storage
         val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
         val mobile=preference.getString("mobilenumber",null).toString()
 
-        val fileRef = storageReference!!.child("users/" + mobile + "/profile.jpg")
+        val fileRef = storageReference!!.child("users/$mobile/profile.jpg")
         fileRef.putFile(imageUri).addOnSuccessListener {
             fileRef.downloadUrl.addOnSuccessListener { uri ->
                 Picasso.get().load(uri).into(profile_ver_iv)
-                val profileRef = storageReference!!.child("users/" + mobile + "/profile.jpg")
+                val profileRef = storageReference!!.child("users/$mobile/profile.jpg")
                 profileRef.downloadUrl.addOnSuccessListener { uri ->
                     Picasso.get().load(uri).into(profile_ver_iv)
                 }
@@ -115,6 +104,4 @@ class ProfileVerActivity : AppCompatActivity() {
             Toast.makeText(this@ProfileVerActivity, "Failed.", Toast.LENGTH_SHORT).show()
         }
     }
-
-
 }
