@@ -50,6 +50,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
 
     //Firebase
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
     implementation 'com.google.firebase:firebase-database:19.3.1'
     implementation 'com.google.firebase:firebase-firestore:21.5.0'
     implementation 'com.google.firebase:firebase-storage:19.1.1'
@@ -63,6 +64,7 @@ dependencies {
     implementation 'com.hbb20:ccp:2.4.0'
     //PinView
     implementation 'com.github.GoodieBag:Pinview:v1.4'
+    implementation 'com.chaos.view:pinview:1.4.3'
     //circular imageView
     implementation 'com.mikhaellopez:circularimageview:4.2.0'
     //DatePickerSpinner
