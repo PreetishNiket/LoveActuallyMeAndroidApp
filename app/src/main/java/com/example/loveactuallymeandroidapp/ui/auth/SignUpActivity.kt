@@ -17,7 +17,6 @@ class SignUpActivity : AppCompatActivity() {
         supportActionBar?.hide()
         login_text.setOnClickListener {
             startActivity(Intent(this,LogInActivity::class.java))
-            finish()
         }
         back_finish.setOnClickListener {
             finish()
