@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.loveactuallymeandroidapp.R
-import com.example.loveactuallymeandroidapp.utlis.dataClass.ProfileInfo
+import com.example.loveactuallymeandroidapp.dataClass.ProfileInfo
 import com.example.loveactuallymeandroidapp.adapter.ProfileInfoAdapter
 import kotlinx.android.synthetic.main.activity_profile_info2.*
 

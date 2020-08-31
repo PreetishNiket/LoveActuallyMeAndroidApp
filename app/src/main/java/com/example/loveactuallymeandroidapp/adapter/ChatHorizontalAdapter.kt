@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
-import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat2
+import com.example.loveactuallymeandroidapp.dataClass.Chat2
 
 class ChatHorizontalAdapter(val context: Context, private val list2: ArrayList<Chat2>): RecyclerView.Adapter<ChatHorizontalAdapter.ChatViewHolder>() {
     class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){

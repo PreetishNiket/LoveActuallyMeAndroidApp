@@ -1,3 +1,3 @@
-package com.example.loveactuallymeandroidapp.utlis.dataClass
+package com.example.loveactuallymeandroidapp.dataClass
 
 data class LikeYou(val image: Int, val userName:String, val status:String)

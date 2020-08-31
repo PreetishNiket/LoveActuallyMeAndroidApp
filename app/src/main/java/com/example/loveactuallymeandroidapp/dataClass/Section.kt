@@ -1,3 +1,3 @@
-package com.example.loveactuallymeandroidapp.utlis.dataClass
+package com.example.loveactuallymeandroidapp.dataClass
 
 data class Section(val sectionName:String,val sectionItem:ArrayList<String>)

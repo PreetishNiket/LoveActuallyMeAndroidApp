@@ -1,4 +1,4 @@
-package com.example.loveactuallymeandroidapp.utlis.dataClass
+package com.example.loveactuallymeandroidapp.dataClass
 
 data class Profile(
     val age: Int,

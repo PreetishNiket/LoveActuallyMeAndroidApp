@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.LikeYouAdapter
-import com.example.loveactuallymeandroidapp.utlis.dataClass.LikeYou
+import com.example.loveactuallymeandroidapp.dataClass.LikeYou
 import kotlinx.android.synthetic.main.activity_like_you.*
 
 class LikeYouActivity : AppCompatActivity() {

@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
-import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat1
+import com.example.loveactuallymeandroidapp.dataClass.Chat1
 
 class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Chat1>): RecyclerView.Adapter<ChatVerticalAdapter.ChatViewHolder>() {
     var onItemClickListener:UserOnItemClickListener?=null
@@ -41,5 +40,5 @@ class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Cha
     }
 }
 interface UserOnItemClickListener{
-    fun onItemClick(item:Chat1)
+    fun onItemClick(item: Chat1)
 }

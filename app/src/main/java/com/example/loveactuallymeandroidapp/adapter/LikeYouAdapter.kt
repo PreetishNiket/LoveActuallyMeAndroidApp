@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
 
-import com.example.loveactuallymeandroidapp.utlis.dataClass.LikeYou
+import com.example.loveactuallymeandroidapp.dataClass.LikeYou
 
 class LikeYouAdapter(val context: Context,private val list: ArrayList<LikeYou>):RecyclerView.Adapter<LikeYouAdapter.LikeViewHolder>() {
 

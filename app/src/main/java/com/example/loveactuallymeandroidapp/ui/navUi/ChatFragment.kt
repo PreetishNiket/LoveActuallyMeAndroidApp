@@ -13,8 +13,8 @@ import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.ChatHorizontalAdapter
 import com.example.loveactuallymeandroidapp.adapter.ChatVerticalAdapter
 import com.example.loveactuallymeandroidapp.adapter.UserOnItemClickListener
-import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat1
-import com.example.loveactuallymeandroidapp.utlis.dataClass.Chat2
+import com.example.loveactuallymeandroidapp.dataClass.Chat1
+import com.example.loveactuallymeandroidapp.dataClass.Chat2
 import kotlinx.android.synthetic.main.fragment_chat.view.*
 
 
