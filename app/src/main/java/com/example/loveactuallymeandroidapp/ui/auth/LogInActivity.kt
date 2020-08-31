@@ -33,6 +33,7 @@ class LogInActivity : AppCompatActivity() {
         back_finish.setOnClickListener {
             finish()
         }
+        //not working
         log_in_button.setOnClickListener {
             val phoneNumber= editTextPhone.text.toString()
             if (phoneNumber.isNotEmpty() && phoneNumber.length == 10) {
