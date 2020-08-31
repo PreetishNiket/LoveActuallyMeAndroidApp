@@ -21,7 +21,7 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
         val childRv:RecyclerView=view.findViewById(R.id.child_rv_set)
     }
     inner class SettingFooterViewHolder(view: View):RecyclerView.ViewHolder(view){
-            val logOutBtn:Button=view.findViewById(R.id.log_out_button)
+            val logOutBtn:Button=view.findViewById(R.id.sign_up_button)
             val deleteBtn:Button=view.findViewById(R.id.delete_button)
     }
 

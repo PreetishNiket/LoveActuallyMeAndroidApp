@@ -5,8 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loveactuallymeandroidapp.R
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 
@@ -22,7 +20,7 @@ class SignUpActivity : AppCompatActivity() {
             finish()
         }
 
-        log_out_button.setOnClickListener {
+        sign_up_button.setOnClickListener {
            val phoneNumber= editTextPhone.text.toString()
             if (phoneNumber.isNotEmpty() && phoneNumber.length == 10) {
                 val firstDigit = phoneNumber.substring(0, 1).toInt()
