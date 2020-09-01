@@ -41,7 +41,7 @@ class OtpActivity : AppCompatActivity() {
         FirebaseAuth.getInstance()
     }
     private val db by lazy {
-        FirebaseDatabase.getInstance().reference
+        FirebaseDatabase.getInstance().reference.child("Users")
     }
     private val callbacks=object :PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
@@ -68,19 +68,20 @@ class OtpActivity : AppCompatActivity() {
         val credential = PhoneAuthProvider.getCredential(storedVerificationId, code)
         signInWithPhoneAuthCredential(credential)
     }
+//    var id:String?=""
     private fun signInWithPhoneAuthCredential(phoneAuthCredential: PhoneAuthCredential) {
         auth.signInWithCredential(phoneAuthCredential)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful){
 
-                    val id=auth.currentUser?.uid
-                    db.child("Users").child(id!!)
-                    val usersHashMap=HashMap<String,Any>()
-                    usersHashMap["uid"]=id
+                   val  id=auth.currentUser?.uid
+
+                    val usersHashMap=HashMap<String,String?>()
+                   usersHashMap["uid"]=id
                     usersHashMap["phoneNumber"]=phoneNumber
                     usersHashMap["profile_photo"]="https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
                     usersHashMap["status"]="offline"
-                    db.updateChildren(usersHashMap).addOnCompleteListener {task->
+                    db.child(id!!).setValue(usersHashMap).addOnCompleteListener {task->
                         if (task.isSuccessful){
                             val intent=Intent(this,
                                 SocializingActivity::class.java)

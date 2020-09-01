@@ -10,11 +10,19 @@ import android.view.View
 import android.widget.Toast
 import com.example.loveactuallymeandroidapp.MainActivity
 import com.example.loveactuallymeandroidapp.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_more_details.*
 import kotlinx.android.synthetic.main.activity_more_details.tv
 
 class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
+    }
+    private val dbRef by lazy {
+        FirebaseDatabase.getInstance().reference
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_more_details)
@@ -39,7 +47,7 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
             val dob = preference.getString("dateofbirth", null).toString()
             val name = preference.getString("name", null).toString()
 
-            val Userdetails = hashMapOf(
+            val userDetails = hashMapOf(
                 "Mobile Number" to mobile,
                 "About" to about,
                 "Ability" to ability,
@@ -53,7 +61,7 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
             val db = FirebaseFirestore.getInstance()
 
             db.collection("users").document(mobile)
-                .set(Userdetails)
+                .set(userDetails)
                 .addOnSuccessListener {
                     Toast.makeText(
                         applicationContext,
@@ -70,8 +78,10 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
-
+            userDetails["profile_photo"] = "https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
+            userDetails["status"]="offline"
+            val id=auth.currentUser?.uid
+            dbRef.child("Users").child(id!!).setValue(userDetails)
         }
 
         back1.setOnClickListener {
