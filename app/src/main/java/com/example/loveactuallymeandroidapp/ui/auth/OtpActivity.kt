@@ -29,69 +29,80 @@ class OtpActivity : AppCompatActivity() {
         }
         sendCode(phoneNumber)
         verify_button.setOnClickListener {
-            val code=pinView.text.toString()
-            if (code.isNotEmpty()){
+            val code = pinView.text.toString()
+            if (code.isNotEmpty()) {
                 verifyCode(code)
             }
         }
     }
+
     //global
-    private lateinit var storedVerificationId:String
+    private lateinit var storedVerificationId: String
     private val auth by lazy {
         FirebaseAuth.getInstance()
     }
     private val db by lazy {
         FirebaseDatabase.getInstance().reference.child("Users")
     }
-    private val callbacks=object :PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
+    private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-            val code= credential.smsCode
-            if (code!=null){
+            val code = credential.smsCode
+            if (code != null) {
                 pinView.setText(code)
                 verifyCode(code)
             }
         }
 
         override fun onVerificationFailed(exception: FirebaseException) {
-            Toast.makeText(this@OtpActivity,exception.message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@OtpActivity, exception.message, Toast.LENGTH_SHORT).show()
         }
-        override fun onCodeSent(verificationId: String, forceResendingToken: PhoneAuthProvider.ForceResendingToken) {
+
+        override fun onCodeSent(
+            verificationId: String,
+            forceResendingToken: PhoneAuthProvider.ForceResendingToken
+        ) {
             super.onCodeSent(verificationId, forceResendingToken)
-            storedVerificationId=verificationId
+            storedVerificationId = verificationId
         }
     }
 
     private fun sendCode(phoneNumber: String) {
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber, 60, TimeUnit.SECONDS, this, callbacks)
+        PhoneAuthProvider.getInstance()
+            .verifyPhoneNumber(phoneNumber, 60, TimeUnit.SECONDS, this, callbacks)
     }
-    private fun verifyCode(code:String){
+
+    private fun verifyCode(code: String) {
         val credential = PhoneAuthProvider.getCredential(storedVerificationId, code)
         signInWithPhoneAuthCredential(credential)
     }
-//    var id:String?=""
+
+    //    var id:String?=""
     private fun signInWithPhoneAuthCredential(phoneAuthCredential: PhoneAuthCredential) {
         auth.signInWithCredential(phoneAuthCredential)
             .addOnCompleteListener(this) {
-                if (it.isSuccessful){
+                if (it.isSuccessful) {
 
-                   val  id=auth.currentUser?.uid
+                    val id = auth.currentUser?.uid
 
-                    val usersHashMap=HashMap<String,String?>()
-                   usersHashMap["uid"]=id
-                    usersHashMap["phoneNumber"]=phoneNumber
-                    usersHashMap["profile_photo"]="https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
-                    usersHashMap["status"]="offline"
-                    db.child(id!!).setValue(usersHashMap).addOnCompleteListener {task->
-                        if (task.isSuccessful){
-                            val intent=Intent(this,
-                                SocializingActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    val usersHashMap = HashMap<String, String?>()
+                    usersHashMap["uid"] = id
+                    usersHashMap["phoneNumber"] = phoneNumber
+                    usersHashMap["profile_photo"] =
+                        "https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
+                    usersHashMap["status"] = "offline"
+                    db.child(id!!).setValue(usersHashMap).addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val intent = Intent(
+                                this,
+                                SocializingActivity::class.java
+                            )
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                             startActivity(intent)
                         }
                     }
 
-                }
-                else{
+                } else {
                     Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
                 }
             }

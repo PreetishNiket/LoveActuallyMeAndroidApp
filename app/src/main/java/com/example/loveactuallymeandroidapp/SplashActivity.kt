@@ -15,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         supportActionBar?.hide()
         fauth = FirebaseAuth.getInstance()
-        if (fauth?.getCurrentUser() != null) {
+        if (fauth?.currentUser != null) {
             Handler().postDelayed({
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
