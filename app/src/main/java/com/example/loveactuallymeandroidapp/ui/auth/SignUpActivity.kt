@@ -9,6 +9,9 @@ import kotlinx.android.synthetic.main.activity_sign_up.*
 
 
 class SignUpActivity : AppCompatActivity() {
+    var phoneNumber= String()
+    var mobileNumber =String()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -21,34 +24,41 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         sign_up_button.setOnClickListener {
-           val phoneNumber= editTextPhone.text.toString()
-            if (phoneNumber.isNotEmpty() && phoneNumber.length == 10) {
-                val firstDigit = phoneNumber.substring(0, 1).toInt()
-                if ((firstDigit == 6 || firstDigit == 7 || firstDigit == 8 || firstDigit == 9))
-                {
-                    val  countryCode=countryCodePicker.selectedCountryCode.toString()
-                    val mobileNumber= "+$countryCode$phoneNumber"
+            phoneNumber= editTextPhone.text.toString()
+            val countryCode=countryCodePicker.selectedCountryCode.toString()
+            mobileNumber= "+$countryCode$phoneNumber"
 
-                    val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
-                    val editor=preference.edit()
-                    editor.putString("mobilenumber",mobileNumber)
-                    editor.apply()
-                    val i =Intent(this, OtpActivity::class.java)
-                    i.putExtra("phoneNo",mobileNumber)
-                    startActivity(i)
-                    finish()
-                }
-                else{
-                    editTextPhone.error = "Enter a valid mobile number"
-                }
+            mobilecheck()
+
+        }
+        policy_tv.setOnClickListener {
+            startActivity(Intent(this,PolicyActivity::class.java))
+            finish()
+        }
+    }
+    fun mobilecheck()
+    {
+
+        if (phoneNumber.isNotEmpty() && phoneNumber.length == 10) {
+            val firstDigit = phoneNumber.substring(0, 1).toInt()
+            if ((firstDigit == 6 || firstDigit == 7 || firstDigit == 8 || firstDigit == 9))
+            {
+
+                val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+                val editor=preference.edit()
+                editor.putString("mobilenumber",mobileNumber)
+                editor.apply()
+                val i =Intent(this, OtpActivity::class.java)
+                i.putExtra("phoneNo",mobileNumber)
+                startActivity(i)
+                finish()
             }
             else{
                 editTextPhone.error = "Enter a valid mobile number"
             }
         }
-        policy_tv.setOnClickListener {
-            startActivity(Intent(this,PolicyActivity::class.java))
-            finish()
+        else{
+            editTextPhone.error = "Enter a valid mobile number"
         }
     }
 }
