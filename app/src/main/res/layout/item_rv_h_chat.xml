@@ -20,12 +20,13 @@
             app:civ_border_width="0dp"
             android:layout_marginStart="5dp"
             android:src="@drawable/ex_img" />
-        <ImageView
-            android:id="@+id/imageView12"
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/status"
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_alignEnd="@id/circularImageView1"
             app:srcCompat="@drawable/status_icon"
+            app:civ_border_color="#05df29"
             android:layout_marginTop="54dp"
             android:layout_marginEnd="10dp"/>
 

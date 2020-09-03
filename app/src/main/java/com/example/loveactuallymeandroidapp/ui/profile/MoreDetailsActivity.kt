@@ -78,7 +78,7 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-            userDetails["profile_photo"] = "https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
+            userDetails["userImage"] = "https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
             userDetails["status"]="offline"
             val id=auth.currentUser?.uid
             dbRef.child("Users").child(id!!).setValue(userDetails)

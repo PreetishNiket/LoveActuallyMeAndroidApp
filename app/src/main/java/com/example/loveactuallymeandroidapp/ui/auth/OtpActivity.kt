@@ -81,27 +81,26 @@ class OtpActivity : AppCompatActivity() {
         auth.signInWithCredential(phoneAuthCredential)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
+                    val intent = Intent(
+                        this,
+                        SocializingActivity::class.java
+                    )
+                    intent.flags =
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
 
-                    val id = auth.currentUser?.uid
-
-                    val usersHashMap = HashMap<String, String?>()
-                    usersHashMap["uid"] = id
-                    usersHashMap["phoneNumber"] = phoneNumber
-                    usersHashMap["profile_photo"] =
-                        "https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
-                    usersHashMap["status"] = "offline"
-                    db.child(id!!).setValue(usersHashMap).addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            val intent = Intent(
-                                this,
-                                SocializingActivity::class.java
-                            )
-                            intent.flags =
-                                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                            startActivity(intent)
-                        }
-                    }
-
+//                    val id = auth.currentUser?.uid
+//                    val usersHashMap = HashMap<String, String?>()
+//                    usersHashMap["uid"] = id
+//                    usersHashMap["phoneNumber"] = phoneNumber
+//                    usersHashMap["profile_photo"] =
+//                        "https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
+//                    usersHashMap["status"] = "offline"
+//                    db.child(id!!).setValue(usersHashMap).addOnCompleteListener { task ->
+//                        if (task.isSuccessful) {
+//
+//                        }
+//                    }
                 } else {
                     Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()
                 }

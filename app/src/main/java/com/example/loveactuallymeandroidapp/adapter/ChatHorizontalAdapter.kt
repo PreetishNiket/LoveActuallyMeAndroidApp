@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.dataClass.Chat2
+import com.squareup.picasso.Picasso
 
 class ChatHorizontalAdapter(val context: Context, private val list2: ArrayList<Chat2>): RecyclerView.Adapter<ChatHorizontalAdapter.ChatViewHolder>() {
     class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
@@ -25,8 +26,10 @@ class ChatHorizontalAdapter(val context: Context, private val list2: ArrayList<C
 
     override fun onBindViewHolder(holder:ChatViewHolder, position: Int) {
         with(holder){
-            img.setImageResource(list2[position].userImage)
-            userName.text= list2[position].Username
+           // img.setImageResource(list2[position].userImage)
+            Picasso.get().load(list2[position].userImage).placeholder(R.drawable.account_circle).into(holder.img)
+            userName.text= list2[position].Name
+//            userName.text= list2[position].Username
         }
     }
 }

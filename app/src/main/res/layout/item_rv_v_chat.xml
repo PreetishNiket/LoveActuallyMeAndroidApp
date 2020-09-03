@@ -42,7 +42,7 @@
         android:layout_toEndOf="@id/circularImageView"/>
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/status"
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_alignEnd="@id/circularImageView"
