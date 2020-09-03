@@ -6,9 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/back"
     tools:context=".ui.navUi.ChatFragment">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageView
             android:id="@+id/back1"
             android:layout_width="45dp"
@@ -22,34 +24,37 @@
             android:id="@+id/textView21"
             android:layout_width="98dp"
             android:layout_height="33dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="36dp"
             android:text="Chat"
-            android:layout_centerHorizontal="true"
             android:textAlignment="center"
             android:textColor="@color/pink"
-            android:textSize="25sp"/>
+            android:textSize="25sp" />
 
         <ImageView
             android:id="@+id/imageView10"
             android:layout_width="44dp"
             android:layout_height="28dp"
+            android:layout_marginStart="85dp"
             android:layout_marginTop="35dp"
             android:layout_toEndOf="@id/textView21"
-            android:layout_marginStart="85dp"
             app:srcCompat="@drawable/like_filter" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_h"
             android:layout_width="match_parent"
+            android:layout_height="113dp"
             android:layout_below="@id/textView21"
             android:layout_marginTop="5dp"
-            android:layout_height="107dp"
-            tools:listitem="@layout/item_rv_h_chat"
-            />
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            tools:listitem="@layout/item_rv_h_chat" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_v"
             android:layout_width="match_parent"
-            android:layout_below="@id/rv_h"
             android:layout_height="wrap_content"
+            android:layout_below="@id/rv_h"
             android:layout_marginTop="10dp"
             tools:listitem="@layout/item_rv_v_chat" />
 

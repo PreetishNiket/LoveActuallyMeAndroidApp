@@ -35,7 +35,7 @@
 
     <TextView
         android:id="@+id/name_tv1"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:text="UserName"
         android:textColor="#fff"

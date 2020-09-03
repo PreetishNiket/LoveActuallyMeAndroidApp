@@ -68,33 +68,6 @@ class ChatFragment : Fragment() {
             "Hey dude! How’s it going? · July 16"
         )
     )
-//    private val list2= arrayListOf(
-//        Chat2(
-//            R.drawable.ex_img,
-//            "Cody Fisher"
-//        ),
-//        Chat2(
-//            R.drawable.ex_img1,
-//            "Penna Fox"
-//        ),
-//        Chat2(
-//            R.drawable.ex_img2,
-//            "Rose Martin"
-//        ),
-//        Chat2(
-//            R.drawable.ex_img,
-//            "Hell Gay"
-//        ),
-//        Chat2(
-//            R.drawable.ex_img2,
-//            "Rose Martin"
-//        ),
-//        Chat2(
-//            R.drawable.ex_img2,
-//            " Debi Kim"
-//        )
-//    )
-private var list2:List<Chat2>?=null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val v= inflater.inflate(R.layout.fragment_chat, container, false)
@@ -109,12 +82,8 @@ private var list2:List<Chat2>?=null
         }
         v.rv_v.setHasFixedSize(true)
 
-        list2=ArrayList()
-
         v.rv_h.layoutManager=LinearLayoutManager(v.context,LinearLayoutManager.HORIZONTAL,false)
-//        v.rv_h.adapter=ChatHorizontalAdapter(v.context, list2 as ArrayList<Chat2>)
-//        v.rv_h.setHasFixedSize(true)
-        firebaseData(v)
+        firebaseDataVertical(v)
 
         v.back1.setOnClickListener{
             Toast.makeText(v.context, "No use", Toast.LENGTH_SHORT).show()
@@ -122,30 +91,11 @@ private var list2:List<Chat2>?=null
         return v
     }
 
-
-    private fun retrieveAllUsers() {
-        val firebaseUserId =FirebaseAuth.getInstance().currentUser?.uid
-        val refDb=FirebaseDatabase.getInstance().reference.child("Users")
-        refDb.addValueEventListener(object :ValueEventListener{
-            override fun onDataChange(p0: DataSnapshot) {
-                (list2 as ArrayList<Chat2>).clear()
-                for (snapshot in p0.children)
-                {
-                    val user=p0.getValue(Chat2::class.java)
-//                    if (user!!.uid != firebaseUserId){
-//                        (list2 as ArrayList<Chat2>).add(user)
-//                    }
-
-                }
-            }
-            override fun onCancelled(p0: DatabaseError) {}
-        })
-    }
-    val db by lazy {
+    private val db by lazy {
         FirebaseDatabase.getInstance()
             .reference.child("Users")
     }
-    private fun firebaseData(v:View) {
+    private fun firebaseDataVertical(v:View) {
         val option = FirebaseRecyclerOptions.Builder<Chat2>()
             .setQuery(db, Chat2::class.java)
             .setLifecycleOwner(this)
@@ -159,10 +109,10 @@ private var list2:List<Chat2>?=null
                 holder.userName.text = model.Name
                 Picasso.get().load(model.userImage).placeholder(R.drawable.account_circle).into(holder.img)
                 holder.itemView.setOnClickListener {
-//                    val placeid = getRef(position).key.toString()
-//                    val i=Intent(this@FindFriendsActivity,ProfileActivity::class.java)
-//                    i.putExtra("placeid",placeid)
-//                    startActivity(i)
+                    val placeId = getRef(position).key.toString()
+                    val i=Intent(v.context,ConversationActivity::class.java)
+                   i.putExtra("placeid",placeId)
+                    startActivity(i)
                 }
             }
         }
