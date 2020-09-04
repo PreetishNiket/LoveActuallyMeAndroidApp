@@ -19,8 +19,8 @@ class ConVoAdapter(val context: Context,
     RecyclerView.Adapter<ConVoAdapter.ChatViewHolder>() {
     class ChatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val show_text_message_right:TextView=view.findViewById(R.id.show_text_message_right)
-        val show_text_message_left:TextView=view.findViewById(R.id.show_text_message_left)
+        val showTextMessage:TextView=view.findViewById(R.id.show_text_message)
+        //val show_text_message:TextView=view.findViewById(R.id.show_text_message_left)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ChatViewHolder {
@@ -41,12 +41,12 @@ class ConVoAdapter(val context: Context,
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
         val chat=list2[position]
         if (chat.getSender()==auth?.uid){
-            holder.show_text_message_right.visibility=View.VISIBLE
-            holder.show_text_message_right.text=chat.getMessage()
+            holder.showTextMessage.visibility=View.VISIBLE
+            holder.showTextMessage.text=chat.getMessage()
         }
         else if (chat.getSender()!=auth?.uid){
-            holder.show_text_message_left.visibility=View.VISIBLE
-            holder.show_text_message_left.text=chat.getMessage()
+            holder.showTextMessage.visibility=View.VISIBLE
+            holder.showTextMessage.text=chat.getMessage()
         }
     }
     private val auth by lazy{

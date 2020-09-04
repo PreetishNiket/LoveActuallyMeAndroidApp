@@ -28,4 +28,10 @@ class Conversation {
     fun setMessage(): String {
         return message
     }
+    fun getReceiver(): String {
+        return receiver
+    }
+    fun setReceiver(): String {
+        return receiver
+    }
 }
