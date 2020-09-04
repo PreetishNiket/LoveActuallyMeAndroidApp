@@ -3,6 +3,9 @@ package com.example.loveactuallymeandroidapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.loveactuallymeandroidapp.dataClass.Chat2
+import com.example.loveactuallymeandroidapp.dataClass.Conversation
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
@@ -26,8 +29,8 @@ class ConversationActivity : AppCompatActivity() {
         backBtn.setOnClickListener {
             finish()
         }
-        val reference=FirebaseDatabase.getInstance()
 
+        //firebaseData()
         send_btn.setOnClickListener {
             var message=send_msg.text.toString()
             if (message.isEmpty()){
@@ -38,8 +41,10 @@ class ConversationActivity : AppCompatActivity() {
                 send_msg.text.clear()
             }
         }
-    }
+        val reference=FirebaseDatabase.getInstance()
+            .reference.child("Users").child("")
 
+    }
     private fun sendMessageToUser(id: String, receivedId: String, message: String) {
         val ref=FirebaseDatabase.getInstance().reference
         val messageKey=ref.push().key
