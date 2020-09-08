@@ -2,7 +2,7 @@ package com.example.loveactuallymeandroidapp.dataClass
 
 
 class Chat2 {
-    private var userImage: String? = null
+    var userImage: String? = null
     private var Name: String? = null
     private var status: String? = null
     constructor() {
@@ -17,10 +17,6 @@ class Chat2 {
 
     fun getName(): String? {
         return Name
-    }
-
-    fun getImage(): String? {
-        return userImage
     }
 }
 //    val MobileNumber: String,

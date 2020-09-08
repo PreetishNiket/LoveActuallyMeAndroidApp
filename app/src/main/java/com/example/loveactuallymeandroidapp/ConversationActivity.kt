@@ -57,9 +57,8 @@ class ConversationActivity : AppCompatActivity() {
                     retrieveMessage(id,receivedId)
                     val user=snapshot.getValue(Chat2::class.java)
                     user_name.text=user?.getName()
-                    Picasso.get().load(user?.getImage()).into(user_profile_photo)
+                    Picasso.get().load(user?.userImage).into(user_profile_photo)
                 }
-
                 override fun onCancelled(error: DatabaseError) {}
             })
 

@@ -95,7 +95,7 @@ class ChatFragment : Fragment() {
             }
             override fun onBindViewHolder(holder: MyViewHolder, position: Int, model: Chat2) {
                 holder.userName.text = model.getName()
-                Picasso.get().load(model.getImage()).placeholder(R.drawable.account_circle).into(holder.img)
+                Picasso.get().load(model.userImage).placeholder(R.drawable.account_circle).into(holder.img)
                 holder.itemView.setOnClickListener {
                     val placeId = getRef(position).key.toString()
                     val i=Intent(v.context,ConversationActivity::class.java)
