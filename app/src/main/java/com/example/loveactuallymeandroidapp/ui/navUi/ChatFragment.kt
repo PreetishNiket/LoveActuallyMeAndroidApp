@@ -25,10 +25,9 @@ import kotlinx.android.synthetic.main.fragment_chat.view.*
 
 
 class ChatFragment : Fragment() {
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private val db by lazy {
+        FirebaseDatabase.getInstance()
+            .reference.child("Users")
     }
     private val list1= arrayListOf(
         Chat1(
@@ -65,6 +64,9 @@ class ChatFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val v= inflater.inflate(R.layout.fragment_chat, container, false)
+        v.back1.setOnClickListener{
+            Toast.makeText(v.context, "No use", Toast.LENGTH_SHORT).show()
+        }
         v.rv_v.layoutManager=LinearLayoutManager(v.context)
         v.rv_v.adapter=ChatVerticalAdapter(v.context,list1)
         val adapter1=ChatVerticalAdapter(v.context,list1)
@@ -78,19 +80,10 @@ class ChatFragment : Fragment() {
 
         //horizontal
         v.rv_h.layoutManager=LinearLayoutManager(v.context,LinearLayoutManager.HORIZONTAL,false)
-        firebaseDataVertical(v)
-
-        v.back1.setOnClickListener{
-            Toast.makeText(v.context, "No use", Toast.LENGTH_SHORT).show()
-        }
+        firebaseDataHorizontal(v)
         return v
     }
-
-    private val db by lazy {
-        FirebaseDatabase.getInstance()
-            .reference.child("Users")
-    }
-    private fun firebaseDataVertical(v:View) {
+    private fun firebaseDataHorizontal(v:View) {
         val option = FirebaseRecyclerOptions.Builder<Chat2>()
             .setQuery(db, Chat2::class.java)
             .setLifecycleOwner(this)
@@ -101,8 +94,8 @@ class ChatFragment : Fragment() {
                 return MyViewHolder(itemView)
             }
             override fun onBindViewHolder(holder: MyViewHolder, position: Int, model: Chat2) {
-                holder.userName.text = model.Name
-                Picasso.get().load(model.userImage).placeholder(R.drawable.account_circle).into(holder.img)
+                holder.userName.text = model.getName()
+                Picasso.get().load(model.getImage()).placeholder(R.drawable.account_circle).into(holder.img)
                 holder.itemView.setOnClickListener {
                     val placeId = getRef(position).key.toString()
                     val i=Intent(v.context,ConversationActivity::class.java)

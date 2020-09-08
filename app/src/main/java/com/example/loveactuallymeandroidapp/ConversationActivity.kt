@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_conversation.*
 import kotlinx.android.synthetic.main.activity_conversation.view.*
 
@@ -25,6 +26,7 @@ class ConversationActivity : AppCompatActivity() {
     }
     val id=FirebaseAuth.getInstance().currentUser?.uid
     var conVo:ConVoAdapter?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conversation)
@@ -36,7 +38,7 @@ class ConversationActivity : AppCompatActivity() {
 
         //firebaseData()
         send_btn.setOnClickListener {
-            var message=send_msg.text.toString()
+            val message=send_msg.text.toString()
             if (message.isEmpty()){
                 Toast.makeText(this, "Please Write a message", Toast.LENGTH_SHORT).show()
             }
@@ -53,6 +55,9 @@ class ConversationActivity : AppCompatActivity() {
             .addValueEventListener(object :ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     retrieveMessage(id,receivedId)
+                    val user=snapshot.getValue(Chat2::class.java)
+                    user_name.text=user?.getName()
+                    Picasso.get().load(user?.getImage()).into(user_profile_photo)
                 }
 
                 override fun onCancelled(error: DatabaseError) {}

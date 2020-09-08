@@ -21,7 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/send_msg"
-        android:layout_below="@id/backBtn" />
+        android:layout_below="@id/user_profile_photo"
+        android:layout_marginBottom="-48dp"
+        tools:listitem="@layout/chat_message_right" />
 
     <EditText
         android:id="@+id/send_msg"
@@ -46,5 +48,35 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="15dp"
         android:src="@drawable/ic_baseline_send_24" />
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/user_profile_photo"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="100dp"
+        android:src="@drawable/account_circle"
+        android:layout_width="60dp"
+        android:layout_marginBottom="4dp"
+        android:layout_height="60dp" />
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preetish Niket"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="55dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/user_profile_photo"/>
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3 sec ago"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_below="@id/user_name"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="20dp"
+        android:visibility="visible"
+        android:layout_toEndOf="@id/user_profile_photo"/>
 
 </RelativeLayout>
