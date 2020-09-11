@@ -5,19 +5,15 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.loveactuallymeandroidapp.adapter.ConVoAdapter
-import com.example.loveactuallymeandroidapp.dataClass.Chat2
+import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.example.loveactuallymeandroidapp.dataClass.Conversation
-import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_conversation.*
-import kotlinx.android.synthetic.main.activity_conversation.view.*
 
 class ConversationActivity : AppCompatActivity() {
     private val chatref by lazy {
@@ -55,7 +51,7 @@ class ConversationActivity : AppCompatActivity() {
             .addValueEventListener(object :ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     retrieveMessage(id,receivedId)
-                    val user=snapshot.getValue(Chat2::class.java)
+                    val user=snapshot.getValue(Users::class.java)
                     user_name.text=user?.getName()
                     Picasso.get().load(user?.userImage).into(user_profile_photo)
                 }

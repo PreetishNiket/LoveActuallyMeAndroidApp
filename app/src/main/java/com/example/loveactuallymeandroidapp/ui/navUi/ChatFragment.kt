@@ -16,7 +16,7 @@ import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.ChatVerticalAdapter
 import com.example.loveactuallymeandroidapp.adapter.UserOnItemClickListener
 import com.example.loveactuallymeandroidapp.dataClass.Chat1
-import com.example.loveactuallymeandroidapp.dataClass.Chat2
+import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.example.loveactuallymeandroidapp.dataClass.ChatList
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -36,7 +36,9 @@ class ChatFragment : Fragment() {
     }
     val id= FirebaseAuth.getInstance().currentUser?.uid
     private var usersChatList:List<ChatList>?= null
-    private var
+    private var mUsers:List<Users>?=null
+    private var chatVerticalAdapter:ChatVerticalAdapter?=null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val v= inflater.inflate(R.layout.fragment_chat, container, false)
@@ -60,14 +62,14 @@ class ChatFragment : Fragment() {
             }
             override fun onCancelled(error: DatabaseError) {}
         })
-        v.rv_v.adapter=ChatVerticalAdapter(v.context,usersChatList)
-        val adapter1=ChatVerticalAdapter(v.context,usersChatList)
-        v.rv_v.adapter=adapter1
-        adapter1.onItemClickListener=object :UserOnItemClickListener{
-            override fun onItemClick(item: Chat1) {
-                startActivity(Intent(v.context, ConversationActivity::class.java))
-            }
-        }
+       // v.rv_v.adapter=ChatVerticalAdapter(v.context,usersChatList)
+       // val adapter1=ChatVerticalAdapter(v.context,usersChatList)
+       // v.rv_v.adapter=adapter1
+//        adapter1.onItemClickListener=object :UserOnItemClickListener{
+//            override fun onItemClick(item: Chat1) {
+//                startActivity(Intent(v.context, ConversationActivity::class.java))
+//            }
+//        }
 
 
         //horizontal
@@ -76,20 +78,36 @@ class ChatFragment : Fragment() {
         return v
     }
     fun retrieveChatList(){
+        mUsers=ArrayList()
+        db.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                (mUsers as ArrayList).clear()
+                for (snap in snapshot.children)
+                {
+                    val user=snap.getValue(Users::class.java)
+                    for (each in usersChatList!!){
+                        if (user!!.getUid().equals(each.getId())){
+                            (mUsers as ArrayList).add(user)
+                        }
+                    }
+                }
+            }
 
+            override fun onCancelled(error: DatabaseError) {}
+        })
     }
 
     private fun firebaseDataHorizontal(v:View) {
-        val option = FirebaseRecyclerOptions.Builder<Chat2>()
-            .setQuery(db, Chat2::class.java)
+        val option = FirebaseRecyclerOptions.Builder<Users>()
+            .setQuery(db, Users::class.java)
             .setLifecycleOwner(this)
             .build()
-        val firebaseRecyclerAdapter = object: FirebaseRecyclerAdapter<Chat2, MyViewHolder>(option) {
+        val firebaseRecyclerAdapter = object: FirebaseRecyclerAdapter<Users, MyViewHolder>(option) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
                 val itemView = LayoutInflater.from(v.context).inflate(R.layout.item_rv_h_chat,parent,false)
                 return MyViewHolder(itemView)
             }
-            override fun onBindViewHolder(holder: MyViewHolder, position: Int, model: Chat2) {
+            override fun onBindViewHolder(holder: MyViewHolder, position: Int, model: Users) {
                 holder.userName.text = model.getName()
                 Picasso.get().load(model.userImage).placeholder(R.drawable.account_circle).into(holder.img)
                 holder.itemView.setOnClickListener {

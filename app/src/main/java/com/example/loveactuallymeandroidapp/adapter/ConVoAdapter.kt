@@ -4,15 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
-import com.example.loveactuallymeandroidapp.dataClass.Chat2
 import com.example.loveactuallymeandroidapp.dataClass.Conversation
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
-import com.squareup.picasso.Picasso
 
 class ConVoAdapter(val context: Context,
                    private val list2: ArrayList<Conversation>) :
