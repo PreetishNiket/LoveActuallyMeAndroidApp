@@ -48,7 +48,7 @@ class ConversationActivity : AppCompatActivity() {
             }
         }
         val linearLayoutManager=LinearLayoutManager(this)
-        linearLayoutManager.stackFromEnd=true
+        linearLayoutManager.stackFromEnd=false
         chat_rv.layoutManager=linearLayoutManager
         val reference=FirebaseDatabase.getInstance()
             .reference.child("Users").child(receivedId)
