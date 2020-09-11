@@ -1,6 +1,7 @@
 package com.example.loveactuallymeandroidapp.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +9,13 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.loveactuallymeandroidapp.ConversationActivity
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.dataClass.Chat1
+import com.example.loveactuallymeandroidapp.dataClass.Users
+import com.squareup.picasso.Picasso
 
-class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Chat1>): RecyclerView.Adapter<ChatVerticalAdapter.ChatViewHolder>() {
+class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Users>): RecyclerView.Adapter<ChatVerticalAdapter.ChatViewHolder>() {
     var onItemClickListener:UserOnItemClickListener?=null
     class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
         val userName:TextView=view.findViewById(R.id.name_tv)
@@ -30,15 +34,19 @@ class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Cha
 
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
         with(holder){
-            img.setImageResource(list1[position].userImage)
-            userName.text= list1[position].Username
-            lastMsg.text=list1[position].lastMsg
+            Picasso.get().load(list1[position].userImage).into(img)
+            userName.text= list1[position].getName()
+            //lastMsg.text=list1[position].lastMsg
         }
         holder.root.setOnClickListener {
             onItemClickListener?.onItemClick(list1[position])
+            val placeId = position
+            val i=Intent(context, ConversationActivity::class.java)
+            i.putExtra("placeid",placeId)
+            context.startActivity(i)
         }
     }
 }
 interface UserOnItemClickListener{
-    fun onItemClick(item: Chat1)
+    fun onItemClick(item: Users)
 }

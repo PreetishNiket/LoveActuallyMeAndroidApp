@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_chat.*
 import kotlinx.android.synthetic.main.fragment_chat.view.*
 
 
@@ -62,16 +63,6 @@ class ChatFragment : Fragment() {
             }
             override fun onCancelled(error: DatabaseError) {}
         })
-       // v.rv_v.adapter=ChatVerticalAdapter(v.context,usersChatList)
-       // val adapter1=ChatVerticalAdapter(v.context,usersChatList)
-       // v.rv_v.adapter=adapter1
-//        adapter1.onItemClickListener=object :UserOnItemClickListener{
-//            override fun onItemClick(item: Chat1) {
-//                startActivity(Intent(v.context, ConversationActivity::class.java))
-//            }
-//        }
-
-
         //horizontal
         v.rv_h.layoutManager=LinearLayoutManager(v.context,LinearLayoutManager.HORIZONTAL,false)
         firebaseDataHorizontal(v)
@@ -91,6 +82,15 @@ class ChatFragment : Fragment() {
                         }
                     }
                 }
+                chatVerticalAdapter= ChatVerticalAdapter(context!!,(mUsers as ArrayList<Users>))
+                chatVerticalAdapter?.onItemClickListener=object :UserOnItemClickListener{
+                    override fun onItemClick(item: Users) {
+                    }
+
+                }
+                rv_v.adapter=chatVerticalAdapter
+
+
             }
 
             override fun onCancelled(error: DatabaseError) {}
