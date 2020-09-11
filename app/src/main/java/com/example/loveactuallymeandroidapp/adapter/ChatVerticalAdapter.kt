@@ -16,7 +16,7 @@ import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.squareup.picasso.Picasso
 
 class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Users>): RecyclerView.Adapter<ChatVerticalAdapter.ChatViewHolder>() {
-    var onItemClickListener:UserOnItemClickListener?=null
+
     class ChatViewHolder(view: View): RecyclerView.ViewHolder(view){
         val userName:TextView=view.findViewById(R.id.name_tv)
         val lastMsg:TextView=view.findViewById(R.id.last_chat_tv)
@@ -39,14 +39,10 @@ class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Use
             //lastMsg.text=list1[position].lastMsg
         }
         holder.root.setOnClickListener {
-            onItemClickListener?.onItemClick(list1[position])
-            val placeId = position
-            val i=Intent(context, ConversationActivity::class.java)
-            i.putExtra("placeid",placeId)
-            context.startActivity(i)
+//            val placeId = position
+//            val i=Intent(context, ConversationActivity::class.java)
+//            i.putExtra("placeid",placeId)
+//            context.startActivity(i)
         }
     }
-}
-interface UserOnItemClickListener{
-    fun onItemClick(item: Users)
 }
