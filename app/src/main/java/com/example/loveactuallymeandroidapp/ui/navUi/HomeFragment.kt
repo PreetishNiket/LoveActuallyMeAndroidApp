@@ -59,42 +59,41 @@ class HomeFragment : Fragment(), View.OnClickListener {
         likeButton.setOnClickListener {
             startActivity(Intent(context, LikeYouActivity::class.java))
         }
-        arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_card_view_profile, R.id.helloText,al)
-        frag.frame.adapter = arrayAdapter
-        frag.frame.setFlingListener(object : SwipeFlingAdapterView.onFlingListener {
-            override fun removeFirstObjectInAdapter() {
-                al.add("XML $i")
-                al.removeAt(0)
-                arrayAdapter?.notifyDataSetChanged()
-            }
-
-            override fun onLeftCardExit(p0: Any?) {
-                Toast.makeText(requireContext(), "Left", Toast.LENGTH_SHORT).show()
-                frag.item_swipe_left_indicator.visibility=View.VISIBLE
-                frag.item_swipe_right_indicator.visibility=View.GONE
-            }
-
-            override fun onRightCardExit(p0: Any?) {
-                Toast.makeText(requireContext(), "Right", Toast.LENGTH_SHORT).show()
-                frag.item_swipe_right_indicator.visibility=View.VISIBLE
-                frag.item_swipe_left_indicator.visibility=View.GONE
-            }
-
-            override fun onAdapterAboutToEmpty(p0: Int) {
-                arrayAdapter?.notifyDataSetChanged()
-                Log.d("LIST", "notified")
-                i++
-            }
-
-            override fun onScroll(scroll: Float) {
-//                Toast.makeText(requireContext(), "On Scroll", Toast.LENGTH_SHORT).show()
-                if (scroll==24.0f){
-
-                }
-
-            }
-
-        })
+//        arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_card_view_profile, R.id.helloText,al)
+//        frag.frame.adapter = arrayAdapter
+//        frag.frame.setFlingListener(object : SwipeFlingAdapterView.onFlingListener {
+//            override fun removeFirstObjectInAdapter() {
+//                al.add("XML $i")
+//                al.removeAt(0)
+//                arrayAdapter?.notifyDataSetChanged()
+//            }
+//
+//            override fun onLeftCardExit(p0: Any?) {
+//                Toast.makeText(requireContext(), "Left", Toast.LENGTH_SHORT).show()
+//                frag.item_swipe_left_indicator.visibility=View.VISIBLE
+//                frag.item_swipe_right_indicator.visibility=View.GONE
+//            }
+//
+//            override fun onRightCardExit(p0: Any?) {
+//                Toast.makeText(requireContext(), "Right", Toast.LENGTH_SHORT).show()
+//                frag.item_swipe_right_indicator.visibility=View.VISIBLE
+//                frag.item_swipe_left_indicator.visibility=View.GONE
+//            }
+//
+//            override fun onAdapterAboutToEmpty(p0: Int) {
+//                arrayAdapter?.notifyDataSetChanged()
+//                Log.d("LIST", "notified")
+//                i++
+//            }
+//
+//            override fun onScroll(scroll: Float) {
+////                Toast.makeText(requireContext(), "On Scroll", Toast.LENGTH_SHORT).show()
+//                if (scroll==24.0f){
+//
+//                }
+//
+//            }
+//        })
         return frag
     }
     override fun onClick(view: View) {

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#868686"
     tools:context=".ui.navUi.HomeFragment">
@@ -10,10 +11,18 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <com.lorentzos.flingswipe.SwipeFlingAdapterView
-        android:id="@+id/frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+<!--    <com.lorentzos.flingswipe.SwipeFlingAdapterView-->
+<!--        android:id="@+id/frame"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+        <com.huxq17.swipecardsview.SwipeCardsView
+            android:id="@+id/swipeCardsView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            card:alphaOffsetStep="40"
+            card:scaleOffsetStep="0.08"
+            card:yOffsetStep="20dp" />
+
     <ImageView
         android:id="@+id/filter_img"
         android:layout_width="59dp"
