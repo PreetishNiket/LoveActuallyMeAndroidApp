@@ -6,9 +6,14 @@ import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.MainRvAdapter
 import com.example.loveactuallymeandroidapp.utlis.DefaultItemDecorator
 import com.example.loveactuallymeandroidapp.dataClass.Section
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_settings.*
+import kotlinx.android.synthetic.main.item_footer_settings.*
 
 class SettingsActivity : AppCompatActivity() {
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
+    }
     private val sectionList= arrayListOf<Section>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +25,7 @@ class SettingsActivity : AppCompatActivity() {
         initData()
         main_rv_set.adapter=MainRvAdapter(this,sectionList)
         main_rv_set.addItemDecoration(DefaultItemDecorator(resources.getDimensionPixelSize(R.dimen.bottom)))
-    }
+        }
     private fun initData(){
         val sectionNameOne="Account Setting"
         val sectionItemOne=ArrayList<String>()

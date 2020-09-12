@@ -123,12 +123,12 @@
         app:layout_constraintHorizontal_bias="0.188"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69" />
+        app:layout_constraintVertical_bias="0.693" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="237dp"
-        android:layout_height="39dp"
+        android:layout_width="251dp"
+        android:layout_height="54dp"
         android:backgroundTint="#868686"
         android:ems="10"
         android:hint="Add Your Name"
@@ -140,7 +140,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.767" />
+        app:layout_constraintVertical_bias="0.79" />
 
     <RadioGroup
         android:id="@+id/radiogrp"

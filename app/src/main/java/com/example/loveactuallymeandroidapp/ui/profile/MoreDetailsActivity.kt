@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_more_details.*
-import kotlinx.android.synthetic.main.activity_more_details.tv
+import kotlinx.android.synthetic.main.activity_more_details.tvname
 
 class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
     private val auth by lazy {
@@ -27,12 +27,14 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_more_details)
         supportActionBar?.hide()
+        val userName=intent.getStringExtra("name")
+        tvname.text=userName
         if (intent.extras!=null){
             val imageUri= Uri.parse(intent.getStringExtra("image1"))
             profile_photo1.setImageURI(imageUri)
             imageView1.setImageURI(imageUri)
         }
-     //   val userName=intent.getStringExtra("name")
+
 
         getStartedButton.setOnClickListener {
 
@@ -46,7 +48,6 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
             val gender = preference.getString("gender", null).toString()
             val dob = preference.getString("dateofbirth", null).toString()
             val name = preference.getString("name", null).toString()
-            tv.text="Hello\n${name}"
             val userDetails = hashMapOf(
                 "Mobile_Number" to mobile,
                 "About" to about,

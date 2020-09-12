@@ -22,8 +22,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="297dp"
-        android:layout_height="65dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Socializing"
         android:textAlignment="center"
         android:textColor="#EC6273"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079" />
+        app:layout_constraintVertical_bias="0.071" />
 
     <EditText
         android:id="@+id/editTextTextPersonAbout"
@@ -69,8 +69,8 @@
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="32dp"
-        android:layout_height="19dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="I am"
         android:textColor="#FFFF"
         android:textSize="16sp"

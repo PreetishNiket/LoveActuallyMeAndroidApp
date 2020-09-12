@@ -23,6 +23,7 @@ class OtpActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         phoneNumber = intent.getStringExtra("phoneNo").toString()
+        mobile.text=phoneNumber
 
         back_finish.setOnClickListener {
             finish()
