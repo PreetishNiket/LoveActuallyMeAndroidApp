@@ -66,6 +66,7 @@ class ChatFragment : Fragment() {
 
             override fun onCancelled(error: DatabaseError) {}
         })
+
         //horizontal
         v.rv_h.layoutManager = LinearLayoutManager(v.context, LinearLayoutManager.HORIZONTAL, false)
         firebaseDataHorizontal(v)
@@ -87,10 +88,7 @@ class ChatFragment : Fragment() {
                 }
                 chatVerticalAdapter = ChatVerticalAdapter(context!!, (mUsers as ArrayList<Users>))
                 rv_v.adapter = chatVerticalAdapter
-
-
             }
-
             override fun onCancelled(error: DatabaseError) {}
         })
     }

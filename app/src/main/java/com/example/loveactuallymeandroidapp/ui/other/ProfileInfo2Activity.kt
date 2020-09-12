@@ -54,11 +54,6 @@ class ProfileInfo2Activity : AppCompatActivity() {
                     .show()
             }
         })
-
-
-
-
-
         settings.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
