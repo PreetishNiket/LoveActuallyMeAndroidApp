@@ -36,7 +36,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
         al.add("Rajneesh")
         al.add("Kishore")
         al.add("Dharmerdar")
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

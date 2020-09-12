@@ -16,19 +16,7 @@
         app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.576"
-        app:srcCompat="@drawable/profile_2" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="115dp"
-        android:layout_height="105dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.744"
+        app:layout_constraintVertical_bias="0.651"
         app:srcCompat="@drawable/profile_2" />
 
     <ImageView
@@ -59,31 +47,6 @@
         app:srcCompat="@drawable/profile_2" />
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="115dp"
-        android:layout_height="105dp"
-        android:layout_marginEnd="118dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.842"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.744"
-        app:srcCompat="@drawable/profile_2" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="115dp"
-        android:layout_height="105dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.895"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.744"
-        app:srcCompat="@drawable/profile_2" />
-
-    <ImageView
         android:id="@+id/imageView5"
         android:layout_width="115dp"
         android:layout_height="105dp"
@@ -92,7 +55,7 @@
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.576"
+        app:layout_constraintVertical_bias="0.651"
         app:srcCompat="@drawable/profile_2" />
 
     <ImageView
@@ -104,7 +67,7 @@
         app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.576"
+        app:layout_constraintVertical_bias="0.651"
         app:srcCompat="@drawable/profile_2" />
 
     <ImageView
@@ -133,7 +96,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.903" />
+        app:layout_constraintVertical_bias="0.895" />
 
     <TextView
         android:id="@+id/tv"
@@ -148,7 +111,7 @@
         app:layout_constraintHorizontal_bias="0.258"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
+        app:layout_constraintVertical_bias="0.113" />
 
     <TextView
         android:id="@+id/textView19"

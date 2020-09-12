@@ -32,8 +32,8 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
             profile_photo1.setImageURI(imageUri)
             imageView1.setImageURI(imageUri)
         }
-        val userName=intent.getStringExtra("name")
-        tv.text="Hello\n${userName}"
+     //   val userName=intent.getStringExtra("name")
+
         getStartedButton.setOnClickListener {
 
             val preference = getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
@@ -46,16 +46,16 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
             val gender = preference.getString("gender", null).toString()
             val dob = preference.getString("dateofbirth", null).toString()
             val name = preference.getString("name", null).toString()
-
-            val userDetails: HashMap<String, String?> = hashMapOf(
-                "Mobile Number" to mobile,
+            tv.text="Hello\n${name}"
+            val userDetails = hashMapOf(
+                "Mobile_Number" to mobile,
                 "About" to about,
                 "Ability" to ability,
-                "Type of person" to type,
-                "Religious Belief" to religion,
+                "Type_of_person" to type,
+                "Religious_Belief" to religion,
                 "Education" to education,
                 "Gender" to gender,
-                "Date of Birth" to dob,
+                "Date_of_Birth" to dob,
                 "Name" to name
             )
             val db = FirebaseFirestore.getInstance()
@@ -78,11 +78,9 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-            val id=auth.currentUser?.uid
             userDetails["userImage"] = "https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
             userDetails["status"]="offline"
-            userDetails["uid"]=id
-
+            val id=auth.currentUser?.uid
             dbRef.child("Users").child(id!!).setValue(userDetails)
         }
 
@@ -95,9 +93,6 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
         imageView4.setOnClickListener(this)
         imageView5.setOnClickListener(this)
         imageView6.setOnClickListener(this)
-        imageView7.setOnClickListener(this)
-        imageView8.setOnClickListener(this)
-        imageView9.setOnClickListener(this)
     }
     companion object{
         const val GALLERY_PICKER=1;
@@ -128,21 +123,6 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
             int=5
 
         }
-        if (v.id==R.id.imageView7){
-            galleryPick()
-            int=6
-
-        }
-        if (v.id==R.id.imageView8){
-            galleryPick()
-            int=7
-
-        }
-        if (v.id==R.id.imageView9){
-            galleryPick()
-            int=8
-
-        }
     }
     private fun galleryPick(){
         val intent=Intent()
@@ -168,15 +148,6 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
                 }
                 5->{
                     imageView6.setImageURI(imageData)
-                }
-                6->{
-                    imageView7.setImageURI(imageData)
-                }
-                7->{
-                    imageView8.setImageURI(imageData)
-                }
-                8->{
-                    imageView9.setImageURI(imageData)
                 }
             }
 
