@@ -16,10 +16,12 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_conversation.*
 
 class ConversationActivity : AppCompatActivity() {
+
     private val chatref by lazy {
         FirebaseDatabase.getInstance()
             .reference.child("Chats")
     }
+
     val id=FirebaseAuth.getInstance().currentUser?.uid
     var conVo:ConVoAdapter?=null
 

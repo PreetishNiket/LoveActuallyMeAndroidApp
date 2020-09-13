@@ -8,9 +8,8 @@ import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.huxq17.swipecardsview.BaseCardAdapter
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
 
-class SwipeViewAdapter(private val modelList: List<Users>) : BaseCardAdapter<List<Users>>() {
+class SwipeViewAdapter(private val modelList: ArrayList<Users>) : BaseCardAdapter<List<Users>>() {
 
     override fun getCount(): Int =modelList.size
 
@@ -23,6 +22,6 @@ class SwipeViewAdapter(private val modelList: List<Users>) : BaseCardAdapter<Lis
         val userName=cardview.findViewById<TextView>(R.id.userName)
         val model =modelList[position]
         userName.text=model.getName()
-        Picasso.get().load(model.userImage).into(userImage)
+       // Picasso.get().load(model.userImage).into(userImage)
     }
 }
