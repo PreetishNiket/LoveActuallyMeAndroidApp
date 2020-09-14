@@ -103,18 +103,27 @@ class HomeFragment : Fragment(), View.OnClickListener {
 //            }
 //        })
         val swipe = frag.swipeCardsView
-        swipe.retainLastCard(true)
+        swipe.retainLastCard(false)
         swipe.enableSwipe(true)
+        modelList= ArrayList()
         getData()
-//        swipe.slideCardOut(SwipeCardsView.SlideType.LEFT)
-//        swipe.slideCardOut(SwipeCardsView.SlideType.RIGHT)
         swipe.setCardsSlideListener(object : SwipeCardsView.CardsSlideListener {
             override fun onShow(index: Int) {
-
+               // Toast.makeText(context, "Show${index}", Toast.LENGTH_SHORT).show()
             }
 
             override fun onCardVanish(index: Int, type: SwipeCardsView.SlideType?) {
-
+                when (type) {
+                    SwipeCardsView.SlideType.LEFT -> {
+                        Toast.makeText(context, "DisLike${index}", Toast.LENGTH_SHORT).show()
+                    }
+                    SwipeCardsView.SlideType.RIGHT -> {
+                        Toast.makeText(context, "Like${index}", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Toast.makeText(context, "None${index}", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
 
             override fun onItemClick(cardImageView: View?, index: Int) {
@@ -122,7 +131,12 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
 
         })
-        modelList= ArrayList()
+
+        val cardAdapter= SwipeViewAdapter(modelList)
+        swipe.setAdapter(cardAdapter)
+        return frag
+    }
+    private fun getData() {
         modelList.add(
             Users(
                 "Preetish",
@@ -147,15 +161,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
             "")
                 )
         )
-
-        val cardAdapter= SwipeViewAdapter(modelList)
-        swipe.setAdapter(cardAdapter)
-        return frag
-    }
-
-
-    private fun getData() {
-
     }
 
     override fun onClick(view: View) {
