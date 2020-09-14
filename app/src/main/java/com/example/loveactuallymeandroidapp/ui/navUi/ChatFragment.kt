@@ -121,9 +121,9 @@ class ChatFragment : Fragment() {
         v.rv_h.adapter = firebaseRecyclerAdapter
         firebaseRecyclerAdapter.startListening()
     }
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val userName: TextView = itemView.findViewById(R.id.name_tv1)
+        val img: ImageView = itemView.findViewById(R.id.circularImageView1)
+    }
 }
 
-class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val userName: TextView = itemView.findViewById(R.id.name_tv1)
-    val img: ImageView = itemView.findViewById(R.id.circularImageView1)
-}
