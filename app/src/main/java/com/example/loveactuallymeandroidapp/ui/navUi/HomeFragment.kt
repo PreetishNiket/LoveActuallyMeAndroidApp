@@ -3,7 +3,7 @@ package com.example.loveactuallymeandroidapp.ui.navUi
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,19 +11,15 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.SwipeViewAdapter
 import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.example.loveactuallymeandroidapp.ui.other.LikeYouActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.huxq17.swipecardsview.SwipeCardsView
-import com.lorentzos.flingswipe.SwipeFlingAdapterView
 import kotlinx.android.synthetic.main.bottom_sheet_layout.view.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import kotlinx.android.synthetic.main.item_card_view_profile.view.*
 
 
 class HomeFragment : Fragment(), View.OnClickListener {
@@ -109,16 +105,33 @@ class HomeFragment : Fragment(), View.OnClickListener {
         getData()
         swipe.setCardsSlideListener(object : SwipeCardsView.CardsSlideListener {
             override fun onShow(index: Int) {
-               // Toast.makeText(context, "Show${index}", Toast.LENGTH_SHORT).show()
+                // Toast.makeText(context, "Show${index}", Toast.LENGTH_SHORT).show()
             }
 
             override fun onCardVanish(index: Int, type: SwipeCardsView.SlideType?) {
+                val container1 = frag.findViewById<ViewGroup>(R.id.container_toast_like)
+                val layout = layoutInflater.inflate(R.layout.item_toast, container1)
+
                 when (type) {
                     SwipeCardsView.SlideType.LEFT -> {
-                        Toast.makeText(context, "DisLike${index}", Toast.LENGTH_SHORT).show()
+                        layout.findViewById<ImageView>(R.id.item_swipe_left_indicator).visibility=View.VISIBLE
+                        layout.findViewById<ImageView>(R.id.item_swipe_right_indicator).visibility = View.GONE
+                        with(Toast(context)) {
+                            setGravity(Gravity.TOP or Gravity.START,0,250)
+                            duration=Toast.LENGTH_SHORT
+                            view=layout
+                            show()
+                        }
                     }
                     SwipeCardsView.SlideType.RIGHT -> {
-                        Toast.makeText(context, "Like${index}", Toast.LENGTH_SHORT).show()
+                        layout.findViewById<ImageView>(R.id.item_swipe_right_indicator).visibility=View.VISIBLE
+                        layout.findViewById<ImageView>(R.id.item_swipe_left_indicator).visibility=View.GONE
+                        with(Toast(context)) {
+                            setGravity(Gravity.TOP or Gravity.END,-80,250)
+                            duration=Toast.LENGTH_SHORT
+                            view=layout
+                            show()
+                        }
                     }
                     else -> {
                         Toast.makeText(context, "None${index}", Toast.LENGTH_SHORT).show()
@@ -154,12 +167,37 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 ""
             )
         )
-        modelList. add ((Users(
-            "Kishore",
-            "",
-            "",
-            "")
-                )
+        modelList. add(
+            (Users(
+                "Kishore",
+                "",
+                "",
+                ""
+            ))
+        )
+        modelList. add(
+            (Users(
+                "Dharmendar",
+                "",
+                "",
+                ""
+            ))
+        )
+        modelList. add(
+            (Users(
+                "Rajneesh",
+                "",
+                "",
+                ""
+            ))
+        )
+        modelList. add(
+            (Users(
+                "Muraee",
+                "",
+                "",
+                ""
+            ))
         )
     }
 
