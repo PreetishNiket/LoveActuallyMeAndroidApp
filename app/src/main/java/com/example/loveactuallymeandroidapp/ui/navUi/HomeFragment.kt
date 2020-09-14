@@ -23,20 +23,12 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 
 
 class HomeFragment : Fragment(), View.OnClickListener {
-    private var arrayAdapter: ArrayAdapter<String>? = null
-    private var i = 0
-    private var al = ArrayList<String>()
-    //var rowItems: MutableList<Profile>? = null
+
     lateinit var modelList: ArrayList<Users>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        al.add("Preetish")
-        al.add("Gopal")
-        al.add("Rajneesh")
-        al.add("Kishore")
-        al.add("Dharmerdar")
     }
 
     override fun onCreateView(
@@ -64,44 +56,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
         likeButton.setOnClickListener {
             startActivity(Intent(context, LikeYouActivity::class.java))
         }
-//        arrayAdapter = ArrayAdapter(requireContext(), R.layout.item_card_view_profile, R.id.helloText,al)
-//        frag.frame.adapter = arrayAdapter
-//        frag.frame.setFlingListener(object : SwipeFlingAdapterView.onFlingListener {
-//            override fun removeFirstObjectInAdapter() {
-//                al.add("XML $i")
-//                al.removeAt(0)
-//                arrayAdapter?.notifyDataSetChanged()
-//            }
-//
-//            override fun onLeftCardExit(p0: Any?) {
-//                Toast.makeText(requireContext(), "Left", Toast.LENGTH_SHORT).show()
-//                frag.item_swipe_left_indicator.visibility=View.VISIBLE
-//                frag.item_swipe_right_indicator.visibility=View.GONE
-//            }
-//
-//            override fun onRightCardExit(p0: Any?) {
-//                Toast.makeText(requireContext(), "Right", Toast.LENGTH_SHORT).show()
-//                frag.item_swipe_right_indicator.visibility=View.VISIBLE
-//                frag.item_swipe_left_indicator.visibility=View.GONE
-//            }
-//
-//            override fun onAdapterAboutToEmpty(p0: Int) {
-//                arrayAdapter?.notifyDataSetChanged()
-//                Log.d("LIST", "notified")
-//                i++
-//            }
-//
-//            override fun onScroll(scroll: Float) {
-////                Toast.makeText(requireContext(), "On Scroll", Toast.LENGTH_SHORT).show()
-//                if (scroll==24.0f){
-//
-//                }
-//            }
-//        })
+
         val swipe = frag.swipeCardsView
         swipe.retainLastCard(false)
         swipe.enableSwipe(true)
-        modelList= ArrayList()
+        modelList = ArrayList()
         getData()
         swipe.setCardsSlideListener(object : SwipeCardsView.CardsSlideListener {
             override fun onShow(index: Int) {
@@ -114,22 +73,26 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
                 when (type) {
                     SwipeCardsView.SlideType.LEFT -> {
-                        layout.findViewById<ImageView>(R.id.item_swipe_left_indicator).visibility=View.VISIBLE
-                        layout.findViewById<ImageView>(R.id.item_swipe_right_indicator).visibility = View.GONE
+                        layout.findViewById<ImageView>(R.id.item_swipe_left_indicator).visibility =
+                            View.VISIBLE
+                        layout.findViewById<ImageView>(R.id.item_swipe_right_indicator).visibility =
+                            View.GONE
                         with(Toast(context)) {
-                            setGravity(Gravity.TOP or Gravity.START,0,250)
-                            duration=Toast.LENGTH_SHORT
-                            view=layout
+                            setGravity(Gravity.TOP or Gravity.START, 0, 250)
+                            duration = Toast.LENGTH_SHORT
+                            view = layout
                             show()
                         }
                     }
                     SwipeCardsView.SlideType.RIGHT -> {
-                        layout.findViewById<ImageView>(R.id.item_swipe_right_indicator).visibility=View.VISIBLE
-                        layout.findViewById<ImageView>(R.id.item_swipe_left_indicator).visibility=View.GONE
+                        layout.findViewById<ImageView>(R.id.item_swipe_right_indicator).visibility =
+                            View.VISIBLE
+                        layout.findViewById<ImageView>(R.id.item_swipe_left_indicator).visibility =
+                            View.GONE
                         with(Toast(context)) {
-                            setGravity(Gravity.TOP or Gravity.END,-80,250)
-                            duration=Toast.LENGTH_SHORT
-                            view=layout
+                            setGravity(Gravity.TOP or Gravity.END, -80, 250)
+                            duration = Toast.LENGTH_SHORT
+                            view = layout
                             show()
                         }
                     }
@@ -145,10 +108,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         })
 
-        val cardAdapter= SwipeViewAdapter(modelList)
+        val cardAdapter = SwipeViewAdapter(modelList)
         swipe.setAdapter(cardAdapter)
         return frag
     }
+
     private fun getData() {
         modelList.add(
             Users(
@@ -167,7 +131,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 ""
             )
         )
-        modelList. add(
+        modelList.add(
             (Users(
                 "Kishore",
                 "",
@@ -175,7 +139,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 ""
             ))
         )
-        modelList. add(
+        modelList.add(
             (Users(
                 "Dharmendar",
                 "",
@@ -183,7 +147,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 ""
             ))
         )
-        modelList. add(
+        modelList.add(
             (Users(
                 "Rajneesh",
                 "",
@@ -191,7 +155,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 ""
             ))
         )
-        modelList. add(
+        modelList.add(
             (Users(
                 "Muraee",
                 "",
