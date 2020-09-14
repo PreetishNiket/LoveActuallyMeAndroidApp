@@ -47,7 +47,7 @@
             android:layout_below="@id/textView21"
             android:layout_marginTop="5dp"
             android:layout_marginStart="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="1dp"
             tools:listitem="@layout/item_rv_h_chat" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rv_h"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             tools:listitem="@layout/item_rv_v_chat" />
 
     </RelativeLayout>

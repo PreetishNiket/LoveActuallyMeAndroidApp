@@ -36,7 +36,7 @@ class ChatFragment : Fragment() {
     val id = FirebaseAuth.getInstance().currentUser?.uid
     private var usersChatList: List<ChatList>? = null
     private var mUsers: List<Users>? = null
-    private var chatVerticalAdapter: ChatVerticalAdapter? = null
+    var chatVerticalAdapter: ChatVerticalAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -86,8 +86,10 @@ class ChatFragment : Fragment() {
                         }
                     }
                 }
+                val rv= view?.findViewById<RecyclerView>(R.id.rv_v)
                 chatVerticalAdapter = ChatVerticalAdapter(context!!, (mUsers as ArrayList<Users>))
-                rv_v.adapter = chatVerticalAdapter
+                rv?.adapter = chatVerticalAdapter
+                chatVerticalAdapter!!.notifyDataSetChanged()
             }
             override fun onCancelled(error: DatabaseError) {}
         })
