@@ -97,7 +97,6 @@ class ChatFragment : Fragment() {
                         i.putExtra("placeid",placeId)
                         startActivity(i)
                     }
-
                 }
             }
 
