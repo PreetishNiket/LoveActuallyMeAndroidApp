@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.ConversationActivity
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.ChatVerticalAdapter
+import com.example.loveactuallymeandroidapp.adapter.UserOnItemClickListener
 import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.example.loveactuallymeandroidapp.dataClass.ChatList
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -28,7 +29,6 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_chat.*
 import kotlinx.android.synthetic.main.fragment_chat.view.*
 
-//https://github.com/PreetishNiket/LoveActuallyMeAndroidApp.git
 class ChatFragment : Fragment() {
     private val db by lazy {
         FirebaseDatabase.getInstance()
@@ -90,6 +90,15 @@ class ChatFragment : Fragment() {
                 chatVerticalAdapter = ChatVerticalAdapter(context!!, (mUsers as ArrayList<Users>))
                 rv.adapter = chatVerticalAdapter
                 chatVerticalAdapter!!.notifyDataSetChanged()
+                chatVerticalAdapter!!.onItemClickListener = object : UserOnItemClickListener {
+                    override fun onItemClick(item: Users, position: Int) {
+                        val placeId = item.getUid()
+                        val i=Intent(context, ConversationActivity::class.java)
+                        i.putExtra("placeid",placeId)
+                        startActivity(i)
+                    }
+
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {}
