@@ -19,6 +19,7 @@ import com.example.loveactuallymeandroidapp.dataClass.ChatList
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -27,33 +28,31 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_chat.*
 import kotlinx.android.synthetic.main.fragment_chat.view.*
 
-
+//https://github.com/PreetishNiket/LoveActuallyMeAndroidApp.git
 class ChatFragment : Fragment() {
     private val db by lazy {
         FirebaseDatabase.getInstance()
             .reference.child("Users")
     }
-    val id = FirebaseAuth.getInstance().currentUser?.uid
+    private var id: FirebaseUser? = null
     private var usersChatList: List<ChatList>? = null
     private var mUsers: List<Users>? = null
     var chatVerticalAdapter: ChatVerticalAdapter? = null
+    lateinit var rv: RecyclerView
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val v = inflater.inflate(R.layout.fragment_chat, container, false)
         v.back1.setOnClickListener {
             Toast.makeText(v.context, "No use", Toast.LENGTH_SHORT).show()
         }
-
-        v.rv_v.setHasFixedSize(true)
-        v.rv_v.layoutManager = LinearLayoutManager(v.context)
+        //vertical
+        rv = v.findViewById(R.id.rv_v)
+        rv.setHasFixedSize(true)
+        rv.layoutManager = LinearLayoutManager(context)
         usersChatList = ArrayList()
-        val ref = FirebaseDatabase.getInstance().reference.child("ChatList")
-            .child(id!!)
+        id = FirebaseAuth.getInstance().currentUser
+        val ref = FirebaseDatabase.getInstance().reference.child("Chat List").child(id!!.uid)
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 (usersChatList as ArrayList).clear()
@@ -78,7 +77,9 @@ class ChatFragment : Fragment() {
         db.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 (mUsers as ArrayList).clear()
+
                 for (snap in snapshot.children) {
+
                     val user = snap.getValue(Users::class.java)
                     for (each in usersChatList!!) {
                         if (user!!.getUid().equals(each.getId())) {
@@ -86,11 +87,11 @@ class ChatFragment : Fragment() {
                         }
                     }
                 }
-                val rv= view?.findViewById<RecyclerView>(R.id.rv_v)
                 chatVerticalAdapter = ChatVerticalAdapter(context!!, (mUsers as ArrayList<Users>))
-                rv?.adapter = chatVerticalAdapter
+                rv.adapter = chatVerticalAdapter
                 chatVerticalAdapter!!.notifyDataSetChanged()
             }
+
             override fun onCancelled(error: DatabaseError) {}
         })
     }
@@ -123,6 +124,7 @@ class ChatFragment : Fragment() {
         v.rv_h.adapter = firebaseRecyclerAdapter
         firebaseRecyclerAdapter.startListening()
     }
+
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val userName: TextView = itemView.findViewById(R.id.name_tv1)
         val img: ImageView = itemView.findViewById(R.id.circularImageView1)
