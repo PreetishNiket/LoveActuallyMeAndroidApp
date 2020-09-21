@@ -63,7 +63,6 @@ class ChatFragment : Fragment() {
                 }
                 retrieveChatList()
             }
-
             override fun onCancelled(error: DatabaseError) {}
         })
 
