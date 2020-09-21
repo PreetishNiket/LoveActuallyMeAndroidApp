@@ -30,6 +30,7 @@ import kotlinx.android.synthetic.main.fragment_chat.*
 import kotlinx.android.synthetic.main.fragment_chat.view.*
 
 class ChatFragment : Fragment() {
+
     private val db by lazy {
         FirebaseDatabase.getInstance()
             .reference.child("Users")
