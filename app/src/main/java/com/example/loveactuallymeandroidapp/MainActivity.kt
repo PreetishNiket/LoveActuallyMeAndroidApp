@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.loveactuallymeandroidapp.ui.other.ProfileInfoActivity
 import com.example.loveactuallymeandroidapp.ui.navUi.ChatFragment
 import com.example.loveactuallymeandroidapp.ui.navUi.HomeFragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -50,9 +52,24 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.isAddToBackStackAllowed
         fragmentTransaction.commit()
     }
-
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
+    }
+    private fun updateStatus(status:String){
+        val ref=FirebaseDatabase.getInstance().reference.child("Users")
+            .child(auth.currentUser!!.uid)
+        val hashMap=HashMap<String,Any>()
+        hashMap["status"]=status
+        ref.updateChildren(hashMap)
+    }
     override fun onResume() {
         switchBetweenFragments(homeFragment)
+        updateStatus("online")
         super.onResume()
+    }
+
+    override fun onPause() {
+        updateStatus("offline")
+        super.onPause()
     }
 }
