@@ -6,7 +6,6 @@ class Users {
     private var Name: String? = null
     private var status: String? = null
     private var uid:String?=null
-//    private var lastMsg:String?=null
     constructor() {
 
     }
