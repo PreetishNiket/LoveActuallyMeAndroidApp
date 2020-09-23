@@ -3,7 +3,7 @@ package com.example.loveactuallymeandroidapp.dataClass
 
 class Users {
     var userImage: String? = null
-    private var Name: String? = null
+    private var name: String? = null
     private var status: String? = null
     private var uid:String?=null
     constructor() {
@@ -11,14 +11,14 @@ class Users {
     }
 
     constructor(name: String?, status: String?, image: String,uid:String?) {
-        this.Name = name
+        this.name = name
         this.status = status
         this.userImage = image
         this.uid=uid
     }
 
     fun getName(): String? {
-        return Name
+        return name
     }
     fun getUid():String?{
         return uid
