@@ -6,15 +6,17 @@ class Users {
     private var Name: String? = null
     private var status: String? = null
     private var uid:String?=null
+    private var lastMsg:String?=null
     constructor() {
 
     }
 
-    constructor(name: String?, status: String?, image: String,uid:String?) {
+    constructor(name: String?, status: String?, image: String,uid:String?,lastMsg:String?) {
         this.Name = name
         this.status = status
         this.userImage = image
         this.uid=uid
+        this.lastMsg=lastMsg
     }
 
     fun getName(): String? {
@@ -22,6 +24,12 @@ class Users {
     }
     fun getUid():String?{
         return uid
+    }
+    fun getStatus():String?{
+        return status
+    }
+    fun getLastMsg():String?{
+        return lastMsg
     }
 }
 //    val MobileNumber: String,

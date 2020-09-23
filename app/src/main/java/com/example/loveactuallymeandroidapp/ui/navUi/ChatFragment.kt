@@ -120,6 +120,12 @@ class ChatFragment : Fragment() {
                     holder.userName.text = model.getName()
                     Picasso.get().load(model.userImage).placeholder(R.drawable.account_circle)
                         .into(holder.img)
+                    if (model.getStatus()=="online"){
+                            holder.status.visibility=View.VISIBLE
+                    }
+                    if (model.getStatus()=="offline"){
+                        holder.status.visibility=View.GONE
+                    }
                     holder.itemView.setOnClickListener {
                         val placeId = getRef(position).key.toString()
                         val i = Intent(v.context, ConversationActivity::class.java)
@@ -135,6 +141,7 @@ class ChatFragment : Fragment() {
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val userName: TextView = itemView.findViewById(R.id.name_tv1)
         val img: ImageView = itemView.findViewById(R.id.circularImageView1)
+        val status:ImageView=itemView.findViewById(R.id.status_h)
     }
 }
 
