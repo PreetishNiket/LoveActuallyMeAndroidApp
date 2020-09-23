@@ -9,6 +9,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
+import com.example.loveactuallymeandroidapp.dataClass.Conversation
 import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -58,7 +59,20 @@ class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Use
         val reference=FirebaseDatabase.getInstance().reference.child("Chats")
         reference.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-
+                for (snap in snapshot.children){
+                    val chat:Conversation?=snap.getValue(Conversation::class.java)
+                    if (firebaseUser!=null && chat!=null){
+                        if ((chat.getReceiver()==firebaseUser.uid &&chat.getSender()==chatUserId)
+                            ||(chat.getReceiver()==chatUserId && chat.getSender()==firebaseUser.uid)){
+                                    lastMessage=chat.getMessage()
+                        }
+                    }
+                }
+                when(lastMessage){
+                    "defaultMsg"-> lastMsg.text="No Messages"
+                    else->lastMsg.text=lastMessage
+                }
+                lastMessage="defaultMsg"
             }
 
             override fun onCancelled(error: DatabaseError) {}
