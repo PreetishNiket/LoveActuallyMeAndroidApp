@@ -93,7 +93,7 @@ class ChatFragment : Fragment() {
                     override fun onItemClick(item: Users, position: Int) {
                         val placeId = item.getUid()
                         val i=Intent(context, ConversationActivity::class.java)
-                        i.putExtra("placeid",placeId)
+                        i.putExtra("placeId",placeId)
                         startActivity(i)
                     }
                 }
@@ -129,7 +129,7 @@ class ChatFragment : Fragment() {
                     holder.itemView.setOnClickListener {
                         val placeId = getRef(position).key.toString()
                         val i = Intent(v.context, ConversationActivity::class.java)
-                        i.putExtra("placeid", placeId)
+                        i.putExtra("placeId", placeId)
                         startActivity(i)
                     }
                 }

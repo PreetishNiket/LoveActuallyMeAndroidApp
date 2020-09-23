@@ -29,7 +29,7 @@ class ConversationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conversation)
         supportActionBar?.hide()
-        val receivedId=intent?.getStringExtra("placeid").toString()
+        val receivedId=intent?.getStringExtra("placeId").toString()
         backBtn.setOnClickListener {
             finish()
         }
