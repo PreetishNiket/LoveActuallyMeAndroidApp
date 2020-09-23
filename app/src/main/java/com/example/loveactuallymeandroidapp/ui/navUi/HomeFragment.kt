@@ -61,7 +61,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         swipe.retainLastCard(false)
         swipe.enableSwipe(true)
         modelList = ArrayList()
-       // getData()
+        getData()
         swipe.setCardsSlideListener(object : SwipeCardsView.CardsSlideListener {
             override fun onShow(index: Int) {
                 // Toast.makeText(context, "Show${index}", Toast.LENGTH_SHORT).show()
@@ -113,57 +113,57 @@ class HomeFragment : Fragment(), View.OnClickListener {
         return frag
     }
 
-//    private fun getData() {
-//        modelList.add(
-//            Users(
-//                "Preetish",
-//                "",
-//                "",
-//                //"https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4",
-//                ""
-//            )
-//        )
-//        modelList.add(
-//            Users(
-//                "Gopal",
-//                "",
-//                "",
-//                ""
-//            )
-//        )
-//        modelList.add(
-//            (Users(
-//                "Kishore",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//        modelList.add(
-//            (Users(
-//                "Dharmendar",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//        modelList.add(
-//            (Users(
-//                "Rajneesh",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//        modelList.add(
-//            (Users(
-//                "Muraee",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//    }
+    private fun getData() {
+        modelList.add(
+            Users(
+                "Preetish",
+                "",
+                "",
+                //"https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4",
+                ""
+            )
+        )
+        modelList.add(
+            Users(
+                "Gopal",
+                "",
+                "",
+                ""
+            )
+        )
+        modelList.add(
+            (Users(
+                "Kishore",
+                "",
+                "",
+                ""
+            ))
+        )
+        modelList.add(
+            (Users(
+                "Dharmendar",
+                "",
+                "",
+                ""
+            ))
+        )
+        modelList.add(
+            (Users(
+                "Rajneesh",
+                "",
+                "",
+                ""
+            ))
+        )
+        modelList.add(
+            (Users(
+                "Muraee",
+                "",
+                "",
+                ""
+            ))
+        )
+    }
 
     override fun onClick(view: View) {
         if (view.id == R.id.button) {
