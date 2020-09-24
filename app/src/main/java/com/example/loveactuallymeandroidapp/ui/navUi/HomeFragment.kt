@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.adapter.SwipeViewAdapter
+import com.example.loveactuallymeandroidapp.dataClass.ChatList
 import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.example.loveactuallymeandroidapp.ui.other.LikeYouActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -28,8 +29,7 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
-    lateinit var modelList: ArrayList<Users>
-
+    private var usersList: List<Users>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,22 +60,23 @@ class HomeFragment : Fragment(), View.OnClickListener {
         likeButton.setOnClickListener {
             startActivity(Intent(context, LikeYouActivity::class.java))
         }
-        modelList = ArrayList()
+        usersList = ArrayList()
         val ref = FirebaseDatabase.getInstance().reference.child("Users")
         ref.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-
+                (usersList as ArrayList).clear()
+                for (snap in snapshot.children){
+                    val user=snap.getValue(Users::class.java)
+                    (usersList as ArrayList).add(user!!)
+                }
             }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
+            override fun onCancelled(error: DatabaseError) {}
         })
 
         val swipe = frag.swipeCardsView
         swipe.retainLastCard(false)
         swipe.enableSwipe(true)
-        getData()
+//        getData()
         swipe.setCardsSlideListener(object : SwipeCardsView.CardsSlideListener {
             override fun onShow(index: Int) {
                 // Toast.makeText(context, "Show${index}", Toast.LENGTH_SHORT).show()
@@ -121,63 +122,62 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
 
         })
-
-        val cardAdapter = SwipeViewAdapter(modelList)
+        val cardAdapter = SwipeViewAdapter(usersList as ArrayList<Users>)
         swipe.setAdapter(cardAdapter)
         return frag
     }
 
-    private fun getData() {
-        modelList.add(
-            Users(
-                "Preetish",
-                "",
-                "",
-                //"https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4",
-                ""
-            )
-        )
-        modelList.add(
-            Users(
-                "Gopal",
-                "",
-                "",
-                ""
-            )
-        )
-        modelList.add(
-            (Users(
-                "Kishore",
-                "",
-                "",
-                ""
-            ))
-        )
-        modelList.add(
-            (Users(
-                "Dharmendar",
-                "",
-                "",
-                ""
-            ))
-        )
-        modelList.add(
-            (Users(
-                "Rajneesh",
-                "",
-                "",
-                ""
-            ))
-        )
-        modelList.add(
-            (Users(
-                "Muraee",
-                "",
-                "",
-                ""
-            ))
-        )
-    }
+//    private fun getData() {
+//        modelList.add(
+//            Users(
+//                "Preetish",
+//                "",
+//                "",
+//                //"https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4",
+//                ""
+//            )
+//        )
+//        modelList.add(
+//            Users(
+//                "Gopal",
+//                "",
+//                "",
+//                ""
+//            )
+//        )
+//        modelList.add(
+//            (Users(
+//                "Kishore",
+//                "",
+//                "",
+//                ""
+//            ))
+//        )
+//        modelList.add(
+//            (Users(
+//                "Dharmendar",
+//                "",
+//                "",
+//                ""
+//            ))
+//        )
+//        modelList.add(
+//            (Users(
+//                "Rajneesh",
+//                "",
+//                "",
+//                ""
+//            ))
+//        )
+//        modelList.add(
+//            (Users(
+//                "Muraee",
+//                "",
+//                "",
+//                ""
+//            ))
+//        )
+//    }
 
     override fun onClick(view: View) {
         if (view.id == R.id.button) {
