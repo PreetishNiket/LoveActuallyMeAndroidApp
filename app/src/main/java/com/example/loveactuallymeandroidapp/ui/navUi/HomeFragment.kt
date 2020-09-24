@@ -64,16 +64,17 @@ class HomeFragment : Fragment(), View.OnClickListener {
         swipe.enableSwipe(true)
 
         val ref = FirebaseDatabase.getInstance().reference.child("Users")
-        ref.addValueEventListener(object :ValueEventListener{
+        ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 (usersList as ArrayList).clear()
-                for (snap in snapshot.children){
-                    val user=snap.getValue(Users::class.java)
+                for (snap in snapshot.children) {
+                    val user = snap.getValue(Users::class.java)
                     (usersList as ArrayList).add(user!!)
                 }
                 cardAdapter = SwipeViewAdapter(usersList as ArrayList<Users>)
                 swipe.setAdapter(cardAdapter)
             }
+
             override fun onCancelled(error: DatabaseError) {}
         })
         swipe.setCardsSlideListener(object : SwipeCardsView.CardsSlideListener {
@@ -124,6 +125,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         })
         return frag
     }
+
     override fun onClick(view: View) {
         if (view.id == R.id.button) {
             view.setBackgroundColor(resources.getColor(R.color.pink))
