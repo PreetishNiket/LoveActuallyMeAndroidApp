@@ -66,7 +66,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         val swipe = frag.swipeCardsView
         swipe.retainLastCard(false)
         swipe.enableSwipe(true)
-//        getData()
+
         val ref = FirebaseDatabase.getInstance().reference.child("Users")
         ref.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -128,59 +128,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
         })
         return frag
     }
-
-//    private fun getData() {
-//        (usersList as ArrayList).add(
-//            Users(
-//                "Preetish",
-//                "",
-//                "",
-//                //"https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4",
-//                ""
-//            )
-//        )
-//        (usersList as ArrayList).add(
-//            Users(
-//                "Gopal",
-//                "",
-//                "",
-//                ""
-//            )
-//        )
-//        (usersList as ArrayList).add(
-//            (Users(
-//                "Kishore",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//        (usersList as ArrayList).add(
-//            (Users(
-//                "Dharmendar",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//        (usersList as ArrayList).add(
-//            (Users(
-//                "Rajneesh",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//        (usersList as ArrayList).add(
-//            (Users(
-//                "Muraee",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//    }
-
     override fun onClick(view: View) {
         if (view.id == R.id.button) {
             view.setBackgroundColor(resources.getColor(R.color.pink))
