@@ -17,6 +17,7 @@ import com.example.loveactuallymeandroidapp.adapter.SwipeViewAdapter
 import com.example.loveactuallymeandroidapp.dataClass.ChatList
 import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.example.loveactuallymeandroidapp.ui.other.LikeYouActivity
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -30,10 +31,6 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 class HomeFragment : Fragment(), View.OnClickListener {
 
     private var usersList: List<Users>? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,27 +53,30 @@ class HomeFragment : Fragment(), View.OnClickListener {
             btn2?.setOnClickListener(this)
             bottomSheetDialog.show()
         }
+
         val likeButton = frag.findViewById<ImageView>(R.id.like_img)
         likeButton.setOnClickListener {
             startActivity(Intent(context, LikeYouActivity::class.java))
         }
+
         usersList = ArrayList()
-        val ref = FirebaseDatabase.getInstance().reference.child("Users")
-        ref.addValueEventListener(object :ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                (usersList as ArrayList).clear()
-                for (snap in snapshot.children){
-                    val user=snap.getValue(Users::class.java)
-                    (usersList as ArrayList).add(user!!)
-                }
-            }
-            override fun onCancelled(error: DatabaseError) {}
-        })
+
 
         val swipe = frag.swipeCardsView
         swipe.retainLastCard(false)
         swipe.enableSwipe(true)
-//        getData()
+        getData()
+//        val ref = FirebaseDatabase.getInstance().reference.child("Users")
+//        ref.addValueEventListener(object :ValueEventListener{
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                (usersList as ArrayList).clear()
+//                for (snap in snapshot.children){
+//                    val user=snap.getValue(Users::class.java)
+//                    (usersList as ArrayList).add(user!!)
+//                }
+//            }
+//            override fun onCancelled(error: DatabaseError) {}
+//        })
         swipe.setCardsSlideListener(object : SwipeCardsView.CardsSlideListener {
             override fun onShow(index: Int) {
                 // Toast.makeText(context, "Show${index}", Toast.LENGTH_SHORT).show()
@@ -109,6 +109,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                             duration = Toast.LENGTH_SHORT
                             view = layout
                             show()
+
                         }
                     }
                     else -> {
@@ -122,62 +123,63 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
 
         })
+
         val cardAdapter = SwipeViewAdapter(usersList as ArrayList<Users>)
         swipe.setAdapter(cardAdapter)
         return frag
     }
 
-//    private fun getData() {
-//        modelList.add(
-//            Users(
-//                "Preetish",
-//                "",
-//                "",
-//                //"https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4",
-//                ""
-//            )
-//        )
-//        modelList.add(
-//            Users(
-//                "Gopal",
-//                "",
-//                "",
-//                ""
-//            )
-//        )
-//        modelList.add(
-//            (Users(
-//                "Kishore",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//        modelList.add(
-//            (Users(
-//                "Dharmendar",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//        modelList.add(
-//            (Users(
-//                "Rajneesh",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//        modelList.add(
-//            (Users(
-//                "Muraee",
-//                "",
-//                "",
-//                ""
-//            ))
-//        )
-//    }
+    private fun getData() {
+        (usersList as ArrayList).add(
+            Users(
+                "Preetish",
+                "",
+                "",
+                //"https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4",
+                ""
+            )
+        )
+        (usersList as ArrayList).add(
+            Users(
+                "Gopal",
+                "",
+                "",
+                ""
+            )
+        )
+        (usersList as ArrayList).add(
+            (Users(
+                "Kishore",
+                "",
+                "",
+                ""
+            ))
+        )
+        (usersList as ArrayList).add(
+            (Users(
+                "Dharmendar",
+                "",
+                "",
+                ""
+            ))
+        )
+        (usersList as ArrayList).add(
+            (Users(
+                "Rajneesh",
+                "",
+                "",
+                ""
+            ))
+        )
+        (usersList as ArrayList).add(
+            (Users(
+                "Muraee",
+                "",
+                "",
+                ""
+            ))
+        )
+    }
 
     override fun onClick(view: View) {
         if (view.id == R.id.button) {

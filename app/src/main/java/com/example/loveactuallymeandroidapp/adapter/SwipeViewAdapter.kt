@@ -22,6 +22,6 @@ class SwipeViewAdapter(private val modelList: ArrayList<Users>) : BaseCardAdapte
         val userName=cardview.findViewById<TextView>(R.id.userName)
         val model =modelList[position]
         userName.text=model.getName()
-       // Picasso.get().load(model.userImage).into(userImage)
+//        Picasso.get().load(model.userImage).into(userImage)
     }
 }
