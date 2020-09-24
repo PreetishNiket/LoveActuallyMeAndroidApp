@@ -109,7 +109,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
                             duration = Toast.LENGTH_SHORT
                             view = layout
                             show()
-
                         }
                     }
                     else -> {
