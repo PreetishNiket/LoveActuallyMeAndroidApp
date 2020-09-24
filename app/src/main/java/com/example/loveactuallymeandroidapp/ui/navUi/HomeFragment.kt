@@ -17,6 +17,10 @@ import com.example.loveactuallymeandroidapp.adapter.SwipeViewAdapter
 import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.example.loveactuallymeandroidapp.ui.other.LikeYouActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.huxq17.swipecardsview.SwipeCardsView
 import kotlinx.android.synthetic.main.bottom_sheet_layout.view.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
@@ -56,11 +60,21 @@ class HomeFragment : Fragment(), View.OnClickListener {
         likeButton.setOnClickListener {
             startActivity(Intent(context, LikeYouActivity::class.java))
         }
+        modelList = ArrayList()
+        val ref = FirebaseDatabase.getInstance().reference.child("Users")
+        ref.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
 
         val swipe = frag.swipeCardsView
         swipe.retainLastCard(false)
         swipe.enableSwipe(true)
-        modelList = ArrayList()
         getData()
         swipe.setCardsSlideListener(object : SwipeCardsView.CardsSlideListener {
             override fun onShow(index: Int) {
