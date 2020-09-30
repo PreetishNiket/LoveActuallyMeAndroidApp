@@ -43,10 +43,11 @@ class LogInActivity : AppCompatActivity() {
                     val  countryCode=countryCodePicker.selectedCountryCode.toString()
                     val mobileNumber= "+$countryCode$phoneNumber"
                     val id=auth.currentUser?.uid
-                    db.child("Users").child(id!!).equalTo(mobileNumber).addValueEventListener(object :
+                    db.child("Users").orderByChild("Mobile_Number").equalTo(mobileNumber).addListenerForSingleValueEvent(object :
                         ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             if (snapshot.exists()) {
+
                                 val i = Intent(this@LogInActivity, MainActivity::class.java)
                                 startActivity(i)
                                 finish()
@@ -57,10 +58,7 @@ class LogInActivity : AppCompatActivity() {
                                 ).show()
                             }
                         }
-
-                        override fun onCancelled(error: DatabaseError) {
-                        }
-
+                        override fun onCancelled(error: DatabaseError) {}
                     })
                 }
                 else{

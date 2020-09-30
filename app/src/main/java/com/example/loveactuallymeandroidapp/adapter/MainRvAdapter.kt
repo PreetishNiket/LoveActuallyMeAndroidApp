@@ -1,6 +1,7 @@
 package com.example.loveactuallymeandroidapp.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +11,16 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.dataClass.Section
+import com.example.loveactuallymeandroidapp.ui.auth.SignUpActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class MainRvAdapter(private val context:Context,private val sectionList: ArrayList<Section>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object{
         const val TYPE_ITEM = 1
         const val TYPE_FOOT = 2
+    }
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
     }
     inner class SettingItemViewHolder(view: View):RecyclerView.ViewHolder(view){
         val sectionTextView:TextView=view.findViewById(R.id.head_tv)
@@ -56,6 +62,10 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
             val footerHolder: SettingFooterViewHolder = holder
             footerHolder.logOutBtn.setOnClickListener {
                 Toast.makeText(context, "Log out", Toast.LENGTH_SHORT).show()
+                auth.signOut()
+                val intent=Intent(context,SignUpActivity::class.java)
+                intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                context.startActivity(intent)
             }
            footerHolder.deleteBtn.setOnClickListener {
                Toast.makeText(context, "Delete Account", Toast.LENGTH_SHORT).show()
