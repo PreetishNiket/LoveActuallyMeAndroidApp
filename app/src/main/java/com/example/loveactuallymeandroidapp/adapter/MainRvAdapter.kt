@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.dataClass.Section
 import com.example.loveactuallymeandroidapp.ui.auth.SignUpActivity
@@ -61,11 +62,22 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
         if (holder is SettingFooterViewHolder){
             val footerHolder: SettingFooterViewHolder = holder
             footerHolder.logOutBtn.setOnClickListener {
-                Toast.makeText(context, "Log out", Toast.LENGTH_SHORT).show()
-                auth.signOut()
-                val intent=Intent(context,SignUpActivity::class.java)
-                intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                context.startActivity(intent)
+                val dialog=SweetAlertDialog(context,SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("Are You Sure?")
+                    .setCancelText("Cancel")
+                    .setConfirmText("Yes")
+                    .showCancelButton(true)
+                    .setCancelClickListener {
+                        it.cancel()
+                    }
+                    .setConfirmClickListener {
+                        Toast.makeText(context, "Log out", Toast.LENGTH_SHORT).show()
+                        auth.signOut()
+                        val intent=Intent(context,SignUpActivity::class.java)
+                        intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        context.startActivity(intent)
+                    }
+                    .show()
             }
            footerHolder.deleteBtn.setOnClickListener {
                Toast.makeText(context, "Delete Account", Toast.LENGTH_SHORT).show()
