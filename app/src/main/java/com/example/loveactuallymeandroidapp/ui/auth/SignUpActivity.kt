@@ -28,7 +28,7 @@ class SignUpActivity : AppCompatActivity() {
             val countryCode=countryCodePicker.selectedCountryCode.toString()
             mobileNumber= "+$countryCode$phoneNumber"
 
-            mobilecheck()
+            mobileCheck()
 
         }
         policy_tv.setOnClickListener {
@@ -36,7 +36,7 @@ class SignUpActivity : AppCompatActivity() {
             finish()
         }
     }
-    fun mobilecheck()
+    private fun mobileCheck()
     {
 
         if (phoneNumber.isNotEmpty() && phoneNumber.length == 10) {
