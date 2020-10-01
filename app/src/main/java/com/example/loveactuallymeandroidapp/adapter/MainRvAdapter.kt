@@ -72,7 +72,7 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
                     .setCancelable(true)
                     .addButton("LOG OUT",Color.parseColor("#FFFFFF"),Color.parseColor("#EC6273")
                     ,CFAlertDialog.CFAlertActionStyle.POSITIVE,
-                        CFAlertDialog.CFAlertActionAlignment.END
+                        CFAlertDialog.CFAlertActionAlignment.JUSTIFIED
                     ) { dialog, i ->
                         Toast.makeText(context, "Log out", Toast.LENGTH_SHORT).show()
                         auth.signOut()
@@ -83,7 +83,7 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
                     }
                     .addButton("CANCEL",Color.parseColor("#FFFFFF"),Color.parseColor("#db3a2c")
                         ,CFAlertDialog.CFAlertActionStyle.NEGATIVE,
-                        CFAlertDialog.CFAlertActionAlignment.START
+                        CFAlertDialog.CFAlertActionAlignment.JUSTIFIED
                     ) { dialog, i ->
                         Toast.makeText(context, "Cancel", Toast.LENGTH_SHORT).show()
                         dialog.dismiss()
@@ -92,6 +92,30 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
             }
            footerHolder.deleteBtn.setOnClickListener {
                Toast.makeText(context, "Delete Account", Toast.LENGTH_SHORT).show()
+               val builder=CFAlertDialog.Builder(context)
+                   .setDialogBackgroundColor(Color.parseColor("#303030"))
+                   .setDialogStyle(CFAlertDialog.CFAlertStyle.ALERT)
+                   .setTitle("So Soon!!").setTextColor(Color.parseColor("#EC6273")).setTextGravity(Gravity.CENTER_HORIZONTAL)
+                   .setCancelable(true)
+                   .addButton("DELETE",Color.parseColor("#FFFFFF"),Color.parseColor("#EC6273")
+                       ,CFAlertDialog.CFAlertActionStyle.POSITIVE,
+                       CFAlertDialog.CFAlertActionAlignment.JUSTIFIED
+                   ) { dialog, i ->
+//                       Toast.makeText(context, "Log out", Toast.LENGTH_SHORT).show()
+//                       auth.signOut()
+//                       val intent=Intent(context,SignUpActivity::class.java)
+//                       intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+//                       context.startActivity(intent)
+                       dialog.dismiss()
+                   }
+                   .addButton("CANCEL",Color.parseColor("#FFFFFF"),Color.parseColor("#db3a2c")
+                       ,CFAlertDialog.CFAlertActionStyle.NEGATIVE,
+                       CFAlertDialog.CFAlertActionAlignment.JUSTIFIED
+                   ) { dialog, i ->
+                       Toast.makeText(context, "Cancel", Toast.LENGTH_SHORT).show()
+                       dialog.dismiss()
+                   }
+               builder.show()
            }
         }
     }
