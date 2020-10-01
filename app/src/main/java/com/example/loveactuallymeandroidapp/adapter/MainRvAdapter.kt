@@ -84,7 +84,7 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
                         context.startActivity(intent)
                         dialog.dismiss()
                     }
-                    .addButton("CANCEL",Color.parseColor("#FFFFFF"),Color.parseColor("#db3a2c")
+                    .addButton("CANCEL",Color.parseColor("#db3a2c"),Color.parseColor("#FFFFFF")
                         ,CFAlertDialog.CFAlertActionStyle.NEGATIVE,
                         CFAlertDialog.CFAlertActionAlignment.JUSTIFIED
                     ) { dialog, i ->
@@ -94,7 +94,7 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
                 builder.show()
             }
            footerHolder.deleteBtn.setOnClickListener {
-               Toast.makeText(context, "Delete Account", Toast.LENGTH_SHORT).show()
+//               Toast.makeText(context, "Delete Account", Toast.LENGTH_SHORT).show()
                val builder=CFAlertDialog.Builder(context)
                    .setDialogBackgroundColor(Color.parseColor("#303030"))
                    .setDialogStyle(CFAlertDialog.CFAlertStyle.ALERT)
@@ -104,7 +104,6 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
                        ,CFAlertDialog.CFAlertActionStyle.POSITIVE,
                        CFAlertDialog.CFAlertActionAlignment.JUSTIFIED
                    ) { dialog, i ->
-//
                        FirebaseDatabase.getInstance().reference.child("Users").child(auth.currentUser!!.uid).removeValue()
                        auth.currentUser!!.delete().addOnCompleteListener {
                            val intent = Intent(context, SignUpActivity::class.java)
@@ -114,7 +113,7 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
                        }
                        dialog.dismiss()
                    }
-                   .addButton("No Stay",Color.parseColor("#FFFFFF"),Color.parseColor("#db3a2c")
+                   .addButton("No Stay",Color.parseColor("#db3a2c"),Color.parseColor("#FFFFFF")
                        ,CFAlertDialog.CFAlertActionStyle.NEGATIVE,
                        CFAlertDialog.CFAlertActionAlignment.JUSTIFIED
                    ) { dialog, i ->
