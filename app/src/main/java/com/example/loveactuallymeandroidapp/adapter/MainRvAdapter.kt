@@ -17,6 +17,9 @@ import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.dataClass.Section
 import com.example.loveactuallymeandroidapp.ui.auth.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MainRvAdapter(private val context:Context,private val sectionList: ArrayList<Section>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object{
@@ -101,18 +104,20 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
                        ,CFAlertDialog.CFAlertActionStyle.POSITIVE,
                        CFAlertDialog.CFAlertActionAlignment.JUSTIFIED
                    ) { dialog, i ->
-//                       Toast.makeText(context, "Log out", Toast.LENGTH_SHORT).show()
-//                       auth.signOut()
-//                       val intent=Intent(context,SignUpActivity::class.java)
-//                       intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-//                       context.startActivity(intent)
+//
+                       FirebaseDatabase.getInstance().reference.child("Users").child(auth.currentUser!!.uid).removeValue()
+                       auth.currentUser!!.delete().addOnCompleteListener {
+                           val intent = Intent(context, SignUpActivity::class.java)
+                           intent.flags =
+                               Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                           context.startActivity(intent)
+                       }
                        dialog.dismiss()
                    }
-                   .addButton("CANCEL",Color.parseColor("#FFFFFF"),Color.parseColor("#db3a2c")
+                   .addButton("No Stay",Color.parseColor("#FFFFFF"),Color.parseColor("#db3a2c")
                        ,CFAlertDialog.CFAlertActionStyle.NEGATIVE,
                        CFAlertDialog.CFAlertActionAlignment.JUSTIFIED
                    ) { dialog, i ->
-                       Toast.makeText(context, "Cancel", Toast.LENGTH_SHORT).show()
                        dialog.dismiss()
                    }
                builder.show()
