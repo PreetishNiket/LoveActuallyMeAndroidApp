@@ -5,6 +5,18 @@
     android:layout_width="match_parent"
     android:background="@drawable/bottom_sheet_back"
     android:layout_height="match_parent">
+    <Button
+        android:id="@+id/apply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:text="Apply"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffff"
+        android:layout_below="@id/textView"
+        android:padding="5dp"
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/textView"
@@ -53,7 +65,7 @@
         android:layout_height="wrap_content"
         android:text="Looking for"
         android:textAlignment="center"
-        android:layout_below="@id/textView"
+        android:layout_below="@id/apply"
         android:layout_marginStart="32dp"
         android:textSize="12sp"
         android:textColor="#000" />

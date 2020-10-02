@@ -29,6 +29,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private var usersList: List<Users>? = null
     var cardAdapter: SwipeViewAdapter? = null
+    lateinit var bottomSheetDialog:BottomSheetDialog
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,16 +39,17 @@ class HomeFragment : Fragment(), View.OnClickListener {
         val frag = inflater.inflate(R.layout.fragment_home, container, false)
         val filterButton = frag.findViewById<ImageView>(R.id.filter_img)
         filterButton.setOnClickListener {
-            val bottomSheetDialog = BottomSheetDialog(requireContext())
+            bottomSheetDialog=BottomSheetDialog(requireContext())
             bottomSheetDialog.setContentView(R.layout.bottom_sheet_layout)
             bottomSheetDialog.setCanceledOnTouchOutside(true)
             val btn: Button? = bottomSheetDialog.findViewById(R.id.button)
             val btn1: Button? = bottomSheetDialog.findViewById(R.id.button2)
             val btn2: Button? = bottomSheetDialog.findViewById(R.id.button3)
-
+            val btn3:Button?=bottomSheetDialog.findViewById(R.id.apply)
             btn?.setOnClickListener(this)
             btn1?.setOnClickListener(this)
             btn2?.setOnClickListener(this)
+            btn3?.setOnClickListener(this)
             bottomSheetDialog.show()
         }
 
@@ -137,6 +139,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
         if (view.id == R.id.button3) {
             view.setBackgroundColor(resources.getColor(R.color.pink))
             view.button3.setTextColor(Color.WHITE)
+        }
+        if (view.id==R.id.apply){
+            bottomSheetDialog.dismiss()
         }
     }
 }
