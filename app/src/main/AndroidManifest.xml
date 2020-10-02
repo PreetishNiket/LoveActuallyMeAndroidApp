@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".ui.profile.WorkOutActivity"></activity>
+        <activity android:name=".ui.profile.ConnectActivity"></activity>
+        <activity android:name=".ui.profile.WorkOutActivity" />
         <activity android:name=".ui.profile.SmokeActivity" />
         <activity android:name=".ui.profile.DrinkActivity" />
         <activity android:name=".ui.profile.PetsActivity" />

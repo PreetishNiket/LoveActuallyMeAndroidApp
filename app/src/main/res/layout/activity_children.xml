@@ -43,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.171"
-        app:srcCompat="@drawable/education" />
+        app:srcCompat="@drawable/children" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
