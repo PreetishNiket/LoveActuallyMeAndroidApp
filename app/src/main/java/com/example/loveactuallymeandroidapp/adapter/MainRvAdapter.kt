@@ -84,7 +84,7 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
                         context.startActivity(intent)
                         dialog.dismiss()
                     }
-                    .addButton("CANCEL",Color.parseColor("#db3a2c"),Color.parseColor("#FFFFFF")
+                    .addButton("CANCEL",Color.parseColor("#FFFFFF"),Color.parseColor("#db3a2c")
                         ,CFAlertDialog.CFAlertActionStyle.NEGATIVE,
                         CFAlertDialog.CFAlertActionAlignment.JUSTIFIED
                     ) { dialog, i ->
@@ -113,7 +113,7 @@ class MainRvAdapter(private val context:Context,private val sectionList: ArrayLi
                        }
                        dialog.dismiss()
                    }
-                   .addButton("No Stay",Color.parseColor("#db3a2c"),Color.parseColor("#FFFFFF")
+                   .addButton("No Stay",Color.parseColor("#FFFFFF"),Color.parseColor("#db3a2c")
                        ,CFAlertDialog.CFAlertActionStyle.NEGATIVE,
                        CFAlertDialog.CFAlertActionAlignment.JUSTIFIED
                    ) { dialog, i ->
