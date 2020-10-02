@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.loveactuallymeandroidapp.R
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -78,6 +80,14 @@ class ProfileVerActivity : AppCompatActivity() {
                 uploadImageToFirebase(imageUri)
             }
             profile_ver_iv.setImageBitmap(image)
+            val dialog=SweetAlertDialog(this,SweetAlertDialog.PROGRESS_TYPE)
+            with(dialog){
+                progressHelper.barColor=Color.parseColor("#EC6273")
+                    progressHelper.progress= 5.0F
+                titleText = "Please Wait"
+                show()
+            }
+            dialog.dismissWithAnimation()
             profile_ver_iv.handler.postDelayed({
                 Toast.makeText(this, "Verified", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, ProfileActivity::class.java))
