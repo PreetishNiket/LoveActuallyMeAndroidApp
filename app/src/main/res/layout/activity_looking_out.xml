@@ -47,14 +47,14 @@
         app:srcCompat="@drawable/lookout" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/cdv4"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"
         app:cardCornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.583">
@@ -70,7 +70,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/cdv2"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"
@@ -84,7 +84,7 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="88dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Relationship"
@@ -94,7 +94,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView4"
+        android:id="@+id/cdv3"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"
@@ -117,7 +117,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView5"
+        android:id="@+id/cdv6"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"
@@ -140,7 +140,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView1"
+        android:id="@+id/cdv1"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"
@@ -163,7 +163,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView6"
+        android:id="@+id/cdv5"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"

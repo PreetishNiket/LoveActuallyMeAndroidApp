@@ -46,7 +46,7 @@
         app:srcCompat="@drawable/workout" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView4"
+        android:id="@+id/cdNotatall"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"
@@ -69,7 +69,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView1"
+        android:id="@+id/cdActive"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"
@@ -92,7 +92,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/cdSometimes"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"

@@ -46,7 +46,7 @@
         app:srcCompat="@drawable/children" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/cdHaveWant"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"
@@ -69,7 +69,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView1"
+        android:id="@+id/cdNone"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"
@@ -92,7 +92,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView4"
+        android:id="@+id/cdDontwant"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"
@@ -115,7 +115,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView6"
+        android:id="@+id/cdHaveDontwant"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"
@@ -138,7 +138,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/cdWant"
         android:layout_width="162dp"
         android:layout_height="35dp"
         app:cardBackgroundColor="#868686"

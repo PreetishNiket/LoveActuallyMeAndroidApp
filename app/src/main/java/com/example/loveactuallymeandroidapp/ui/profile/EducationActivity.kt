@@ -10,7 +10,7 @@ import com.example.loveactuallymeandroidapp.R
 import kotlinx.android.synthetic.main.activity_education.*
 
 class EducationActivity : AppCompatActivity(), View.OnClickListener {
-    private var educationSelected = String()
+    var educationSelected = String()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_education)
@@ -25,7 +25,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
         cardView7.setOnClickListener(this)
 
         skip_e.setOnClickListener {
-            startActivity(Intent(this, ProfileVerActivity::class.java))
+            startActivity(Intent(this, ZodiacActivity::class.java))
             finish()
         }
         back_finish.setOnClickListener {
@@ -114,7 +114,7 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
             val editor=preference.edit()
             editor.putString("education",educationSelected)
             editor.apply()
-            startActivity(Intent(this, ProfileVerActivity::class.java))
+            startActivity(Intent(this, ZodiacActivity::class.java))
             finish()
         }
 
