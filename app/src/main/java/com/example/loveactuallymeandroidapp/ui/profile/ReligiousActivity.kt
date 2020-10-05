@@ -183,7 +183,6 @@ class ReligiousActivity : AppCompatActivity(), View.OnClickListener {
             editor.putString("religion",religionselected)
             editor.apply()
             startActivity(Intent(this,EducationActivity::class.java))
-            finish()
         }
     }
 }

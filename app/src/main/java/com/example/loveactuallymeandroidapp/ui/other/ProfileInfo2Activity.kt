@@ -37,6 +37,12 @@ class ProfileInfo2Activity : AppCompatActivity() {
                 var gender = dataSnapshot.child("Gender").getValue(String::class.java)
                 var mobilenumber = dataSnapshot.child("Mobile_Number").getValue(String::class.java)
                 var religion = dataSnapshot.child("Religious_Belief").getValue(String::class.java)
+                var drinking = dataSnapshot.child("Drinking").getValue(String::class.java)
+                var smoking = dataSnapshot.child("Smoking").getValue(String::class.java)
+                var connect = dataSnapshot.child("Connect").getValue(String::class.java)
+                connectionsofuser.text=connect
+                smokinghabitsofuser.text=smoking
+                drinkinghabitsofuser.text=drinking
                 nameofuser.text=name
                 orientationofuser.text=ability
                 mobileofuser.text=mobilenumber

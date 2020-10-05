@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.064" />
 
     <ImageView
-        android:id="@+id/back_finish"
+        android:id="@+id/back_co"
         android:layout_width="45dp"
         android:layout_height="53dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,10 +66,10 @@
         android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintHorizontal_bias="0.373"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintVertical_bias="0.603"
         app:srcCompat="@drawable/coffee" />
 
     <ImageView
@@ -78,10 +78,9 @@
         android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintHorizontal_bias="0.373"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498"
         app:srcCompat="@drawable/lunch" />
 
     <ImageView
@@ -90,7 +89,7 @@
         android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintHorizontal_bias="0.373"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.696"
@@ -105,7 +104,7 @@
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79"
+        app:layout_constraintVertical_bias="0.793"
         app:srcCompat="@drawable/phonecall" />
 
     <ImageView
@@ -134,9 +133,9 @@
         app:tint="#FFFF" />
 
     <TextView
-        android:id="@+id/skip_e"
-        android:layout_width="46dp"
-        android:layout_height="28dp"
+        android:id="@+id/skip_co"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="SKIP"
         android:textAlignment="center"
         android:textColor="#FFFF"
@@ -146,7 +145,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955" />
+        app:layout_constraintVertical_bias="0.951" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

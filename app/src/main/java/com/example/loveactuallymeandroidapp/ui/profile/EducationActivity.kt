@@ -115,7 +115,6 @@ class EducationActivity : AppCompatActivity(), View.OnClickListener {
             editor.putString("education",educationSelected)
             editor.apply()
             startActivity(Intent(this, ZodiacActivity::class.java))
-            finish()
         }
 
 

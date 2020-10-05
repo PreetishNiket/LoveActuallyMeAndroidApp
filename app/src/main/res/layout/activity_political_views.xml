@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.069" />
     <ImageView
-        android:id="@+id/back_finish"
+        android:id="@+id/back_po"
         android:layout_width="45dp"
         android:layout_height="53dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -141,9 +141,9 @@
 
 
     <TextView
-        android:id="@+id/skip_e"
-        android:layout_width="46dp"
-        android:layout_height="28dp"
+        android:id="@+id/skip_po"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="SKIP"
         android:textAlignment="center"
         android:textColor="#FFFF"
@@ -153,6 +153,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.773" />
+        app:layout_constraintVertical_bias="0.783" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

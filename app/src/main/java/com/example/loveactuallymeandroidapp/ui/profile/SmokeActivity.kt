@@ -10,6 +10,7 @@ import com.example.loveactuallymeandroidapp.R
 import kotlinx.android.synthetic.main.activity_drink.*
 import kotlinx.android.synthetic.main.activity_drink.cdNever
 import kotlinx.android.synthetic.main.activity_drink.cdSocially
+import kotlinx.android.synthetic.main.activity_looking_out.*
 import kotlinx.android.synthetic.main.activity_smoke.*
 
 class SmokeActivity : AppCompatActivity() , View.OnClickListener{
@@ -22,7 +23,13 @@ class SmokeActivity : AppCompatActivity() , View.OnClickListener{
         cdSocially1.setOnClickListener(this)
         cdNever1.setOnClickListener(this)
         cdRegularly.setOnClickListener(this)
-
+        skip_s.setOnClickListener {
+            startActivity(Intent(this, WorkOutActivity::class.java))
+            finish()
+        }
+        back_s.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onClick(v: View?) {
@@ -54,7 +61,6 @@ class SmokeActivity : AppCompatActivity() , View.OnClickListener{
             editor.putString("smoking",Smoking)
             editor.apply()
             startActivity(Intent(this, WorkOutActivity::class.java))
-            finish()
         }
     }
 }

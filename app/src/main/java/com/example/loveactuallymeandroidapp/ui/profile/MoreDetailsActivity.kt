@@ -16,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_more_details.*
 import kotlinx.android.synthetic.main.activity_more_details.tvname
 
-class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
+class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
     private val auth by lazy {
         FirebaseAuth.getInstance()
     }
@@ -48,6 +48,15 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
             val gender = preference.getString("gender", null).toString()
             val dob = preference.getString("dateofbirth", null).toString()
             val name = preference.getString("name", null).toString()
+            val Zodiacsign = preference.getString("zodiacsign", null).toString()
+            val Lookingout = preference.getString("lookingout", null).toString()
+            val Politicalview = preference.getString("politicalview", null).toString()
+            val Children = preference.getString("children", null).toString()
+            val Pets = preference.getString("pets", null).toString()
+            val Drinking = preference.getString("drinking", null).toString()
+            val Smoking = preference.getString("smoking", null).toString()
+            val Workout = preference.getString("workout", null).toString()
+            val Connect = preference.getString("connect", null).toString()
             val userDetails: HashMap<String, String?> = hashMapOf(
                 "Mobile_Number" to mobile,
                 "About" to about,
@@ -57,7 +66,16 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
                 "Education" to education,
                 "Gender" to gender,
                 "Date_of_Birth" to dob,
-                "Name" to name
+                "Name" to name,
+                "Zodiacsign" to Zodiacsign,
+                "Lookingout" to Lookingout,
+                "Politicalview" to Politicalview,
+                "Children" to Children,
+                "Pets" to Pets,
+                "Drinking" to Drinking,
+                "Smoking" to Smoking,
+                "Workout" to Workout,
+                "Connect" to Connect,
             )
             val db = FirebaseFirestore.getInstance()
 

@@ -19,6 +19,13 @@ class PoliticalViewsActivity : AppCompatActivity(), View.OnClickListener {
         cdModerate.setOnClickListener(this)
         cdLiberal.setOnClickListener(this)
         cdConservative.setOnClickListener(this)
+        skip_po.setOnClickListener {
+            startActivity(Intent(this, ChildrenActivity::class.java))
+            finish()
+        }
+        back_po.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onClick(v: View?) {
@@ -60,7 +67,6 @@ class PoliticalViewsActivity : AppCompatActivity(), View.OnClickListener {
             editor.putString("politicalview",Politicalview)
             editor.apply()
             startActivity(Intent(this, ChildrenActivity::class.java))
-            finish()
         }
         }
     }

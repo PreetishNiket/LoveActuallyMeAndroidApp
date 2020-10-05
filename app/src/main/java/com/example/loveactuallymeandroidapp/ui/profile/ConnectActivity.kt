@@ -24,7 +24,13 @@ class ConnectActivity : AppCompatActivity() , View.OnClickListener {
         imgLunch.setOnClickListener(this)
         imgPhonecall.setOnClickListener(this)
         imgVideocall.setOnClickListener(this)
-
+        skip_co.setOnClickListener {
+            startActivity(Intent(this, PolicyActivity::class.java))
+            finish()
+        }
+        back_co.setOnClickListener {
+            finish()
+        }
         //startActivity(Intent(this, PolicyActivity::class.java))
         //()
     }
@@ -111,7 +117,6 @@ class ConnectActivity : AppCompatActivity() , View.OnClickListener {
             editor.putString("connect",Connect)
             editor.apply()
             startActivity(Intent(this, PolicyActivity::class.java))
-            finish()
         }
 
     }

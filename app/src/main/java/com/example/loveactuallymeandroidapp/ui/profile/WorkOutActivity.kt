@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.loveactuallymeandroidapp.R
+import kotlinx.android.synthetic.main.activity_looking_out.*
 import kotlinx.android.synthetic.main.activity_smoke.*
 import kotlinx.android.synthetic.main.activity_work_out.*
 
@@ -21,7 +22,13 @@ class WorkOutActivity : AppCompatActivity() , View.OnClickListener{
         cdSometimes.setOnClickListener(this)
         cdNotatall.setOnClickListener(this)
 
-
+        skip_w.setOnClickListener {
+            startActivity(Intent(this, ConnectActivity::class.java))
+            finish()
+        }
+        back_w.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onClick(v: View?) {
@@ -52,7 +59,6 @@ class WorkOutActivity : AppCompatActivity() , View.OnClickListener{
             editor.putString("workout",Workout)
             editor.apply()
             startActivity(Intent(this, ConnectActivity::class.java))
-            finish()
         }
     }
 }

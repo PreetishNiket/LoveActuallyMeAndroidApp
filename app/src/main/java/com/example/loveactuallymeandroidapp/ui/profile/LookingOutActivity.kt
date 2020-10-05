@@ -22,7 +22,13 @@ class LookingOutActivity : AppCompatActivity() , View.OnClickListener{
         cdv4.setOnClickListener(this)
         cdv5.setOnClickListener(this)
         cdv6.setOnClickListener(this)
-
+        skip_l.setOnClickListener {
+            startActivity(Intent(this, PoliticalViewsActivity::class.java))
+            finish()
+        }
+        back_l.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onClick(v: View?) {
@@ -92,7 +98,6 @@ class LookingOutActivity : AppCompatActivity() , View.OnClickListener{
             editor.putString("lookingout",Lookingout)
             editor.apply()
             startActivity(Intent(this, PoliticalViewsActivity::class.java))
-            finish()
         }
 
     }

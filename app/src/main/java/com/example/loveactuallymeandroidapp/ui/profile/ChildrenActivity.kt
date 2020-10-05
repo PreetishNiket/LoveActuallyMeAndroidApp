@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.view.View
 import com.example.loveactuallymeandroidapp.R
 import kotlinx.android.synthetic.main.activity_children.*
-import kotlinx.android.synthetic.main.activity_looking_out.*
 
 class ChildrenActivity : AppCompatActivity() , View.OnClickListener{
 
@@ -22,7 +21,13 @@ class ChildrenActivity : AppCompatActivity() , View.OnClickListener{
         cdDontwant.setOnClickListener(this)
         cdHaveWant.setOnClickListener(this)
         cdHaveDontwant.setOnClickListener(this)
-
+        skip_c.setOnClickListener {
+            startActivity(Intent(this, PetsActivity::class.java))
+            finish()
+        }
+        back_c.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onClick(v: View?) {
@@ -76,7 +81,6 @@ class ChildrenActivity : AppCompatActivity() , View.OnClickListener{
             editor.putString("children",Children)
             editor.apply()
             startActivity(Intent(this, PetsActivity::class.java))
-            finish()
         }
 
     }

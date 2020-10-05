@@ -10,6 +10,7 @@ import com.example.loveactuallymeandroidapp.R
 import kotlinx.android.synthetic.main.activity_zodiac.*
 
 
+
 class ZodiacActivity : AppCompatActivity(), View.OnClickListener {
 
     var zodiacsign = String()
@@ -29,6 +30,13 @@ class ZodiacActivity : AppCompatActivity(), View.OnClickListener {
         cv10.setOnClickListener(this)
         cv11.setOnClickListener(this)
         cv12.setOnClickListener(this)
+        skip_z.setOnClickListener {
+            startActivity(Intent(this, LookingOutActivity::class.java))
+            finish()
+        }
+        back_z.setOnClickListener {
+            finish()
+        }
 
         //startActivity(Intent(this, LookingOutActivity::class.java))
        // finish()
@@ -226,7 +234,6 @@ class ZodiacActivity : AppCompatActivity(), View.OnClickListener {
             editor.putString("zodiacsign",zodiacsign)
             editor.apply()
             startActivity(Intent(this, LookingOutActivity::class.java))
-            finish()
         }
 
 

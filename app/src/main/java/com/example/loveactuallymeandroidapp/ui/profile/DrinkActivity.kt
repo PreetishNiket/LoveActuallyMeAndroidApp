@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.view.View
 import com.example.loveactuallymeandroidapp.R
 import kotlinx.android.synthetic.main.activity_drink.*
-import kotlinx.android.synthetic.main.activity_pets.*
 
 class DrinkActivity : AppCompatActivity() , View.OnClickListener{
 
@@ -22,7 +21,13 @@ class DrinkActivity : AppCompatActivity() , View.OnClickListener{
         cdSocially.setOnClickListener(this)
         cdNever.setOnClickListener(this)
         cdFrequently.setOnClickListener(this)
-
+        skip_d.setOnClickListener {
+            startActivity(Intent(this, SmokeActivity::class.java))
+            finish()
+        }
+        back_d.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onClick(v: View?) {
@@ -55,7 +60,6 @@ class DrinkActivity : AppCompatActivity() , View.OnClickListener{
             editor.putString("drinking",Drinking)
             editor.apply()
             startActivity(Intent(this, SmokeActivity::class.java))
-            finish()
         }
     }
 }
