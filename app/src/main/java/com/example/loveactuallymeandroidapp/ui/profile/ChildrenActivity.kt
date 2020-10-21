@@ -3,13 +3,13 @@ package com.example.loveactuallymeandroidapp.ui.profile
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.example.loveactuallymeandroidapp.R
 import kotlinx.android.synthetic.main.activity_children.*
 
-class ChildrenActivity : AppCompatActivity() , View.OnClickListener{
+class ChildrenActivity : AppCompatActivity(), View.OnClickListener {
 
     var Children = String()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class ChildrenActivity : AppCompatActivity() , View.OnClickListener{
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
             R.id.cdNone -> run {
                 cdNone.setCardBackgroundColor(Color.parseColor("#EC6273"))
                 cdHaveDontwant.setCardBackgroundColor(Color.parseColor("#868686"))
@@ -74,11 +74,11 @@ class ChildrenActivity : AppCompatActivity() , View.OnClickListener{
                 Children = "Have & Don't Want"
             }
         }
-        if (Children.isNotEmpty())
-        {
-            val preference=getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
-            val editor=preference.edit()
-            editor.putString("children",Children)
+        if (Children.isNotEmpty()) {
+            val preference =
+                getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+            val editor = preference.edit()
+            editor.putString("children", Children)
             editor.apply()
             startActivity(Intent(this, PetsActivity::class.java))
         }

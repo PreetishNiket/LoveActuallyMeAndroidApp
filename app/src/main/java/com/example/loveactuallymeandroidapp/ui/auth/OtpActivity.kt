@@ -1,9 +1,9 @@
 package com.example.loveactuallymeandroidapp.ui.auth
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.ui.profile.SocializingActivity
 import com.google.firebase.FirebaseException
@@ -23,7 +23,7 @@ class OtpActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         phoneNumber = intent.getStringExtra("phoneNo").toString()
-        mobile.text=phoneNumber
+        mobile.text = phoneNumber
 
         back_finish.setOnClickListener {
             finish()
