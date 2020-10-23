@@ -35,18 +35,6 @@
         android:layout_marginEnd="15dp"
         android:src="@drawable/ic_baseline_settings_24" />
 
-
-<!--    <TextView-->
-<!--        android:id="@+id/info"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:text="Info"-->
-<!--        android:textColor="#868686"-->
-<!--        android:layout_below="@id/profile_photo1"-->
-<!--        android:textSize="16sp" />-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_profile_info"
         android:layout_width="409dp"

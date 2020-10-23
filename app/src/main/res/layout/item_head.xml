@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/card_rv_stroke"
+    android:layout_height="wrap_content">
+    <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Info"
+            android:textColor="#868686"
+            android:textSize="16sp" />
+    <EditText
+        android:id="@+id/info_et"
+        android:layout_width="305dp"
+        android:layout_height="82dp"
+        android:background="@drawable/stroke_back"
+        android:hint="300 Character"
+        android:textColorHint="@color/white"
+        android:inputType="textMultiLine"
+        android:maxLength="300"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:layout_below="@id/info"
+        android:layout_marginBottom="10dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"/>
+
+</RelativeLayout>

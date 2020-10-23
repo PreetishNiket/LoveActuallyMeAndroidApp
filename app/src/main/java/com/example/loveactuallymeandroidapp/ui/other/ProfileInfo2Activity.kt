@@ -41,8 +41,9 @@ class ProfileInfo2Activity : AppCompatActivity() {
                 val drinking = dataSnapshot.child("Drinking").getValue(String::class.java).toString()
                 val smoking = dataSnapshot.child("Smoking").getValue(String::class.java).toString()
                 val connect = dataSnapshot.child("Connect").getValue(String::class.java).toString()
-
+                val info=dataSnapshot.child("About").getValue(String::class.java).toString()
                 list = arrayListOf(
+                    ProfileInfo("Info", info),
                     ProfileInfo("Name", name),
                     ProfileInfo("Ability", ability),
                     ProfileInfo("Date of Birth", dob),
