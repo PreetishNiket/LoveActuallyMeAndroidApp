@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.ui.profile.SocializingActivity
 import com.facebook.*
@@ -86,6 +87,7 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(Intent(this, LogInActivity::class.java))
         }
         google_button.setOnClickListener {
+            progressBar.isVisible = true
             signInGoogle()
 
         }
@@ -114,7 +116,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
@@ -138,8 +140,8 @@ class SignUpActivity : AppCompatActivity() {
             }
 
 
-        } else {
-            //facebook call back
+        }
+       else{
             callbackManager?.onActivityResult(requestCode, resultCode, data)
         }
     }
@@ -192,7 +194,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("TAG", "signInWithCredential:success")
-
+                    progressBar.isVisible = false
                     val intent = Intent(this, SocializingActivity::class.java)
                     startActivity(intent)
                 } else {
