@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="20dp"
     android:background="@color/back">
-    <com.mikhaellopez.circularimageview.CircularImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circularImageView"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -42,13 +42,12 @@
         android:visibility="visible"
         android:layout_toEndOf="@id/circularImageView"/>
 
-    <com.mikhaellopez.circularimageview.CircularImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/status_v"
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_alignEnd="@id/circularImageView"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="10dp"
-        app:srcCompat="@drawable/status_icon"
-        app:civ_border_color="#05df29" />
+        android:src="@drawable/status_icon"/>
 </RelativeLayout>

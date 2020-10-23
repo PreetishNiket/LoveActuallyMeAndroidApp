@@ -15,20 +15,19 @@
             android:layout_width="wrap_content"
             android:gravity="center_horizontal"
             android:layout_height="wrap_content">
-            <com.mikhaellopez.circularimageview.CircularImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/circularImageView1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 app:srcCompat="@drawable/ex_img"
                 app:civ_border_width="0dp"
                 android:src="@drawable/ex_img" />
-            <com.mikhaellopez.circularimageview.CircularImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/status_h"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_alignEnd="@id/circularImageView1"
-                app:srcCompat="@drawable/status_icon"
-                app:civ_border_color="#05df29"
+                android:src="@drawable/status_icon"
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="10dp"/>
             <TextView

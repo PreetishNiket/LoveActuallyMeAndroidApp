@@ -104,5 +104,5 @@ dependencies {
     implementation 'com.github.f0ris.sweetalert:library:1.6.2'
 
     //facebook login implementation
-    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
 }
