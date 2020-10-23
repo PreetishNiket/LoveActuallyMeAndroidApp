@@ -139,6 +139,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
         } else {
+            //facebook call back
             callbackManager?.onActivityResult(requestCode, resultCode, data)
         }
     }
