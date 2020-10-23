@@ -7,21 +7,34 @@
     android:orientation="vertical"
     android:background="#868686"
     tools:context=".ui.navUi.HomeFragment">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All matching completed\nChange the filter to find more records"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+    </RelativeLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<!--    <com.lorentzos.flingswipe.SwipeFlingAdapterView-->
-<!--        android:id="@+id/frame"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
+
         <com.huxq17.swipecardsview.SwipeCardsView
             android:id="@+id/swipeCardsView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             card:alphaOffsetStep="40"
             card:scaleOffsetStep="0.08"
-            card:yOffsetStep="20dp" />
+            card:yOffsetStep="20dp" >
+
+        </com.huxq17.swipecardsview.SwipeCardsView>
+
+
 
     <ImageView
         android:id="@+id/filter_img"

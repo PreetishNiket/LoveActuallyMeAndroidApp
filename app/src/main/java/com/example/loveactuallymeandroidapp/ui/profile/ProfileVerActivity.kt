@@ -1,6 +1,7 @@
 package com.example.loveactuallymeandroidapp.ui.profile
 
 import android.Manifest
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,6 +10,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -80,18 +82,15 @@ class ProfileVerActivity : AppCompatActivity() {
                 uploadImageToFirebase(imageUri)
             }
             profile_ver_iv.setImageBitmap(image)
-            val dialog=SweetAlertDialog(this,SweetAlertDialog.PROGRESS_TYPE)
-            with(dialog){
-                progressHelper.barColor=Color.parseColor("#EC6273")
-                    progressHelper.progress= 5.0F
-                titleText = "Please Wait"
-                show()
-            }
-            dialog.dismissWithAnimation()
+
+            val dialog=ProgressDialog(this)
+            dialog.setMessage("Verifying")
+            dialog.max=50
+
             profile_ver_iv.handler.postDelayed({
                 Toast.makeText(this, "Verified", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, ProfileActivity::class.java))
-            }, 500)
+            }, 5500)
 
         }
         super.onActivityResult(requestCode, resultCode, data)
