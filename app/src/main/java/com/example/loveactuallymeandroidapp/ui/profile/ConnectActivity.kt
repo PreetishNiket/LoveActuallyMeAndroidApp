@@ -116,7 +116,7 @@ class ConnectActivity : AppCompatActivity() , View.OnClickListener {
             val editor=preference.edit()
             editor.putString("connect",Connect)
             editor.apply()
-            startActivity(Intent(this, PolicyActivity::class.java))
+            startActivity(Intent(this, ProfileVerActivity::class.java))
         }
 
     }

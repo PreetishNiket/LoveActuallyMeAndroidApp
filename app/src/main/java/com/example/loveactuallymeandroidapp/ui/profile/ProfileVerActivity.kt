@@ -9,6 +9,7 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.provider.MediaStore
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -77,7 +78,6 @@ class ProfileVerActivity : AppCompatActivity() {
         if (requestCode== CAMERA_REQUEST_CODE){
             val imageUri = data!!.data
             val image:Bitmap= data.extras?.get("data") as Bitmap
-            //   profileImage.setImageURI(imageUri);
             if (imageUri != null) {
                 uploadImageToFirebase(imageUri)
             }
@@ -85,11 +85,15 @@ class ProfileVerActivity : AppCompatActivity() {
 
             val dialog=ProgressDialog(this)
             dialog.setMessage("Verifying")
-            dialog.max=50
+            dialog.show()
+            Handler().postDelayed({
+                dialog.dismiss()
+                startActivity(Intent(this, ProfileActivity::class.java))
+            },5500)
 
             profile_ver_iv.handler.postDelayed({
                 Toast.makeText(this, "Verified", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, ProfileActivity::class.java))
+
             }, 5500)
 
         }
