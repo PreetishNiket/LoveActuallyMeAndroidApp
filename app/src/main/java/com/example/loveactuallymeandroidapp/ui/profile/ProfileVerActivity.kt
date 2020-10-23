@@ -89,12 +89,12 @@ class ProfileVerActivity : AppCompatActivity() {
             Handler().postDelayed({
                 dialog.dismiss()
                 startActivity(Intent(this, ProfileActivity::class.java))
-            },5500)
+            },3000)
 
             profile_ver_iv.handler.postDelayed({
                 Toast.makeText(this, "Verified", Toast.LENGTH_SHORT).show()
 
-            }, 5500)
+            }, 3000)
 
         }
         super.onActivityResult(requestCode, resultCode, data)

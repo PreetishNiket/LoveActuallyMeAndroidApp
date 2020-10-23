@@ -29,6 +29,8 @@ class LogInActivity : AppCompatActivity() {
         back_finish.setOnClickListener {
             finish()
         }
+        Toast.makeText(this, "Not Working", Toast.LENGTH_SHORT).show()
+
         //not working
         log_in_button.setOnClickListener {
             val phoneNumber = editTextPhone.text.toString()
