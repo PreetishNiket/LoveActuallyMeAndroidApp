@@ -4,22 +4,29 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.ui.profile.SocializingActivity
+import com.facebook.*
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import java.util.*
 
 
 class SignUpActivity : AppCompatActivity() {
     var phoneNumber = String()
     var mobileNumber = String()
+    var callbackManager: CallbackManager? = null
 
     companion object {
         const val RC_SIGN_IN = 120
@@ -38,6 +45,40 @@ class SignUpActivity : AppCompatActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
+        //facebook sdk
+        FacebookSdk.sdkInitialize(getApplicationContext())
+
+        // Initialize Facebook Login button
+        callbackManager = CallbackManager.Factory.create()
+
+        fb_button.setOnClickListener {
+
+            //progressBar.setVisibility(View.VISIBLE);
+            LoginManager.getInstance().logInWithReadPermissions(
+                this@SignUpActivity,
+                Arrays.asList("email", "public_profile")
+            )
+            LoginManager.getInstance().registerCallback(callbackManager, object :
+                FacebookCallback<LoginResult> {
+                override fun onSuccess(loginResult: LoginResult) {
+                    Log.d("TAG", "facebook:onSuccess:$loginResult")
+                    handleFacebookAccessToken(loginResult.accessToken)
+                }
+
+                override fun onCancel() {
+                    Log.d("TAG", "facebook:onCancel")
+                    // ...
+                }
+
+                override fun onError(error: FacebookException) {
+                    Log.d("TAG", "facebook:onError", error)
+                    // ...
+                }
+            })
+
+        }
+
+
         mAuth = FirebaseAuth.getInstance()
 
         supportActionBar?.hide()
@@ -45,7 +86,6 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(Intent(this, LogInActivity::class.java))
         }
         google_button.setOnClickListener {
-            progressBar.isVisible=true
             signInGoogle()
 
         }
@@ -93,10 +133,55 @@ class SignUpActivity : AppCompatActivity() {
 
                 }
             } else {
+
                 Log.w("TAG", exception.toString())
             }
 
+
+        } else {
+            callbackManager?.onActivityResult(requestCode, resultCode, data)
         }
+    }
+
+
+    private fun handleFacebookAccessToken(token: AccessToken) {
+        Log.d("TAG", "handleFacebookAccessToken:$token")
+
+        val credential = FacebookAuthProvider.getCredential(token.token)
+        mAuth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d("TAG", "signInWithCredential:success")
+                    val user = mAuth.currentUser
+                    Toast.makeText(
+                        baseContext, "Authentication Success.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    updateUI(user)
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w("TAG", "signInWithCredential:failure", task.exception)
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    updateUI(null)
+                }
+
+                // ...
+            }
+    }
+
+    private fun updateUI(user: FirebaseUser?) {
+        if (user != null) {
+            val intent = Intent(this, SocializingActivity::class.java)
+            startActivity(intent)
+        } else {
+            Toast.makeText(baseContext, "Please Sign in to Continue", Toast.LENGTH_SHORT).show()
+
+        }
+
     }
 
     private fun firebaseAuthWithGoogle(idToken: String) {
@@ -106,7 +191,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("TAG", "signInWithCredential:success")
-                    progressBar.isVisible=false
+
                     val intent = Intent(this, SocializingActivity::class.java)
                     startActivity(intent)
                 } else {

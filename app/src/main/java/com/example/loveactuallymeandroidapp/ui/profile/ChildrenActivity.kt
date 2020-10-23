@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.activity_children.*
 class ChildrenActivity : AppCompatActivity(), View.OnClickListener {
 
     var Children = String()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_children)
