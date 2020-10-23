@@ -30,7 +30,7 @@ class ProfileInfoActivity : AppCompatActivity() {
         demoRef.addListenerForSingleValueEvent(object : ValueEventListener {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var name = dataSnapshot.child("Name").getValue(String::class.java)
+                val name = dataSnapshot.child("Name").getValue(String::class.java)
 
 
                 tvperson.text=name
