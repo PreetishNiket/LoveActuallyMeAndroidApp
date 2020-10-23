@@ -17,18 +17,27 @@ class ProfileInfo2Activity : AppCompatActivity() {
         FirebaseAuth.getInstance()
     }
 
+    private val list= arrayListOf(ProfileInfo("Name"),
+                                                      ProfileInfo("Gender"),
+                                                      ProfileInfo("Age"),
+        ProfileInfo("Height"),
+        ProfileInfo("Drinking Habits"),
+        ProfileInfo("Connections"),
+        ProfileInfo("Education"),
+        ProfileInfo("Occupation"))
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_info2)
         supportActionBar?.hide()
+        rv_profile_info.layoutManager=LinearLayoutManager(this)
+        rv_profile_info.adapter=ProfileInfoAdapter(list)
+
 
         val rootRef: DatabaseReference = FirebaseDatabase.getInstance().reference
         val id=auth.currentUser?.uid
         // Database reference pointing to demo node
         val demoRef: DatabaseReference = rootRef.child("Users").child(id!!)
-
         demoRef.addListenerForSingleValueEvent(object : ValueEventListener {
-
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 var name = dataSnapshot.child("Name").getValue(String::class.java)
                 var ability = dataSnapshot.child("Ability").getValue(String::class.java)
@@ -40,21 +49,18 @@ class ProfileInfo2Activity : AppCompatActivity() {
                 var drinking = dataSnapshot.child("Drinking").getValue(String::class.java)
                 var smoking = dataSnapshot.child("Smoking").getValue(String::class.java)
                 var connect = dataSnapshot.child("Connect").getValue(String::class.java)
-                connectionsofuser.text=connect
-                smokinghabitsofuser.text=smoking
-                drinkinghabitsofuser.text=drinking
-                nameofuser.text=name
-                orientationofuser.text=ability
-                mobileofuser.text=mobilenumber
-                ageofuser.text=dob
-                educationofuser.text=education
-                genderofuser.text=gender
-                religionofuser.text=religion
-
-                tv.text=name
-
+//                connectionsofuser.text=connect
+//                smokinghabitsofuser.text=smoking
+//                drinkinghabitsofuser.text=drinking
+//                nameofuser.text=name
+//                orientationofuser.text=ability
+//                mobileofuser.text=mobilenumber
+//                ageofuser.text=dob
+//                educationofuser.text=education
+//                genderofuser.text=gender
+//                religionofuser.text=religion
+//                tv.text=name
             }
-
             override fun onCancelled(databaseError: DatabaseError) {
                 Toast.makeText(this@ProfileInfo2Activity, "Error fetching data", Toast.LENGTH_LONG)
                     .show()
