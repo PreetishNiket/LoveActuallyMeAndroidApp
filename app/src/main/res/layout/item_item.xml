@@ -33,8 +33,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
                 android:layout_weight="1"
-                android:text="UserData"
-                android:textColor="@color/pink"
+                android:hint="UserData"
+                android:backgroundTint="@color/pink"
+                android:textColorHint="@color/pink"
                 android:textSize="16sp" />
         </LinearLayout>
 </androidx.cardview.widget.CardView>
