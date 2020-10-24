@@ -20,8 +20,8 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="201dp"
-        android:layout_height="19dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text=" Please login to your account"
         android:textColor="#FFF"
         app:layout_constraintBottom_toBottomOf="parent"

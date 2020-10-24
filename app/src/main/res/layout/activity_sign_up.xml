@@ -120,8 +120,8 @@
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="67dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:text="@string/facebook"
@@ -154,8 +154,8 @@
 
         <TextView
             android:id="@+id/textView7"
-            android:layout_width="67dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="34dp"
             android:layout_marginTop="10dp"
             android:text="@string/google"
@@ -188,8 +188,8 @@
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="67dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="34dp"
             android:layout_marginTop="10dp"
             android:text="@string/linked_in"

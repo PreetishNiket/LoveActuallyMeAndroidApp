@@ -47,7 +47,7 @@ class SignUpActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         //facebook sdk
-        FacebookSdk.sdkInitialize(getApplicationContext())
+        FacebookSdk.sdkInitialize(applicationContext)
 
         // Initialize Facebook Login button
         callbackManager = CallbackManager.Factory.create()
@@ -100,7 +100,7 @@ class SignUpActivity : AppCompatActivity() {
             phoneNumber = editTextPhone.text.toString()
             val countryCode = countryCodePicker.selectedCountryCode.toString()
             mobileNumber = "+$countryCode$phoneNumber"
-
+            //method to check mobile number
             mobileCheck()
 
         }
@@ -116,7 +116,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
 
-   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
@@ -140,8 +140,7 @@ class SignUpActivity : AppCompatActivity() {
             }
 
 
-        }
-       else{
+        } else {
             callbackManager?.onActivityResult(requestCode, resultCode, data)
         }
     }

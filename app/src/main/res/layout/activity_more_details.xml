@@ -117,7 +117,7 @@
         android:id="@+id/tvname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Preetish Niket"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -130,8 +130,8 @@
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="317dp"
-        android:layout_height="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Let’s add some more picture"
         android:textColor="@color/white"
         android:textSize="24sp"

@@ -55,8 +55,8 @@
 
     <TextView
         android:id="@+id/textView0"
-        android:layout_width="70dp"
-        android:layout_height="19dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="About Me"
         android:textColor="#FFFF"
         android:textSize="16sp"
@@ -146,7 +146,7 @@
 
         <TextView
             android:id="@+id/textView10"
-            android:layout_width="57dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Gay"
@@ -172,8 +172,8 @@
 
         <TextView
             android:id="@+id/textView02"
-            android:layout_width="60dp"
-            android:layout_height="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Asexual"
             android:textColor="#FFFF"
@@ -222,7 +222,7 @@
 
         <TextView
             android:id="@+id/textView01"
-            android:layout_width="67dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Lesbian"
@@ -274,8 +274,8 @@
 
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="56dp"
-            android:layout_height="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Queer"
             android:textAlignment="center"

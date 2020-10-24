@@ -32,8 +32,8 @@
 
     <TextView
         android:id="@+id/tv"
-        android:layout_width="184dp"
-        android:layout_height="65dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Take a selfie to verify that its you"
         android:textAlignment="center"
         android:textColor="@color/white"

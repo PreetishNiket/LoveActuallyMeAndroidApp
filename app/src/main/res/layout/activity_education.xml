@@ -105,7 +105,7 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="88dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="In College"
@@ -208,8 +208,8 @@
 
     <TextView
         android:id="@+id/skip_e"
-        android:layout_width="46dp"
-        android:layout_height="28dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="SKIP"
         android:textAlignment="center"
         android:textColor="#FFFF"

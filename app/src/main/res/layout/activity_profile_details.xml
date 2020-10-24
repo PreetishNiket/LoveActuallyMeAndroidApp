@@ -39,8 +39,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="91dp"
-        android:layout_height="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Gender"
         android:textAlignment="center"
         android:textColor="#fff"
@@ -71,8 +71,8 @@
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="102dp"
-        android:layout_height="38dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Birthday"
         android:textAlignment="center"
         android:textColor="#fff"
@@ -112,8 +112,8 @@
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="88dp"
-        android:layout_height="43dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Name"
         android:textColor="@color/white"
         android:textSize="24sp"
