@@ -23,6 +23,7 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
     private val dbRef by lazy {
         FirebaseDatabase.getInstance().reference
     }
+    private lateinit var imageUri: Uri
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_more_details)
@@ -30,7 +31,7 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
         val userName=intent.getStringExtra("name")
         tvname.text=userName
         if (intent.extras!=null){
-            val imageUri= Uri.parse(intent.getStringExtra("image1"))
+            imageUri= Uri.parse(intent.getStringExtra("image1"))
             profile_photo1.setImageURI(imageUri)
             imageView1.setImageURI(imageUri)
         }
@@ -99,6 +100,7 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
                 }
             val id=auth.currentUser?.uid
             userDetails["userImage"] = "https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
+//            userDetails["userImage"]= imageUri.toString()
             userDetails["status"]="offline"
             userDetails["uid"]=id
             dbRef.child("Users").child(id!!).setValue(userDetails)

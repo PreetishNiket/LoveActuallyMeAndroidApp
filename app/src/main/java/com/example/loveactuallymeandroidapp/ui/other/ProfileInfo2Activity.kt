@@ -10,6 +10,8 @@ import com.example.loveactuallymeandroidapp.adapter.ProfileInfoAdapter
 import com.example.loveactuallymeandroidapp.dataClass.ProfileInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_profile_info.*
 import kotlinx.android.synthetic.main.activity_profile_info2.*
 
 class ProfileInfo2Activity : AppCompatActivity() {
@@ -42,6 +44,7 @@ class ProfileInfo2Activity : AppCompatActivity() {
                 val smoking = dataSnapshot.child("Smoking").getValue(String::class.java).toString()
                 val connect = dataSnapshot.child("Connect").getValue(String::class.java).toString()
                 val info=dataSnapshot.child("About").getValue(String::class.java).toString()
+                val image =dataSnapshot.child("userImage").getValue(String::class.java).toString()
                 list = arrayListOf(
                     ProfileInfo("Info", info),
                     ProfileInfo("Name", name),
@@ -58,6 +61,7 @@ class ProfileInfo2Activity : AppCompatActivity() {
                 rv_profile_info.layoutManager = LinearLayoutManager(baseContext)
                 rv_profile_info.adapter = ProfileInfoAdapter(list)
                 tv.text = name
+                Picasso.get().load(image).into(profile_photo1)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

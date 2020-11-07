@@ -20,10 +20,10 @@
         app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_photo1"
+        android:id="@+id/image_profile"
         android:layout_width="93dp"
         android:layout_height="94dp"
-        android:src="@drawable/account_circle"
+        android:src="@drawable/profile_verification"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.097"

@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <com.mikhaellopez.circularimageview.CircularImageView
-            android:id="@+id/profile_photo1"
+            android:id="@+id/profile_photo"
             android:layout_width="136dp"
             android:layout_height="100dp"
             android:src="@drawable/account_circle"
