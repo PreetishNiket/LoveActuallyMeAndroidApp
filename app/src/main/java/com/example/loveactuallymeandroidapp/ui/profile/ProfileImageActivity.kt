@@ -7,7 +7,7 @@ import android.os.Bundle
 import com.example.loveactuallymeandroidapp.R
 import kotlinx.android.synthetic.main.activity_profile.*
 
-class ProfileActivity : AppCompatActivity() {
+class ProfileImageActivity : AppCompatActivity() {
     companion object{
         const val GALLERY_PICKER_CODE=1;
     }

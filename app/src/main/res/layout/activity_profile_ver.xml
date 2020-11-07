@@ -32,9 +32,9 @@
 
     <TextView
         android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Take a selfie to verify that its you"
+        android:layout_width="207dp"
+        android:layout_height="68dp"
+        android:text="Take a selfie to\n verify that its you"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -44,16 +44,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.574" />
 
-    <com.mikhaellopez.circularimageview.CircularImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_ver_iv"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:src="@drawable/profile_verification"
-        app:civ_border_color="#ffff"
-        app:civ_border_width="6dp"
-        app:civ_shadow="true"
-        app:civ_shadow_color="#ffb"
-        app:civ_shadow_radius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -61,8 +56,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.099"
         app:srcCompat="@drawable/profile_verification" />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -88,7 +88,7 @@ class ProfileVerActivity : AppCompatActivity() {
             dialog.show()
             Handler().postDelayed({
                 dialog.dismiss()
-                startActivity(Intent(this, ProfileActivity::class.java))
+                startActivity(Intent(this, ProfileImageActivity::class.java))
             },3000)
 
             profile_ver_iv.handler.postDelayed({

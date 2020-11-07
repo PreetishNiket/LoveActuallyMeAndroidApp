@@ -45,7 +45,7 @@
             android:name=".ui.profile.ProfileDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.profile.ProfileActivity"
+            android:name=".ui.profile.ProfileImageActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.profile.ProfileVerActivity"
