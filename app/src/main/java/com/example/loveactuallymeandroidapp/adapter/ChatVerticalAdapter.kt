@@ -26,7 +26,7 @@ class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Use
         val img:ImageView=view.findViewById(R.id.circularImageView)
         val root:RelativeLayout=view.findViewById(R.id.root)
         val status:ImageView=view.findViewById(R.id.status_v)
-        val tv:TextView=view.findViewById(R.id.noChats)
+//        val tv:TextView=view.findViewById(R.id.noChats)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
@@ -38,9 +38,9 @@ class ChatVerticalAdapter(val context: Context, private val list1: ArrayList<Use
     override fun getItemCount(): Int =list1.size
 
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
-        if (list1.size==0){
-        holder.tv.visibility=View.VISIBLE
-        }
+//        if (list1.size==0){
+//        holder.tv.visibility=View.VISIBLE
+//        }
         with(holder){
             Picasso.get().load(list1[position].userImage).into(img)
             userName.text= list1[position].getName()
