@@ -184,7 +184,8 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
             val imageData= data.data!!
             when(int){
                 1->{
-                    imageView2.setImageURI(imageData)
+                    val image1=imageData
+                    imageView2.setImageURI(image1)
                 }
                 2->{
                     imageView3.setImageURI(imageData)
