@@ -37,6 +37,7 @@ class ProfileInfoActivity : AppCompatActivity() {
                 val image =dataSnapshot.child("userImage").getValue(String::class.java)
                 tvperson.text=name
                 Picasso.get().load(image).into(image_profile)
+                Picasso.get().load(image).into(imageView1)
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
