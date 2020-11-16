@@ -8,13 +8,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import bolts.Task
 import com.example.loveactuallymeandroidapp.MainActivity
 import com.example.loveactuallymeandroidapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageTask
+import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.activity_more_details.*
 import kotlinx.android.synthetic.main.activity_more_details.tvname
+import kotlin.coroutines.Continuation
 
 class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
     private val auth by lazy {
@@ -22,6 +27,9 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
     }
     private val dbRef by lazy {
         FirebaseDatabase.getInstance().reference
+    }
+    private val sRef by lazy {
+        FirebaseStorage.getInstance().reference.child("Profile Image")
     }
     private lateinit var imageUri: Uri
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,7 +86,7 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
                 "Workout" to Workout,
                 "Connect" to Connect,
             )
-            val db = FirebaseFirestore.getInstance()
+            val db= FirebaseFirestore.getInstance()
 
             db.collection("users").document(mobile)
                 .set(userDetails)
@@ -98,12 +106,31 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+
             val id=auth.currentUser?.uid
             userDetails["userImage"] = "https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
 //            userDetails["userImage"]= imageUri.toString()
             userDetails["status"]="offline"
             userDetails["uid"]=id
             dbRef.child("Users").child(id!!).setValue(userDetails)
+
+            val fileRef=sRef.child("$id.jpg")
+            val uploadTask =fileRef.putFile(imageUri)
+            uploadTask.continueWithTask {task ->
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        throw it
+                    }
+                }
+                fileRef.downloadUrl
+            }.addOnCompleteListener { task->
+                if (task.isSuccessful){
+                    val downloadUrl=task.result.toString()
+                    dbRef.child("Users").child(id).child("userImage").setValue(downloadUrl)
+//                    userDetails["userImage"]= downloadUrl
+//                    dbRef.child("Users").child(id).updateChildren(userDetails)
+                }
+            }
         }
 
         back1.setOnClickListener {
