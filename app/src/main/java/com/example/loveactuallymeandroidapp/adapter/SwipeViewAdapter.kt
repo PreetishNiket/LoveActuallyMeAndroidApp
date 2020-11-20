@@ -6,6 +6,7 @@ import android.widget.TextView
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.huxq17.swipecardsview.BaseCardAdapter
+import com.squareup.picasso.Picasso
 
 class SwipeViewAdapter(private val modelList: ArrayList<Users>) : BaseCardAdapter<List<Users>>() {
     private var type:Int=0
@@ -23,7 +24,7 @@ class SwipeViewAdapter(private val modelList: ArrayList<Users>) : BaseCardAdapte
         val userName=cardview.findViewById<TextView>(R.id.userName)
         val model =modelList[position]
         userName.text=model.getName()
-//        Picasso.get().load(model.userImage).into(userImage)
+        Picasso.get().load(model.userImage).into(userImage)
     }
 
     override fun getCount(): Int {

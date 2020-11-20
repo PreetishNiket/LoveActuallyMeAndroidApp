@@ -60,7 +60,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         usersList = ArrayList()
 
-
         val swipe = frag.swipeCardsView
         swipe.retainLastCard(false)
         swipe.enableSwipe(true)
