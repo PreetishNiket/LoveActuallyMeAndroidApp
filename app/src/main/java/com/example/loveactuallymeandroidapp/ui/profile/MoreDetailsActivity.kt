@@ -185,10 +185,11 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
 
     //storage Reference
     private val photosRef by lazy {
-        FirebaseStorage.getInstance().reference.child("More Images")
+        FirebaseStorage.getInstance().reference.child("MoreImages")
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        id = auth.currentUser!!.uid
         if (requestCode == GALLERY_PICKER && resultCode == RESULT_OK && data != null) {
             val imageData = data.data!!
             when (int) {
@@ -206,25 +207,106 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
                     }.addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             val downloadUrl = task.result.toString()
-                            dbRef.child("MoreImages").child(id).child("userImage")
-                                .setValue(downloadUrl)
-                            val userPhotos = HashMap<String, String>()
+
+                            val userPhotos = HashMap<String,Any>()
                             userPhotos["image1"] = downloadUrl
-//                    dbRef.child("Users").child(id).updateChildren(userDetails)
+
+                            dbRef.child("MoreImages").child(id)
+                                .updateChildren(userPhotos)
                         }
                     }
                 }
                 2 -> {
                     imageView3.setImageURI(imageData)
+                    val fileRef = photosRef.child(id + "img2" + ".jpg")
+                    val uploadTask = fileRef.putFile(imageData)
+                    uploadTask.continueWithTask { task ->
+                        if (!task.isSuccessful) {
+                            task.exception?.let {
+                                throw it
+                            }
+                        }
+                        fileRef.downloadUrl
+                    }.addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val downloadUrl = task.result.toString()
+
+                            val userPhotos = HashMap<String,Any>()
+                            userPhotos["image2"] = downloadUrl
+
+                            dbRef.child("MoreImages").child(id)
+                                .updateChildren(userPhotos)
+                        }
+                    }
                 }
                 3 -> {
                     imageView4.setImageURI(imageData)
+                    val fileRef = photosRef.child(id + "img3" + ".jpg")
+                    val uploadTask = fileRef.putFile(imageData)
+                    uploadTask.continueWithTask { task ->
+                        if (!task.isSuccessful) {
+                            task.exception?.let {
+                                throw it
+                            }
+                        }
+                        fileRef.downloadUrl
+                    }.addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val downloadUrl = task.result.toString()
+
+                            val userPhotos = HashMap<String,Any>()
+                            userPhotos["image3"] = downloadUrl
+
+                            dbRef.child("MoreImages").child(id)
+                                .updateChildren(userPhotos)
+                        }
+                    }
                 }
                 4 -> {
                     imageView5.setImageURI(imageData)
+                    val fileRef = photosRef.child(id + "img4" + ".jpg")
+                    val uploadTask = fileRef.putFile(imageData)
+                    uploadTask.continueWithTask { task ->
+                        if (!task.isSuccessful) {
+                            task.exception?.let {
+                                throw it
+                            }
+                        }
+                        fileRef.downloadUrl
+                    }.addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val downloadUrl = task.result.toString()
+
+                            val userPhotos = HashMap<String,Any>()
+                            userPhotos["image4"] = downloadUrl
+
+                            dbRef.child("MoreImages").child(id)
+                                .updateChildren(userPhotos)
+                        }
+                    }
                 }
                 5 -> {
                     imageView6.setImageURI(imageData)
+                    val fileRef = photosRef.child(id + "img5" + ".jpg")
+                    val uploadTask = fileRef.putFile(imageData)
+                    uploadTask.continueWithTask { task ->
+                        if (!task.isSuccessful) {
+                            task.exception?.let {
+                                throw it
+                            }
+                        }
+                        fileRef.downloadUrl
+                    }.addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val downloadUrl = task.result.toString()
+
+                            val userPhotos = HashMap<String,Any>()
+                            userPhotos["image5"] = downloadUrl
+
+                            dbRef.child("MoreImages").child(id)
+                                .updateChildren(userPhotos)
+                        }
+                    }
                 }
             }
 

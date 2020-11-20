@@ -45,6 +45,26 @@ class ProfileInfoActivity : AppCompatActivity() {
                     .show()
             }
         })
+        val photoRef:DatabaseReference=rootRef.child("MoreImages").child(id)
+            photoRef.addValueEventListener(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val image1 =snapshot.child("image1").getValue(String::class.java)
+                    val image2 =snapshot.child("image2").getValue(String::class.java)
+                    val image3 =snapshot.child("image3").getValue(String::class.java)
+                    val image4 =snapshot.child("image4").getValue(String::class.java)
+                    val image5 =snapshot.child("image5").getValue(String::class.java)
+                    Picasso.get().load(image1).into(imageView2)
+                    Picasso.get().load(image2).into(imageView3)
+                    Picasso.get().load(image3).into(imageView4)
+                    Picasso.get().load(image4).into(imageView5)
+                    Picasso.get().load(image5).into(imageView6)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })
         back1.setOnClickListener {
             finish()
         }
