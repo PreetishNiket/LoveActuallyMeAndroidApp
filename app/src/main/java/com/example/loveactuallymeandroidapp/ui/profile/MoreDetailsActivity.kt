@@ -8,20 +8,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import bolts.Task
 import com.example.loveactuallymeandroidapp.MainActivity
 import com.example.loveactuallymeandroidapp.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageTask
-import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.activity_more_details.*
 import kotlinx.android.synthetic.main.activity_more_details.tvname
-import kotlin.coroutines.Continuation
 
-class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
+class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
     private val auth by lazy {
         FirebaseAuth.getInstance()
     }
@@ -31,15 +27,18 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
     private val sRef by lazy {
         FirebaseStorage.getInstance().reference.child("Profile Image")
     }
+
+
     private lateinit var imageUri: Uri
+    private lateinit var id: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_more_details)
         supportActionBar?.hide()
-        val userName=intent.getStringExtra("name")
-        tvname.text=userName
-        if (intent.extras!=null){
-            imageUri= Uri.parse(intent.getStringExtra("image1"))
+        val userName = intent.getStringExtra("name")
+        tvname.text = userName
+        if (intent.extras != null) {
+            imageUri = Uri.parse(intent.getStringExtra("image1"))
             profile_photo1.setImageURI(imageUri)
             imageView1.setImageURI(imageUri)
         }
@@ -47,7 +46,8 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
 
         getStartedButton.setOnClickListener {
 
-            val preference = getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
+            val preference =
+                getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
             val mobile = preference.getString("mobilenumber", null).toString()
             val about = preference.getString("about", null).toString()
             val ability = preference.getString("ability", null).toString()
@@ -86,7 +86,7 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
                 "Workout" to Workout,
                 "Connect" to Connect,
             )
-            val db= FirebaseFirestore.getInstance()
+            val db = FirebaseFirestore.getInstance()
 
             db.collection("users").document(mobile)
                 .set(userDetails)
@@ -96,7 +96,7 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
                         "Profile Created Successfully",
                         Toast.LENGTH_SHORT
                     ).show()
-                    startActivity(Intent(this,MainActivity::class.java))
+                    startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 }
                 .addOnFailureListener {
@@ -107,25 +107,25 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
                     ).show()
                 }
 
-            val id=auth.currentUser?.uid
-            userDetails["userImage"] = "https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
-//            userDetails["userImage"]= imageUri.toString()
-            userDetails["status"]="offline"
-            userDetails["uid"]=id
-            dbRef.child("Users").child(id!!).setValue(userDetails)
+            id = auth.currentUser!!.uid
+            userDetails["userImage"] =
+                "https://firebasestorage.googleapis.com/v0/b/loveactuallymeandroidapp.appspot.com/o/profile%20verification.jpg?alt=media&token=8b4e5865-396a-40c3-9cd0-e0edf9e23cd4"
+            userDetails["status"] = "offline"
+            userDetails["uid"] = id
+            dbRef.child("Users").child(id).setValue(userDetails)
 
-            val fileRef=sRef.child("$id.jpg")
-            val uploadTask =fileRef.putFile(imageUri)
-            uploadTask.continueWithTask {task ->
+            val fileRef = sRef.child("$id.jpg")
+            val uploadTask = fileRef.putFile(imageUri)
+            uploadTask.continueWithTask { task ->
                 if (!task.isSuccessful) {
                     task.exception?.let {
                         throw it
                     }
                 }
                 fileRef.downloadUrl
-            }.addOnCompleteListener { task->
-                if (task.isSuccessful){
-                    val downloadUrl=task.result.toString()
+            }.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val downloadUrl = task.result.toString()
                     dbRef.child("Users").child(id).child("userImage").setValue(downloadUrl)
 //                    userDetails["userImage"]= downloadUrl
 //                    dbRef.child("Users").child(id).updateChildren(userDetails)
@@ -143,60 +143,87 @@ class MoreDetailsActivity : AppCompatActivity(),View.OnClickListener {
         imageView5.setOnClickListener(this)
         imageView6.setOnClickListener(this)
     }
-    companion object{
-        const val GALLERY_PICKER=1;
+
+    companion object {
+        const val GALLERY_PICKER = 1;
     }
-    private  var int=0
+
+    private var int = 0
     override fun onClick(v: View) {
-        if (v.id==R.id.imageView2){
-                galleryPick()
-            int=1
+        if (v.id == R.id.imageView2) {
+            galleryPick()
+            int = 1
 
         }
-        if (v.id==R.id.imageView3){
+        if (v.id == R.id.imageView3) {
             galleryPick()
-            int=2
+            int = 2
 
         }
-        if (v.id==R.id.imageView4){
+        if (v.id == R.id.imageView4) {
             galleryPick()
-            int=3
+            int = 3
         }
-        if (v.id==R.id.imageView5){
+        if (v.id == R.id.imageView5) {
             galleryPick()
-            int=4
+            int = 4
 
         }
-        if (v.id==R.id.imageView6){
+        if (v.id == R.id.imageView6) {
             galleryPick()
-            int=5
+            int = 5
 
         }
     }
-    private fun galleryPick(){
-        val intent=Intent()
+
+    private fun galleryPick() {
+        val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent,"Pick An Image"), GALLERY_PICKER)
+        startActivityForResult(Intent.createChooser(intent, "Pick An Image"), GALLERY_PICKER)
     }
+
+    //storage Reference
+    private val photosRef by lazy {
+        FirebaseStorage.getInstance().reference.child("More Images")
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode== GALLERY_PICKER &&resultCode==RESULT_OK&&data!=null){
-            val imageData= data.data!!
-            when(int){
-                1->{
-                    val image1=imageData
-                    imageView2.setImageURI(image1)
+        if (requestCode == GALLERY_PICKER && resultCode == RESULT_OK && data != null) {
+            val imageData = data.data!!
+            when (int) {
+                1 -> {
+                    imageView2.setImageURI(imageData)
+                    val fileRef = photosRef.child(id + "img1" + ".jpg")
+                    val uploadTask = fileRef.putFile(imageData)
+                    uploadTask.continueWithTask { task ->
+                        if (!task.isSuccessful) {
+                            task.exception?.let {
+                                throw it
+                            }
+                        }
+                        fileRef.downloadUrl
+                    }.addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val downloadUrl = task.result.toString()
+                            dbRef.child("MoreImages").child(id).child("userImage")
+                                .setValue(downloadUrl)
+                            val userPhotos = HashMap<String, String>()
+                            userPhotos["image1"] = downloadUrl
+//                    dbRef.child("Users").child(id).updateChildren(userDetails)
+                        }
+                    }
                 }
-                2->{
+                2 -> {
                     imageView3.setImageURI(imageData)
                 }
-                3->{
+                3 -> {
                     imageView4.setImageURI(imageData)
                 }
-                4->{
+                4 -> {
                     imageView5.setImageURI(imageData)
                 }
-                5->{
+                5 -> {
                     imageView6.setImageURI(imageData)
                 }
             }
