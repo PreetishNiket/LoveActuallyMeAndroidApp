@@ -74,8 +74,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
         swipe.retainLastCard(false)
         swipe.enableSwipe(true)
 
-        val id=auth.currentUser?.uid
-        val dbRef = FirebaseDatabase.getInstance().reference.child("Users").child(id!!)
+        id=auth.currentUser!!.uid
+        val dbRef = FirebaseDatabase.getInstance().reference.child("Users").child(id)
         dbRef.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val dob = snapshot.child("Date_of_Birth").getValue(String::class.java)
@@ -171,6 +171,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         }
         return yearDifference
     }
+
 
     override fun onClick(view: View) {
         if (view.id == R.id.button) {

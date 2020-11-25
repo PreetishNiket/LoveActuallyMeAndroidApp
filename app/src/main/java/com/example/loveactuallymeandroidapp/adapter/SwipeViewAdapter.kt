@@ -13,6 +13,7 @@ import java.util.*
 class SwipeViewAdapter(private val modelList: ArrayList<Users>,private val age:String) : BaseCardAdapter<List<Users>>() {
     private var type:Int=0
 //    override fun getCount(): Int =modelList.size
+//
 
 
     override fun getCardLayoutId(): Int {
@@ -30,8 +31,30 @@ class SwipeViewAdapter(private val modelList: ArrayList<Users>,private val age:S
         userName.text=model.getName()
         Picasso.get().load(model.userImage).into(userImage)
         ageTV.text=age
-
+//        val dob=model.getdob()
+////        val df=SimpleDateFormat("dd/MM/yyyy")
+////        val birthDate=df.format(dob!!)
+////        val age=calculateAge(birthDate!!).toString()
+//        ageTV.text=dob
     }
+    private fun calculateAge(birthDate: Date): Int {
+        val birth = Calendar.getInstance()
+        birth.time = birthDate
+        val today = Calendar.getInstance()
+        var yearDifference = (today[Calendar.YEAR]
+                - birth[Calendar.YEAR])
+        if (today[Calendar.MONTH] < birth[Calendar.MONTH]) {
+            yearDifference--
+        } else {
+            if (today[Calendar.MONTH] == birth[Calendar.MONTH]
+                && today[Calendar.DAY_OF_MONTH] < birth[Calendar.DAY_OF_MONTH]
+            ) {
+                yearDifference--
+            }
+        }
+        return yearDifference
+    }
+
 
     override fun getCount(): Int {
         return if (modelList.size==0){
