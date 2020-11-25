@@ -7,10 +7,13 @@ import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.huxq17.swipecardsview.BaseCardAdapter
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
+import java.util.*
 
-class SwipeViewAdapter(private val modelList: ArrayList<Users>) : BaseCardAdapter<List<Users>>() {
+class SwipeViewAdapter(private val modelList: ArrayList<Users>,private val age:String) : BaseCardAdapter<List<Users>>() {
     private var type:Int=0
 //    override fun getCount(): Int =modelList.size
+
 
     override fun getCardLayoutId(): Int {
         if (type==1){
@@ -22,9 +25,12 @@ class SwipeViewAdapter(private val modelList: ArrayList<Users>) : BaseCardAdapte
     override fun onBindData(position: Int, cardview: View) {
         val userImage=cardview.findViewById<ImageView>(R.id.img)
         val userName=cardview.findViewById<TextView>(R.id.userName)
+        val ageTV=cardview.findViewById<TextView>(R.id.age)
         val model =modelList[position]
         userName.text=model.getName()
         Picasso.get().load(model.userImage).into(userImage)
+        ageTV.text=age
+
     }
 
     override fun getCount(): Int {

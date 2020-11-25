@@ -16,6 +16,7 @@ import com.example.loveactuallymeandroidapp.adapter.SwipeViewAdapter
 import com.example.loveactuallymeandroidapp.dataClass.Users
 import com.example.loveactuallymeandroidapp.ui.other.LikeYouActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -23,10 +24,18 @@ import com.google.firebase.database.ValueEventListener
 import com.huxq17.swipecardsview.SwipeCardsView
 import kotlinx.android.synthetic.main.bottom_sheet_layout.view.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
+    }
+    private lateinit var id: String
+    private lateinit var age:String
     private var usersList: List<Users>? = null
     var cardAdapter: SwipeViewAdapter? = null
     lateinit var bottomSheetDialog:BottomSheetDialog
@@ -58,21 +67,39 @@ class HomeFragment : Fragment(), View.OnClickListener {
             startActivity(Intent(context, LikeYouActivity::class.java))
         }
 
+
         usersList = ArrayList()
 
         val swipe = frag.swipeCardsView
         swipe.retainLastCard(false)
         swipe.enableSwipe(true)
 
+        val id=auth.currentUser?.uid
+        val dbRef = FirebaseDatabase.getInstance().reference.child("Users").child(id!!)
+        dbRef.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val dob = snapshot.child("Date_of_Birth").getValue(String::class.java)
+                val df=SimpleDateFormat("dd/MM/yyyy")
+                val birthDate=df.parse(dob!!)
+                age=calculateAge(birthDate!!).toString()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+
         val ref = FirebaseDatabase.getInstance().reference.child("Users")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+
+
                 (usersList as ArrayList).clear()
                 for (snap in snapshot.children) {
                     val user = snap.getValue(Users::class.java)
                     (usersList as ArrayList).add(user!!)
                 }
-                cardAdapter = SwipeViewAdapter(usersList as ArrayList<Users>)
+                cardAdapter = SwipeViewAdapter(usersList as ArrayList<Users>,age)
                 swipe.setAdapter(cardAdapter)
             }
 
@@ -123,7 +150,26 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
 
         })
+
+
         return frag
+    }
+    private fun calculateAge(birthDate: Date): Int {
+        val birth = Calendar.getInstance()
+        birth.time = birthDate
+        val today = Calendar.getInstance()
+        var yearDifference = (today[Calendar.YEAR]
+                - birth[Calendar.YEAR])
+        if (today[Calendar.MONTH] < birth[Calendar.MONTH]) {
+            yearDifference--
+        } else {
+            if (today[Calendar.MONTH] == birth[Calendar.MONTH]
+                && today[Calendar.DAY_OF_MONTH] < birth[Calendar.DAY_OF_MONTH]
+            ) {
+                yearDifference--
+            }
+        }
+        return yearDifference
     }
 
     override fun onClick(view: View) {

@@ -82,8 +82,7 @@ class ProfileDetailsActivity : AppCompatActivity() {
         val mMonth = c[Calendar.MONTH] // current month
         val mDay = c[Calendar.DAY_OF_MONTH] // current day
         // date picker dialog
-        datePickerDialog = DatePickerDialog(
-            this@ProfileDetailsActivity,
+        datePickerDialog = DatePickerDialog(this@ProfileDetailsActivity,
             { view, year, monthOfYear, dayOfMonth -> // set day of month , month and year value in the edit text
                 dateofbirth = dayOfMonth.toString() + "/" + (monthOfYear + 1) + "/" + year
                 dob.setText(dateofbirth)
