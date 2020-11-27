@@ -73,5 +73,9 @@ class ProfileInfo2Activity : AppCompatActivity() {
         settings.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
+        with(tv){
+
+
+        }
     }
 }

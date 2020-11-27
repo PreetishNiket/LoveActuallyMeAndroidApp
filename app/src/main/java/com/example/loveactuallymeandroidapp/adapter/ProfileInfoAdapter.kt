@@ -5,11 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.dataClass.ProfileInfo
 
 class ProfileInfoAdapter(private val list: ArrayList<ProfileInfo>) :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private lateinit var value:String
 
     companion object{
         const val TYPE_ITEM = 1
@@ -45,10 +47,12 @@ class ProfileInfoAdapter(private val list: ArrayList<ProfileInfo>) :RecyclerView
         if (holder is InfoViewHolder){
             holder.title.text= list[position].title
             holder.details.hint=list[position].details
+           value= holder.details.text.toString()
         }
         if (holder is HeaderViewHolder){
                 holder.info.hint=list[0].details
         }
+
     }
     override fun getItemViewType(position: Int): Int {
         if (isMyHeader(position)) {
