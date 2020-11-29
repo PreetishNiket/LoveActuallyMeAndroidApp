@@ -58,6 +58,7 @@ class ProfileInfo2Activity : AppCompatActivity() {
                     ProfileInfo("Smoking", smoking),
                     ProfileInfo("Connect", connect)
                 )
+
                 rv_profile_info.layoutManager = LinearLayoutManager(baseContext)
                 rv_profile_info.adapter = ProfileInfoAdapter(list)
                 tv.text = name

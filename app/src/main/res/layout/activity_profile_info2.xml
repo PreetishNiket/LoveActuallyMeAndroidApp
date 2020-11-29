@@ -43,10 +43,14 @@
         android:layout_below="@id/profile_photo1"
         tools:listitem="@layout/item_item"/>
 
-    <TextView
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello" />
+<!--    <Button-->
+<!--        android:id="@+id/updateBtn"-->
+<!--        android:layout_width="185dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_below="@id/tv"-->
+<!--        android:padding="1dp"-->
+<!--        android:layout_marginStart="12dp"-->
+<!--        android:layout_toEndOf="@id/profile_photo1"-->
+<!--        android:text="Update" />-->
 
 </RelativeLayout>

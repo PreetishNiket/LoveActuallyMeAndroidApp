@@ -1,17 +1,22 @@
 package com.example.loveactuallymeandroidapp.adapter
 
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.example.loveactuallymeandroidapp.R
+import com.example.loveactuallymeandroidapp.dataClass.EdiTxt
 import com.example.loveactuallymeandroidapp.dataClass.ProfileInfo
 
 class ProfileInfoAdapter(private val list: ArrayList<ProfileInfo>) :RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private lateinit var value:String
+//    ,private val btn:Button
+    private lateinit var values:ArrayList<EdiTxt>
 
     companion object{
         const val TYPE_ITEM = 1
@@ -47,7 +52,24 @@ class ProfileInfoAdapter(private val list: ArrayList<ProfileInfo>) :RecyclerView
         if (holder is InfoViewHolder){
             holder.title.text= list[position].title
             holder.details.hint=list[position].details
-           value= holder.details.text.toString()
+
+//           values= arrayListOf(EdiTxt(holder.details.text.toString()))
+//            for (i in values){
+//                holder.details.setText(values.get(i).toString())
+//            }
+           holder.details.addTextChangedListener(object :TextWatcher{
+               override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+               }
+
+               override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+               }
+
+               override fun afterTextChanged(p0: Editable?) {
+
+               }
+           })
         }
         if (holder is HeaderViewHolder){
                 holder.info.hint=list[0].details
@@ -62,5 +84,10 @@ class ProfileInfoAdapter(private val list: ArrayList<ProfileInfo>) :RecyclerView
     }
     private fun isMyHeader(position: Int): Boolean {
         return position == 0
+    }
+    fun updateData(){
+//        btn.setOnClickListener {
+//
+//        }
     }
 }
