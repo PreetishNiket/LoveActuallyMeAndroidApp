@@ -146,7 +146,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
 
             override fun onItemClick(cardImageView: View?, index: Int) {
-                Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Clicked${index}", Toast.LENGTH_SHORT).show()
+
             }
 
         })
