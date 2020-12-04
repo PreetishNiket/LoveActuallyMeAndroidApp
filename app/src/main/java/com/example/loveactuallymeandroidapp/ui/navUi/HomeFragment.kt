@@ -97,7 +97,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 (usersList as ArrayList).clear()
                 for (snap in snapshot.children) {
                     val user = snap.getValue(Users::class.java)
-                    (usersList as ArrayList).add(user!!)
+                    if (id!=user!!.getUid()) {
+                        (usersList as ArrayList).add(user)
+                    }
                 }
                 cardAdapter = SwipeViewAdapter(usersList as ArrayList<Users>,age)
                 swipe.setAdapter(cardAdapter)

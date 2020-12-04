@@ -5,38 +5,47 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.loveactuallymeandroidapp.R
 import com.example.loveactuallymeandroidapp.dataClass.Users
+import com.google.firebase.auth.FirebaseAuth
 import com.huxq17.swipecardsview.BaseCardAdapter
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SwipeViewAdapter(private val modelList: ArrayList<Users>,private val age:String) : BaseCardAdapter<List<Users>>() {
-    private var type:Int=0
-//    override fun getCount(): Int =modelList.size
+class SwipeViewAdapter(private val modelList: ArrayList<Users>, private val age: String) :
+    BaseCardAdapter<List<Users>>() {
+    private var type: Int = 0
+
+    //    override fun getCount(): Int =modelList.size
 //
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
+    }
+    private var id=auth.currentUser!!.uid
 
 
     override fun getCardLayoutId(): Int {
-        if (type==1){
+        if (type == 1) {
             return R.layout.empty_layout
         }
         return R.layout.item_card_view_profile
     }
 
     override fun onBindData(position: Int, cardview: View) {
-        val userImage=cardview.findViewById<ImageView>(R.id.img)
-        val userName=cardview.findViewById<TextView>(R.id.userName)
-        val ageTV=cardview.findViewById<TextView>(R.id.age)
-        val model =modelList[position]
-        userName.text=model.getName()
-        Picasso.get().load(model.userImage).into(userImage)
-        ageTV.text=age
+        val userImage = cardview.findViewById<ImageView>(R.id.img)
+        val userName = cardview.findViewById<TextView>(R.id.userName)
+        val ageTV = cardview.findViewById<TextView>(R.id.age)
+        val model = modelList[position]
+
+            userName.text = model.getName()
+            Picasso.get().load(model.userImage).into(userImage)
+            ageTV.text = age
 //        val dob=model.getdob()
 ////        val df=SimpleDateFormat("dd/MM/yyyy")
 ////        val birthDate=df.format(dob!!)
 ////        val age=calculateAge(birthDate!!).toString()
 //        ageTV.text=dob
     }
+
     private fun calculateAge(birthDate: Date): Int {
         val birth = Calendar.getInstance()
         birth.time = birthDate
@@ -57,10 +66,10 @@ class SwipeViewAdapter(private val modelList: ArrayList<Users>,private val age:S
 
 
     override fun getCount(): Int {
-        return if (modelList.size==0){
-            type=1
+        return if (modelList.size == 0) {
+            type = 1
             modelList.size
-        } else{
+        } else {
             modelList.size
         }
     }
