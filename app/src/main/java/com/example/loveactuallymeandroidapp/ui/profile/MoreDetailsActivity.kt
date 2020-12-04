@@ -11,7 +11,7 @@ import android.widget.Toast
 import com.example.loveactuallymeandroidapp.MainActivity
 import com.example.loveactuallymeandroidapp.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_more_details.*
@@ -113,6 +113,8 @@ class MoreDetailsActivity : AppCompatActivity(), View.OnClickListener {
             userDetails["status"] = "offline"
             userDetails["uid"] = id
             dbRef.child("Users").child(id).setValue(userDetails)
+
+            dbRef.child("UsersCopy").child(id).setValue(userDetails)
 
             val fileRef = sRef.child("$id.jpg")
             val uploadTask = fileRef.putFile(imageUri)

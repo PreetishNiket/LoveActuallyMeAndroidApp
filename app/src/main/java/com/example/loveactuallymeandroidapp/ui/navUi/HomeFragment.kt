@@ -38,6 +38,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private lateinit var age:String
     private var usersList: List<Users>? = null
     var cardAdapter: SwipeViewAdapter? = null
+    private var swipeList:List<Users>?=null
     lateinit var bottomSheetDialog:BottomSheetDialog
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -69,6 +70,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
 
         usersList = ArrayList()
+        swipeList=ArrayList()
 
         val swipe = frag.swipeCardsView
         swipe.retainLastCard(false)
@@ -89,7 +91,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
         })
 
-        val ref = FirebaseDatabase.getInstance().reference.child("Users")
+        val ref = FirebaseDatabase.getInstance().reference.child("UsersCopy")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -139,6 +141,15 @@ class HomeFragment : Fragment(), View.OnClickListener {
                             duration = Toast.LENGTH_SHORT
                             view = layout
                             show()
+                        }
+                        Toast.makeText(context,"Swipe${index}", Toast.LENGTH_SHORT).show()
+                        for (i in (usersList as ArrayList).indices) {
+                            if (i == index) {
+                                (usersList as ArrayList).removeAt(i)
+//                                val r=FirebaseDatabase.getInstance().reference.child("UsersCopy")
+//                                r.removeValue(object :)
+
+                            }
                         }
                     }
                     else -> {
