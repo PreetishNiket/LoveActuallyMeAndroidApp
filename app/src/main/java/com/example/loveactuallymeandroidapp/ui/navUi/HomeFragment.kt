@@ -91,7 +91,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
         })
 
-        val ref = FirebaseDatabase.getInstance().reference.child("UsersCopy")
+        val ref = FirebaseDatabase.getInstance().reference.child("Users")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -142,15 +142,19 @@ class HomeFragment : Fragment(), View.OnClickListener {
                             view = layout
                             show()
                         }
-                        Toast.makeText(context,"Swipe${index}", Toast.LENGTH_SHORT).show()
-                        for (i in (usersList as ArrayList).indices) {
-                            if (i == index) {
-                                (usersList as ArrayList).removeAt(i)
+//                        Toast.makeText(context,"Swipe${index}", Toast.LENGTH_SHORT).show()
+//                        for (i in (usersList as ArrayList).indices) {
+//                            if (i == index) {
+//                                (usersList as ArrayList).removeAt(i)
 //                                val r=FirebaseDatabase.getInstance().reference.child("UsersCopy")
-//                                r.removeValue(object :)
-
-                            }
-                        }
+//                                    .child((usersList as ArrayList)[i].getUid().toString()).removeValue().addOnCompleteListener {
+//                                        if (it.isSuccessful){
+//                                            val p=FirebaseDatabase.getInstance().reference.child("LikeYou").child((usersList as ArrayList)[i].toString())
+//                                                .addValueEventListener(object :ValueEventListener{})
+//                                        }
+//                                    }
+//                            }
+//                        }
                     }
                     else -> {
                         Toast.makeText(context, "None${index}", Toast.LENGTH_SHORT).show()
@@ -159,7 +163,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
 
             override fun onItemClick(cardImageView: View?, index: Int) {
-                Toast.makeText(context, "Clicked${index}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context, "Clicked${index}", Toast.LENGTH_SHORT).show()
 
             }
 
