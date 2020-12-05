@@ -37,7 +37,7 @@ class ChatFragment : Fragment() {
     private var id: FirebaseUser? = null
     private var usersChatList: List<ChatList>? = null
     private var mUsers: List<Users>? = null
-    var chatVerticalAdapter: ChatVerticalAdapter? = null
+    private lateinit var chatVerticalAdapter: ChatVerticalAdapter
     lateinit var rv: RecyclerView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -86,10 +86,16 @@ class ChatFragment : Fragment() {
                         }
                     }
                 }
-                chatVerticalAdapter = ChatVerticalAdapter(context!!, (mUsers as ArrayList<Users>))
+                if ( (mUsers as ArrayList<Users>).isEmpty()|| (mUsers as ArrayList<Users>).isNotEmpty())
+                {
+                    kotlin.run {
+                        chatVerticalAdapter = ChatVerticalAdapter(context!!, (mUsers as ArrayList<Users>))
+                    }
+                }
+//                chatVerticalAdapter = ChatVerticalAdapter(context!!, (mUsers as ArrayList<Users>))
                 rv.adapter = chatVerticalAdapter
-                chatVerticalAdapter!!.notifyDataSetChanged()
-                chatVerticalAdapter!!.onItemClickListener = object : UserOnItemClickListener {
+                chatVerticalAdapter.notifyDataSetChanged()
+                chatVerticalAdapter.onItemClickListener = object : UserOnItemClickListener {
                     override fun onItemClick(item: Users, position: Int) {
                         val placeId = item.getUid()
                         val i=Intent(context, ConversationActivity::class.java)
